@@ -34,7 +34,6 @@ class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
     }
     
     private func handleResponse(response:Dictionary<String, AnyObject>,successHandler:(isSuccess:Bool)->(),failureHandler:(isSuccess:Bool)->()) {
-        print(response)
         let messagesDict = response[AcceptSDKResponse.kMessagesKey]
         let statusCode = messagesDict![AcceptSDKResponse.kResultCodeKey] as? String
         if  statusCode == AcceptSDKResponse.kResultCodeOkValueKey {
