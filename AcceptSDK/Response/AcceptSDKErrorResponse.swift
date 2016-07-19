@@ -19,6 +19,14 @@ public class AcceptSDKErrorResponse: NSObject {
         }
     }
     
+    convenience init(inMappingErrorDict:Dictionary<String,AnyObject>) {
+        self.init()
+        
+        if let messagesDict = inMappingErrorDict[AcceptSDKTokenResponseKeys.kMessagesKey] as? Dictionary<String,AnyObject> {
+            self.messages = Messages(inMappingErrorDict: messagesDict)
+        }
+    }
+
     convenience init(inError: NSError) {
         self.init()
         

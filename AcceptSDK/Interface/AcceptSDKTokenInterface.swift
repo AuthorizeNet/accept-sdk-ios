@@ -26,7 +26,7 @@ class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
                                                     success(withResponse: AcceptSDKTokenResponse(inDict:inDict))
                                                     },
                                     failureHandler: { (isSuccess) -> () in
-                                                    failure(AcceptSDKErrorResponse(inDict:inDict))
+                                                    failure(AcceptSDKErrorResponse(inMappingErrorDict: inDict))
                                                     })},
                         failure: { (inError:NSError) -> () in
                                 failure(AcceptSDKErrorResponse(inError: inError))

@@ -88,6 +88,22 @@ public class Messages {
         }
     }
 
+    convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
+        self.init()
+        
+        if let code = inMappingErrorDict[AcceptSDKTokenResponseKeys.kResultCodeKey] as? String {
+            self.resultCode      = code
+        }
+        
+        if let messageArr = inMappingErrorDict[AcceptSDKTokenResponseKeys.kMessageKey] as? Array<Dictionary<String,AnyObject>> {
+            for message in messageArr {
+                if let messageDict = message as? Dictionary<String, AnyObject> {
+                    self.messages.append(Message(inMappingErrorDict: messageDict))
+                }
+            }
+        }
+    }
+
     convenience init (inError: NSError) {
         self.init()
         
@@ -131,13 +147,24 @@ public class Message {
         self.init()
         
         if let code = inDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String {
-            self.code      = "E_WC_14"//code
+            self.code      = code
         }
         if let text = inDict[AcceptSDKTokenResponseKeys.kTextKey] as? String {
             self.text      = text
         }
     }
 
+    convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
+        self.init()
+        
+        if let code = inMappingErrorDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String {
+            self.code      = "E_WC_14"
+        }
+        if let text = inMappingErrorDict[AcceptSDKTokenResponseKeys.kTextKey] as? String {
+            self.text      = text
+        }
+    }
+    
     convenience init (inError: NSError) {
         self.init()
         
