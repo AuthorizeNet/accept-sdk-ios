@@ -43,8 +43,8 @@ public class AcceptSDKErrorResponse: NSObject {
         return self.messages
     }
     
-    class func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
-        let message = Message(inErrorCode: withCode, inErrorMessage: message)
-        return AcceptSDKErrorResponse(withMessage: message)
-    }
+//    class func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+//        let message = Message(inErrorCode: withCode, inErrorMessage: message)
+//        return AcceptSDKErrorResponse(withMessage: message)
+//    }
 }

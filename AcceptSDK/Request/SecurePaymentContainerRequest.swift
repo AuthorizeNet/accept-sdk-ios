@@ -34,10 +34,10 @@ public class WebCheckOutDataType {
                     successHandler(isSuccess: true)
                     }, failureHandler: failureHandler)
             } else {
-                failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("EC_WC_1002", message: "Invalid id"))
+                failureHandler(withResponse: self.getSDKErrorResponse("EC_WC_1002", message: "Invalid id"))
             }
         } else {
-            failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("EC_WC_1001", message: "Invalid type"))
+            failureHandler(withResponse: self.getSDKErrorResponse("EC_WC_1001", message: "Invalid type"))
         }
         
     }
@@ -60,6 +60,11 @@ public class WebCheckOutDataType {
         }
         
         return isValid
+    }
+    
+    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+        let message = Message(inErrorCode: withCode, inErrorMessage: message)
+        return AcceptSDKErrorResponse(withMessage: message)
     }
 }
 
@@ -84,21 +89,21 @@ public class Token {
                             if isValidZip(zipCode) {
                             } else {
                                 intermediateResult = false
-                                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_16", message: "Please provide valid Zip code.")
+                                errorResponse = self.getSDKErrorResponse("E_WC_16", message: "Please provide valid Zip code.")
                             }
                         }
                         if let fName = self.fullName {
                             if isValidFullName(fName) {
                             } else {
                                 intermediateResult = false
-                                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
+                                errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
                             }
                         }
                         if let code = self.cardCode {
                             if isValidCardCode(code) {
                             } else {
                                 intermediateResult = false
-                                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_15", message: "Please provide valid CVV.")
+                                errorResponse = self.getSDKErrorResponse("E_WC_15", message: "Please provide valid CVV.")
                             }
                         }
                         
@@ -108,16 +113,16 @@ public class Token {
                             failureHandler(withResponse: errorResponse!)
                         }
                     } else {
-                        failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_08", message: "Expiration date must be in the future."))
+                        failureHandler(withResponse: self.getSDKErrorResponse("E_WC_08", message: "Expiration date must be in the future."))
                     }
                 } else {
-                    failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_07", message: "Please provide valid expiration year."))
+                    failureHandler(withResponse: self.getSDKErrorResponse("E_WC_07", message: "Please provide valid expiration year."))
                 }
             } else {
-                failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_06", message: "Please provide valid expiration month."))
+                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_06", message: "Please provide valid expiration month."))
             }
         } else {
-            failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_05", message: "Please provide valid credit card number."))
+            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_05", message: "Please provide valid credit card number."))
         }
     }
     
@@ -202,5 +207,10 @@ public class Token {
         }
         
         return isValid
+    }
+    
+    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+        let message = Message(inErrorCode: withCode, inErrorMessage: message)
+        return AcceptSDKErrorResponse(withMessage: message)
     }
 }

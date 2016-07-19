@@ -133,8 +133,6 @@ public class Messages {
     }
     
     public func getMessages() -> Array<Message> {
-        let firstMessage = self.messages[0]
-        print(firstMessage)
         return self.messages
     }
 }

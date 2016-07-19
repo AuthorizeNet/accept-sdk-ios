@@ -16,8 +16,8 @@ public class FingerPrint {
     public var amount:String?
 
     public init?(inHashValue: String, inSequence: String?, inTimestamp: String, inCurrencyCode: String?, inAmount: String?) {
-        guard inHashValue.characters.count > 0 else {return nil}
-        guard inTimestamp.characters.count > 0 else {return nil}
+//        guard inHashValue.characters.count > 0 else {return nil}
+//        guard inTimestamp.characters.count > 0 else {return nil}
         
         self.hashValue = inHashValue
         self.timestamp = inTimestamp
@@ -38,10 +38,15 @@ public class FingerPrint {
             if self.timestamp.isEmpty == false {
                 successHandler(isSuccess: true)
             } else {
-                failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_11", message: "Please provide valid timestamp in utc."))
+                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_11", message: "Please provide valid timestamp in utc."))
             }
         } else {
-            failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_09", message: "Fingerprint hash should not be blank."))
+            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_09", message: "Fingerprint hash should not be blank."))
         }
+    }
+    
+    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+        let message = Message(inErrorCode: withCode, inErrorMessage: message)
+        return AcceptSDKErrorResponse(withMessage: message)
     }
 }
