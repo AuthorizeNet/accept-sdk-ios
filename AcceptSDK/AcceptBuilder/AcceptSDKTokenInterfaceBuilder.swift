@@ -96,16 +96,21 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
             var amountStr = String()
             
             let hashValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kHashValueKey, value: request.merchantAuthentication.fingerPrint!.hashValue)
-            if let seq = request.merchantAuthentication.fingerPrint!.sequence {
-                sequenceStr = self.createJSONString(AcceptSDKTokenAPIRequest.kSequenceKey, value: seq)
-            }
+            sequenceStr = self.createJSONString(AcceptSDKTokenAPIRequest.kSequenceKey, value: request.merchantAuthentication.fingerPrint!.sequence)
+
+//            if let seq = request.merchantAuthentication.fingerPrint!.sequence {
+//                sequenceStr = self.createJSONString(AcceptSDKTokenAPIRequest.kSequenceKey, value: seq)
+//            }
             let timestampStr = self.createJSONString(AcceptSDKTokenAPIRequest.kTimestampKey, value: request.merchantAuthentication.fingerPrint!.timestamp)
             if let currenctCode = request.merchantAuthentication.fingerPrint!.currencyCode {
                 currenctCodeStr = self.createJSONString(AcceptSDKTokenAPIRequest.kCurrencyCodeKey, value: currenctCode)
             }
-            if let amt = request.merchantAuthentication.fingerPrint!.amount {
-                amountStr = self.createJSONString(AcceptSDKTokenAPIRequest.kAmountKey, value: amt)
-            }
+            
+            amountStr = self.createJSONString(AcceptSDKTokenAPIRequest.kAmountKey, value: request.merchantAuthentication.fingerPrint!.amount)
+
+//            if let amt = request.merchantAuthentication.fingerPrint!.amount {
+//                amountStr = self.createJSONString(AcceptSDKTokenAPIRequest.kAmountKey, value: amt)
+//            }
             
             fingerPrintArrayStr = self.createJSONArray(NSArray(arrayLiteral: hashValueStr, sequenceStr, timestampStr, currenctCodeStr, amountStr) as! Array<String>)
             fingerPrintDictKeyValueStr = self.createJSONDict(AcceptSDKTokenAPIRequest.kFingerPrintKey, valueString: fingerPrintArrayStr)
