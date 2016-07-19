@@ -15,6 +15,23 @@ public class FingerPrint {
     public var currencyCode:String?
     public var amount:String?
 
+    public init?(inHashValue: String, inSequence: String?, inTimestamp: String, inCurrencyCode: String?, inAmount: String?) {
+        guard inHashValue.characters.count > 0 else {return nil}
+        guard inTimestamp.characters.count > 0 else {return nil}
+        
+        self.hashValue = inHashValue
+        self.timestamp = inTimestamp
+        if let unwrappedSequence = inSequence {
+            self.sequence = unwrappedSequence
+        }
+        if let unwrappedCurrencyCode = inCurrencyCode {
+            self.currencyCode = unwrappedCurrencyCode
+        }
+        if let unwrappedAmount = inAmount {
+            self.amount = unwrappedAmount
+        }
+    }
+    
     func validate(fingerPrint: FingerPrint, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
 
         if self.hashValue.isEmpty == false {

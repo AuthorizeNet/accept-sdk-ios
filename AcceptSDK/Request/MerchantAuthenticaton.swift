@@ -11,7 +11,7 @@ import Foundation
 
 public class MerchantAuthenticaton {
     public var name:String?
-    public var fingerPrint = FingerPrint()
+    public var fingerPrint:FingerPrint?
     public var clientKey: String?
     public var mobileDeviceId:String?
     
@@ -20,6 +20,30 @@ public class MerchantAuthenticaton {
         var intermediateResult = true
         var errorResponse:AcceptSDKErrorResponse?
 
+        if ((self.clientKey?.isEmpty) == nil && self.fingerPrint == nil) {
+            failureHandler(withResponse: AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
+            return
+        }
+        
+        if let key = self.clientKey {
+            //no validation for clientKey
+//            let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId)
+            if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
+                failureHandler(withResponse: errorResponse)
+            } else {
+                successHandler(isSuccess: true)
+            }
+        } else {
+            self.fingerPrint!.validate(self.fingerPrint!, successHandler: { (isSuccess) -> () in
+                if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
+                    failureHandler(withResponse: errorResponse)
+                } else {
+                    successHandler(isSuccess: true)
+                }
+            }, failureHandler: failureHandler)
+        }
+        
+        /*
         if let validName = self.name {
             if isValidName(validName) {
             } else {
@@ -36,20 +60,36 @@ public class MerchantAuthenticaton {
             }
         }
         
-        if let key = self.clientKey {
-        } else {
-            self.fingerPrint.validate(self.fingerPrint, successHandler: { (isSuccess) -> () in
-                }, failureHandler: failureHandler)
-        } /*else {
-            intermediateResult = false
-            errorResponse = self.getSDKErrorResponse("E_WC_18", message: "Client key is required.")
-        }*/
-
         if intermediateResult {
             successHandler(isSuccess: true)
         } else {
             failureHandler(withResponse: errorResponse!)
         }
+         */
+    }
+    
+    func validateOptionalFileds(inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
+        
+        var intermediateResult = true
+        var errorResponse:AcceptSDKErrorResponse?
+
+        if let validName = inName {
+            if isValidName(validName) {
+            } else {
+                intermediateResult = false
+                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
+            }
+        }
+        
+        if let deviceId = inDeviceId {
+            if isValidMobileDeviceId(deviceId) {
+            } else {
+                intermediateResult = false
+                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("EC_WC_1001", message: "Invalid Mobile device id")
+            }
+        }
+
+        return errorResponse
     }
     
     func isValidName(inName:String) -> Bool {
