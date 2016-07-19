@@ -27,7 +27,6 @@ public class MerchantAuthenticaton {
         
         if let key = self.clientKey {
             //no validation for clientKey
-//            let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId)
             if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
                 failureHandler(withResponse: errorResponse)
             } else {
@@ -42,30 +41,6 @@ public class MerchantAuthenticaton {
                 }
             }, failureHandler: failureHandler)
         }
-        
-        /*
-        if let validName = self.name {
-            if isValidName(validName) {
-            } else {
-                intermediateResult = false
-                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
-            }
-        }
-        
-        if let deviceId = self.mobileDeviceId {
-            if isValidMobileDeviceId(deviceId) {
-            } else {
-                intermediateResult = false
-                errorResponse = AcceptSDKErrorResponse.getSDKErrorResponse("EC_WC_1001", message: "Invalid Mobile device id")
-            }
-        }
-        
-        if intermediateResult {
-            successHandler(isSuccess: true)
-        } else {
-            failureHandler(withResponse: errorResponse!)
-        }
-         */
     }
     
     func validateOptionalFileds(inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
