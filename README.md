@@ -1,5 +1,7 @@
 # Authorize.Net Accept Mobile SDK for iOS
-
+   
+   ****THIS IS A PRE-RELEASE SDK - NOT CURRENTLY AVAILABLE FOR PRODUCTION USAGE****
+   
 ##SDK Installation 
 
 ### CocoaPods
