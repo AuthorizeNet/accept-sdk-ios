@@ -17,9 +17,6 @@ public class MerchantAuthenticaton {
     
     func validate(mecrhantAuth: MerchantAuthenticaton, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         
-        var intermediateResult = true
-        var errorResponse:AcceptSDKErrorResponse?
-
         if ((self.clientKey?.isEmpty) == nil && self.fingerPrint == nil) {
             failureHandler(withResponse: self.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
             return
@@ -45,14 +42,11 @@ public class MerchantAuthenticaton {
     
     func validateOptionalFileds(inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
         
-        var intermediateResult = true
         var errorResponse:AcceptSDKErrorResponse?
 
         if let validName = inName {
             if isValidName(validName) {
             } else {
-                intermediateResult = false
-                
                 errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
             }
         }
@@ -60,8 +54,6 @@ public class MerchantAuthenticaton {
         if let deviceId = inDeviceId {
             if isValidMobileDeviceId(deviceId) {
             } else {
-                intermediateResult = false
-                
                 errorResponse = self.getSDKErrorResponse("EC_WC_1001", message: "Invalid Mobile device id")
             }
         }
