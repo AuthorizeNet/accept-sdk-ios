@@ -223,5 +223,111 @@ class TokenDataTests: XCTestCase {
         XCTAssertTrue(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4 fails")
     }
  
+    func testTokenValidationErrorCodeE_WC_05() {
+        let request = self.getValidTokenRequest()
+        request.cardNumber = "671"
+        
+        let expectation = expectationWithDescription("Card Number error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_05", "Card number Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid credit card number.", "Card number Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testTokenValidationErrorCodeE_WC_06() {
+        let request = self.getValidTokenRequest()
+        request.expirationMonth = "21"
+        
+        let expectation = expectationWithDescription("Expiration month error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_06", "Expiration month Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid expiration month.", "Expiration month Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
 
+    func testTokenValidationErrorCodeE_WC_07() {
+        let request = self.getValidTokenRequest()
+        request.expirationYear = "29088"
+        
+        let expectation = expectationWithDescription("Expiration year error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_07", "Expiration year Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid expiration year.", "Expiration year Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testTokenValidationErrorCodeE_WC_08() {
+        let request = self.getValidTokenRequest()
+        request.expirationYear = "1999"
+        request.expirationMonth = "11"
+        
+        let expectation = expectationWithDescription("Expiration date error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_08", "Expiration date Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Expiration date must be in the future.", "Expiration date Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func getValidTokenRequest() -> Token {
+        let tokenRequest = Token()
+        
+        tokenRequest.cardNumber = "378282246310005"
+        tokenRequest.cardCode = "123"
+        tokenRequest.expirationMonth = "11"
+        tokenRequest.expirationYear = "2023"
+        
+        return tokenRequest
+    }
 }

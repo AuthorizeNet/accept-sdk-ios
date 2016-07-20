@@ -35,10 +35,11 @@ public class WebCheckOutDataType {
                     successHandler(isSuccess: true)
                     }, failureHandler: failureHandler)
             } else {
-                failureHandler(withResponse: self.getSDKErrorResponse("EC_WC_1002", message: "Invalid id"))
+                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_04", message: "Invalid id"))
             }
         } else {
-            failureHandler(withResponse: self.getSDKErrorResponse("EC_WC_1001", message: "Invalid type"))
+            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_04", message: "Invalid type"))
+            return
         }
         
     }

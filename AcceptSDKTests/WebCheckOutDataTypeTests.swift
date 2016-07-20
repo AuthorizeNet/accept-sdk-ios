@@ -63,4 +63,89 @@ class WebCheckOutDataTypeTests: XCTestCase {
         
         XCTAssertTrue(request.isValidId(request.id), "Id cann't be empty")
     }
+    
+    func testWebCheckOutDataTypeValidation() {
+        let request = WebCheckOutDataType()
+        request.token.cardNumber = "378282246310005"
+        request.token.cardCode = "123"
+        request.token.expirationMonth = "11"
+        request.token.expirationYear = "2023"
+
+        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            XCTAssertTrue(isSuccess)
+            
+            expectation.fulfill()
+            }, failureHandler: {_ in
+                
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testWebCheckOutDataTypeValidationErrorCodeE_WC_04() {
+        let request = WebCheckOutDataType()
+        request.type = ""
+        request.token = self.getValidTokenRequest()
+        
+        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_04", "Type Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Invalid type", "Type Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testWebCheckOutDataIdValidationErrorCodeE_WC_04() {
+        let request = WebCheckOutDataType()
+        request.id = ""
+        request.token = self.getValidTokenRequest()
+        
+        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_04", "Type Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Invalid id", "Type Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func getValidTokenRequest() -> Token {
+        let tokenRequest = Token()
+        
+        tokenRequest.cardNumber = "378282246310005"
+        tokenRequest.cardCode = "123"
+        tokenRequest.expirationMonth = "11"
+        tokenRequest.expirationYear = "2023"
+        
+        return tokenRequest
+    }
 }
