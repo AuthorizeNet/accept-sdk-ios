@@ -1,0 +1,804 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		A0070D1C1D38B017008BD8D4 /* AcceptSDKUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A0070D1D1D38B017008BD8D4 /* Build configuration list for PBXAggregateTarget "AcceptSDKUniversal" */;
+			buildPhases = (
+				A0070D201D38B01E008BD8D4 /* ShellScript */,
+			);
+			dependencies = (
+				A0070D221D38B06B008BD8D4 /* PBXTargetDependency */,
+			);
+			name = AcceptSDKUniversal;
+			productName = AcceptSDKUniversal;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		26D3F2A64251A999CE5B0305 /* Pods_AcceptSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */; };
+		5CA47C4CFA0DA2BAB2F01882 /* Pods_AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17FD7D8E33D666795BA217D /* Pods_AcceptSDK.framework */; };
+		8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */; };
+		8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA611D3A0062007A8D73 /* FingerPrint.swift */; };
+		8DCBB2A61D3F4E6A00E6FDDA /* MerchantAuthenticaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */; };
+		8DCBB2A71D3F4E6D00E6FDDA /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */; };
+		8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */; };
+		8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */; };
+		8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
+		8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
+		8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
+		8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
+		8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
+		8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
+		8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */; };
+		8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */; };
+		8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */; };
+		8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */; };
+		8DCBB2B51D3F4EA100E6FDDA /* AcceptSDKTokenAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */; };
+		8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */; };
+		8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */; };
+		8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
+		8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
+		8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */; };
+		8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */; };
+		8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */; };
+		A0070CDB1D38AE0A008BD8D4 /* AcceptSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */; };
+		A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */; };
+		A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
+		A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
+		A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
+		A0070D111D38AEED008BD8D4 /* AcceptSDKCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */; };
+		A0070D121D38AEED008BD8D4 /* AcceptSDKTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */; };
+		A0070D131D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
+		A0070D141D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
+		A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
+		A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */; };
+		A0070D181D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */; };
+		A0070D191D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */; };
+		A0070D1A1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */; };
+		A0070D1B1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
+		A027CA5E1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
+		A027CA601D39FFA3007A8D73 /* MerchantAuthenticaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */; };
+		A027CA621D3A0062007A8D73 /* FingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA611D3A0062007A8D73 /* FingerPrint.swift */; };
+		A027CA641D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */; };
+		A0C04C1F1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */; };
+		A0C04C201D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */; };
+		A0C04C211D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */; };
+		A0C04C221D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0070CE31D38AE0A008BD8D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0070CCE1D38AE0A008BD8D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0070CD61D38AE0A008BD8D4;
+			remoteInfo = AcceptSDK;
+		};
+		A0070D211D38B06B008BD8D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0070CCE1D38AE0A008BD8D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0070CD61D38AE0A008BD8D4;
+			remoteInfo = AcceptSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		78B322530E9B573771CA8FE9 /* Pods-AcceptSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C7A427EB66C00656F5FB791 /* Pods-AcceptSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.release.xcconfig"; sourceTree = "<group>"; };
+		8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCheckOutDataTypeTests.swift; sourceTree = "<group>"; };
+		8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPrintTests.swift; sourceTree = "<group>"; };
+		8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantAuthenticationTests.swift; sourceTree = "<group>"; };
+		9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AcceptSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceptSDK.h; sourceTree = "<group>"; };
+		A0070CDC1D38AE0A008BD8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0070CE11D38AE0A008BD8D4 /* AcceptSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcceptSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataTests.swift; sourceTree = "<group>"; };
+		A0070CE81D38AE0A008BD8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKHandler.swift; sourceTree = "<group>"; };
+		A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKInternal.swift; sourceTree = "<group>"; };
+		A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKSettings.swift; sourceTree = "<group>"; };
+		A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKCardData.swift; sourceTree = "<group>"; };
+		A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenData.swift; sourceTree = "<group>"; };
+		A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseInterface.swift; sourceTree = "<group>"; };
+		A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenInterface.swift; sourceTree = "<group>"; };
+		A0070D031D38AEED008BD8D4 /* IAPHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttp.swift; sourceTree = "<group>"; };
+		A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttpConnection.swift; sourceTree = "<group>"; };
+		A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKPaymentRequest.swift; sourceTree = "<group>"; };
+		A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
+		A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenResponse.swift; sourceTree = "<group>"; };
+		A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKCardFieldsValidator.swift; sourceTree = "<group>"; };
+		A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKStringValidator.swift; sourceTree = "<group>"; };
+		A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKValidationHandler.swift; sourceTree = "<group>"; };
+		A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantAuthenticaton.swift; sourceTree = "<group>"; };
+		A027CA611D3A0062007A8D73 /* FingerPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPrint.swift; sourceTree = "<group>"; };
+		A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurePaymentContainerRequest.swift; sourceTree = "<group>"; };
+		A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseInterfaceBuilder.swift; sourceTree = "<group>"; };
+		A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseURLBuilder.swift; sourceTree = "<group>"; };
+		A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenAPIBuilder.swift; sourceTree = "<group>"; };
+		A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenInterfaceBuilder.swift; sourceTree = "<group>"; };
+		C17FD7D8E33D666795BA217D /* Pods_AcceptSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8D16784A15B696B5C40720F /* Pods-AcceptSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0070CD31D38AE0A008BD8D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA47C4CFA0DA2BAB2F01882 /* Pods_AcceptSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0070CDE1D38AE0A008BD8D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */,
+				26D3F2A64251A999CE5B0305 /* Pods_AcceptSDKTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		130863DDB9803CA7789FF871 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8D16784A15B696B5C40720F /* Pods-AcceptSDK.debug.xcconfig */,
+				8C7A427EB66C00656F5FB791 /* Pods-AcceptSDK.release.xcconfig */,
+				78B322530E9B573771CA8FE9 /* Pods-AcceptSDKTests.debug.xcconfig */,
+				9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		22F29B570D9A9D3E3F09A8D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C17FD7D8E33D666795BA217D /* Pods_AcceptSDK.framework */,
+				7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0070CCD1D38AE0A008BD8D4 = {
+			isa = PBXGroup;
+			children = (
+				A0070CD91D38AE0A008BD8D4 /* AcceptSDK */,
+				A0070CE51D38AE0A008BD8D4 /* AcceptSDKTests */,
+				A0070CD81D38AE0A008BD8D4 /* Products */,
+				130863DDB9803CA7789FF871 /* Pods */,
+				22F29B570D9A9D3E3F09A8D9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0070CD81D38AE0A008BD8D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */,
+				A0070CE11D38AE0A008BD8D4 /* AcceptSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0070CD91D38AE0A008BD8D4 /* AcceptSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A0C04C1A1D3D3604002C567C /* AcceptBuilder */,
+				A0070CFC1D38AEED008BD8D4 /* DataModel */,
+				A0070CFF1D38AEED008BD8D4 /* Interface */,
+				A0070D021D38AEED008BD8D4 /* Network */,
+				A0070D051D38AEED008BD8D4 /* Request */,
+				A0070D071D38AEED008BD8D4 /* Response */,
+				A0070D0A1D38AEED008BD8D4 /* Validators */,
+				A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */,
+				A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */,
+				A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */,
+				A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */,
+				A0070CDC1D38AE0A008BD8D4 /* Info.plist */,
+			);
+			path = AcceptSDK;
+			sourceTree = "<group>";
+		};
+		A0070CE51D38AE0A008BD8D4 /* AcceptSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */,
+				8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */,
+				8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */,
+				8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */,
+				A0070CE81D38AE0A008BD8D4 /* Info.plist */,
+			);
+			path = AcceptSDKTests;
+			sourceTree = "<group>";
+		};
+		A0070CFC1D38AEED008BD8D4 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */,
+				A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		A0070CFF1D38AEED008BD8D4 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */,
+				A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		A0070D021D38AEED008BD8D4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A0070D031D38AEED008BD8D4 /* IAPHttp.swift */,
+				A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A0070D051D38AEED008BD8D4 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */,
+				A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */,
+				A027CA611D3A0062007A8D73 /* FingerPrint.swift */,
+				A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		A0070D071D38AEED008BD8D4 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */,
+				A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		A0070D0A1D38AEED008BD8D4 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */,
+				A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */,
+				A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		A0C04C1A1D3D3604002C567C /* AcceptBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */,
+				A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */,
+				A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */,
+				A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */,
+			);
+			path = AcceptBuilder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A0070CD41D38AE0A008BD8D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0070CDB1D38AE0A008BD8D4 /* AcceptSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A0070CD61D38AE0A008BD8D4 /* AcceptSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0070CEB1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDK" */;
+			buildPhases = (
+				57AA50910B9CE29E6C9FA171 /* [CP] Check Pods Manifest.lock */,
+				A0070CD21D38AE0A008BD8D4 /* Sources */,
+				A0070CD31D38AE0A008BD8D4 /* Frameworks */,
+				A0070CD41D38AE0A008BD8D4 /* Headers */,
+				A0070CD51D38AE0A008BD8D4 /* Resources */,
+				424D6BC17017774B1C30AA32 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AcceptSDK;
+			productName = AcceptSDK;
+			productReference = A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A0070CE01D38AE0A008BD8D4 /* AcceptSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0070CEE1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDKTests" */;
+			buildPhases = (
+				B6A4B80042EEEDC9F68AA276 /* [CP] Check Pods Manifest.lock */,
+				A0070CDD1D38AE0A008BD8D4 /* Sources */,
+				A0070CDE1D38AE0A008BD8D4 /* Frameworks */,
+				A0070CDF1D38AE0A008BD8D4 /* Resources */,
+				0F97EEDBA2120A2061AD699D /* [CP] Embed Pods Frameworks */,
+				21319B305AA889566EC182D9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0070CE41D38AE0A008BD8D4 /* PBXTargetDependency */,
+			);
+			name = AcceptSDKTests;
+			productName = AcceptSDKTests;
+			productReference = A0070CE11D38AE0A008BD8D4 /* AcceptSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0070CCE1D38AE0A008BD8D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Ramamurthy, Rakesh Ramamurthy";
+				TargetAttributes = {
+					A0070CD61D38AE0A008BD8D4 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A0070CE01D38AE0A008BD8D4 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A0070D1C1D38B017008BD8D4 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = A0070CD11D38AE0A008BD8D4 /* Build configuration list for PBXProject "AcceptSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0070CCD1D38AE0A008BD8D4;
+			productRefGroup = A0070CD81D38AE0A008BD8D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0070CD61D38AE0A008BD8D4 /* AcceptSDK */,
+				A0070CE01D38AE0A008BD8D4 /* AcceptSDKTests */,
+				A0070D1C1D38B017008BD8D4 /* AcceptSDKUniversal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0070CD51D38AE0A008BD8D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0070CDF1D38AE0A008BD8D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F97EEDBA2120A2061AD699D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21319B305AA889566EC182D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		424D6BC17017774B1C30AA32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57AA50910B9CE29E6C9FA171 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0070D201D38B01E008BD8D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\nset -e\n\nabort() {\n    echo \"[fatal] $1\"\n    exit 1\n}\n\ntest -n \"${PROJECT_NAME}\" || abort \"This script should not be run from the command line, but is used by Xcode\"\n\n######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=true\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace \"${FRAMEWORK_NAME}.xcworkspace\" -scheme \"${FRAMEWORK_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" || exit 1\nxcodebuild -workspace \"${FRAMEWORK_NAME}.xcworkspace\" -scheme \"${FRAMEWORK_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" || exit 1\n\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nset -o pipefail\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo  || exit 1\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n                                                                      \n                                                                      if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n                                                                      cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n                                                                      \n                                                                      if [ -n \"${WORKSPACE}\" ]; then\n                                                                      cp -r \"${FRAMEWORK}\" \"${WORKSPACE}\"\n                                                                      elif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n                                                                      open \"${UNIVERSAL_LIBRARY_DIR}/\"\n                                                                      fi\n";
+		};
+		B6A4B80042EEEDC9F68AA276 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0070CD21D38AE0A008BD8D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0070D111D38AEED008BD8D4 /* AcceptSDKCardData.swift in Sources */,
+				A027CA621D3A0062007A8D73 /* FingerPrint.swift in Sources */,
+				A0070D121D38AEED008BD8D4 /* AcceptSDKTokenData.swift in Sources */,
+				A0C04C1F1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
+				A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */,
+				A027CA641D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift in Sources */,
+				A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */,
+				A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */,
+				A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */,
+				A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */,
+				A0C04C211D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift in Sources */,
+				A0070D191D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift in Sources */,
+				A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */,
+				A0070D181D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift in Sources */,
+				A0070D131D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift in Sources */,
+				A027CA5E1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift in Sources */,
+				A0C04C201D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift in Sources */,
+				A0070D1A1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift in Sources */,
+				A0C04C221D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
+				A0070D1B1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift in Sources */,
+				A0070D141D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift in Sources */,
+				A027CA601D39FFA3007A8D73 /* MerchantAuthenticaton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0070CDD1D38AE0A008BD8D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */,
+				8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */,
+				8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */,
+				8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
+				8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */,
+				8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */,
+				8DCBB2B51D3F4EA100E6FDDA /* AcceptSDKTokenAPIBuilder.swift in Sources */,
+				8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */,
+				8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */,
+				8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */,
+				8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */,
+				8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */,
+				A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */,
+				8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */,
+				8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */,
+				8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */,
+				8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */,
+				8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */,
+				8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */,
+				8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */,
+				8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */,
+				8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */,
+				8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
+				8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */,
+				8DCBB2A61D3F4E6A00E6FDDA /* MerchantAuthenticaton.swift in Sources */,
+				8DCBB2A71D3F4E6D00E6FDDA /* AcceptSDKPaymentRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0070CE41D38AE0A008BD8D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0070CD61D38AE0A008BD8D4 /* AcceptSDK */;
+			targetProxy = A0070CE31D38AE0A008BD8D4 /* PBXContainerItemProxy */;
+		};
+		A0070D221D38B06B008BD8D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0070CD61D38AE0A008BD8D4 /* AcceptSDK */;
+			targetProxy = A0070D211D38B06B008BD8D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A0070CE91D38AE0A008BD8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0070CEA1D38AE0A008BD8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0070CEC1D38AE0A008BD8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8D16784A15B696B5C40720F /* Pods-AcceptSDK.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = AcceptSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Debug;
+		};
+		A0070CED1D38AE0A008BD8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C7A427EB66C00656F5FB791 /* Pods-AcceptSDK.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = AcceptSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Release;
+		};
+		A0070CEF1D38AE0A008BD8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78B322530E9B573771CA8FE9 /* Pods-AcceptSDKTests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A0070CF01D38AE0A008BD8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A0070D1E1D38B017008BD8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Debug;
+		};
+		A0070D1F1D38B017008BD8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0070CD11D38AE0A008BD8D4 /* Build configuration list for PBXProject "AcceptSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0070CE91D38AE0A008BD8D4 /* Debug */,
+				A0070CEA1D38AE0A008BD8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0070CEB1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0070CEC1D38AE0A008BD8D4 /* Debug */,
+				A0070CED1D38AE0A008BD8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0070CEE1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0070CEF1D38AE0A008BD8D4 /* Debug */,
+				A0070CF01D38AE0A008BD8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0070D1D1D38B017008BD8D4 /* Build configuration list for PBXAggregateTarget "AcceptSDKUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0070D1E1D38B017008BD8D4 /* Debug */,
+				A0070D1F1D38B017008BD8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0070CCE1D38AE0A008BD8D4 /* Project object */;
+}
