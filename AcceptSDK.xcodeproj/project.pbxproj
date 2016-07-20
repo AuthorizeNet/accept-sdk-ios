@@ -24,9 +24,32 @@
 /* Begin PBXBuildFile section */
 		26D3F2A64251A999CE5B0305 /* Pods_AcceptSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */; };
 		5CA47C4CFA0DA2BAB2F01882 /* Pods_AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17FD7D8E33D666795BA217D /* Pods_AcceptSDK.framework */; };
+		8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */; };
+		8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA611D3A0062007A8D73 /* FingerPrint.swift */; };
+		8DCBB2A61D3F4E6A00E6FDDA /* MerchantAuthenticaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */; };
+		8DCBB2A71D3F4E6D00E6FDDA /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */; };
+		8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */; };
+		8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */; };
+		8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
+		8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
+		8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
+		8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
+		8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
+		8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
+		8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */; };
+		8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */; };
+		8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */; };
+		8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */; };
+		8DCBB2B51D3F4EA100E6FDDA /* AcceptSDKTokenAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */; };
+		8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */; };
+		8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */; };
+		8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
+		8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
+		8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */; };
 		A0070CDB1D38AE0A008BD8D4 /* AcceptSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */; };
-		A0070CE71D38AE0A008BD8D4 /* AcceptSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CE61D38AE0A008BD8D4 /* AcceptSDKTests.swift */; };
+		A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */; };
 		A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
 		A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
 		A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
@@ -72,12 +95,13 @@
 		78B322530E9B573771CA8FE9 /* Pods-AcceptSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7A427EB66C00656F5FB791 /* Pods-AcceptSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.release.xcconfig"; sourceTree = "<group>"; };
+		8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCheckOutDataTypeTests.swift; sourceTree = "<group>"; };
 		9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AcceptSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceptSDK.h; sourceTree = "<group>"; };
 		A0070CDC1D38AE0A008BD8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0070CE11D38AE0A008BD8D4 /* AcceptSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcceptSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0070CE61D38AE0A008BD8D4 /* AcceptSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptSDKTests.swift; sourceTree = "<group>"; };
+		A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataTests.swift; sourceTree = "<group>"; };
 		A0070CE81D38AE0A008BD8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKHandler.swift; sourceTree = "<group>"; };
 		A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKInternal.swift; sourceTree = "<group>"; };
@@ -188,7 +212,8 @@
 		A0070CE51D38AE0A008BD8D4 /* AcceptSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0070CE61D38AE0A008BD8D4 /* AcceptSDKTests.swift */,
+				A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */,
+				8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */,
 				A0070CE81D38AE0A008BD8D4 /* Info.plist */,
 			);
 			path = AcceptSDKTests;
@@ -499,7 +524,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0070CE71D38AE0A008BD8D4 /* AcceptSDKTests.swift in Sources */,
+				8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */,
+				8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */,
+				8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */,
+				8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
+				8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */,
+				8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */,
+				8DCBB2B51D3F4EA100E6FDDA /* AcceptSDKTokenAPIBuilder.swift in Sources */,
+				8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */,
+				8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */,
+				8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */,
+				8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */,
+				8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */,
+				A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */,
+				8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */,
+				8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */,
+				8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */,
+				8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */,
+				8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */,
+				8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */,
+				8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */,
+				8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */,
+				8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
+				8DCBB2A61D3F4E6A00E6FDDA /* MerchantAuthenticaton.swift in Sources */,
+				8DCBB2A71D3F4E6D00E6FDDA /* AcceptSDKPaymentRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
