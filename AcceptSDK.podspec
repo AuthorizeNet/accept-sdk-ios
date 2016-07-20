@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint AcceptiOSSDK.podspec' to ensure this is a
+# Be sure to run `pod lib lint AcceptSDK.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 
-    s.name             = 'AcceptiOSSDK'
+    s.name             = 'AcceptSDK'
     s.authors          = 'VISA Inc.'
     s.version          = '1.0.0'
     s.summary          = 'VISA iOS Accept SDK'
