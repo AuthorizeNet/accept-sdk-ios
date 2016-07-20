@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
     s.subspec 'Source' do |source|
 
-        source.source_files  = "accept-sdk-ios/AcceptSDK/**/*.{swift}"
+        source.source_files  = "AcceptSDK/**/*.{swift}"
         source.xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 
     end
