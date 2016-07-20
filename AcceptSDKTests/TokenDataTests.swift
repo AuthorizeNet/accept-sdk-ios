@@ -319,7 +319,166 @@ class TokenDataTests: XCTestCase {
             }
         }
     }
-
+    
+    func testCardCodeMinLengthValidationErrorCodeE_WC_15() {
+        let request = self.getValidTokenRequest()
+        request.cardCode = "1"
+        let expectation = expectationWithDescription("Card code min length error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    func testCardCodeMaxLengthValidationErrorCodeE_WC_15() {
+        let request = self.getValidTokenRequest()
+        request.cardCode = "12345"
+        let expectation = expectationWithDescription("Card code max length error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    func testCardCodeNullValidationErrorCodeE_WC_15() {
+        let request = self.getValidTokenRequest()
+        request.cardCode = ""
+        let expectation = expectationWithDescription("Empty card code error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testZipcodeNullValidationErrorCodeE_WC_16() {
+        let request = self.getValidTokenRequest()
+        request.zip = ""
+        let expectation = expectationWithDescription("Empty zip code error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_16", "Zipcode Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid Zip code.", "Zipcode Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testZipcodeMaxLengthValidationErrorCodeE_WC_16() {
+        let request = self.getValidTokenRequest()
+        request.zip = "123456789012345678901"
+        let expectation = expectationWithDescription("Max length of zip code error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_16", "Zipcode Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid Zip code.", "Zipcode Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testFullnameLengthValidationErrorCodeE_WC_17() {
+        let request = self.getValidTokenRequest()
+        request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
+        let expectation = expectationWithDescription("Max length of fullname error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_17", "Fullname Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid card holder name.", "Fullname Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testFullnameEmptyStringValidationErrorCodeE_WC_17() {
+        let request = self.getValidTokenRequest()
+        request.fullName = ""
+        let expectation = expectationWithDescription("Empty fullname error mapping failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_17", "Fullname Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid card holder name.", "Fullname Error text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
     func getValidTokenRequest() -> Token {
         let tokenRequest = Token()
         
