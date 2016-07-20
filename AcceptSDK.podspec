@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                          }
     s.platform         = :ios, "8.4"
 
-    s.source           = {:git => 'https://github.com/kbollepa/accept-sdk-ios.git'}
+    s.source           = {:git => 'https://github.com/RakeshVisa/accept-sdk-ios.git'}
 
     s.requires_arc = true
 
