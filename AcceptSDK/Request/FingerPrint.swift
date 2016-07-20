@@ -54,12 +54,19 @@ public class FingerPrint {
     func isValidAmount(inAmount:String) -> Bool {
         var isValid = false
         
+        /*
         if let indexForCharacterInString = inAmount.characters.indexOf(".") {
             let subStr = inAmount.substringFromIndex(indexForCharacterInString)
             
             if (subStr.characters.count - 1) == 2{
                 isValid = true
             }
+        }
+        */
+        
+        let amt = Double(self.amount)
+        if AcceptSDKStringValidator.isAlphanumeric(self.amount) == false && amt > 0 {
+            isValid = true
         }
 
         return isValid

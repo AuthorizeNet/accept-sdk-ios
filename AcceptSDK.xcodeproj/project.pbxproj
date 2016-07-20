@@ -47,6 +47,8 @@
 		8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
 		8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
 		8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */; };
+		8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */; };
+		8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */; };
 		A0070CDB1D38AE0A008BD8D4 /* AcceptSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */; };
 		A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */; };
@@ -96,6 +98,8 @@
 		7C66AFD5727714024D773815 /* Pods_AcceptSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7A427EB66C00656F5FB791 /* Pods-AcceptSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.release.xcconfig"; sourceTree = "<group>"; };
 		8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCheckOutDataTypeTests.swift; sourceTree = "<group>"; };
+		8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPrintTests.swift; sourceTree = "<group>"; };
+		8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantAuthenticationTests.swift; sourceTree = "<group>"; };
 		9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AcceptSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceptSDK.h; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 			children = (
 				A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */,
 				8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */,
+				8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */,
+				8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */,
 				A0070CE81D38AE0A008BD8D4 /* Info.plist */,
 			);
 			path = AcceptSDKTests;
@@ -539,6 +545,7 @@
 				A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */,
 				8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */,
 				8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */,
+				8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */,
 				8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */,
 				8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */,
 				8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */,
@@ -546,6 +553,7 @@
 				8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */,
 				8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */,
 				8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
+				8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */,
 				8DCBB2A61D3F4E6A00E6FDDA /* MerchantAuthenticaton.swift in Sources */,
 				8DCBB2A71D3F4E6D00E6FDDA /* AcceptSDKPaymentRequest.swift in Sources */,
 			);
