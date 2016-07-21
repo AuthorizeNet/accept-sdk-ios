@@ -185,7 +185,6 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
             jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor())
         }
 
-        print(jsonStr)
         return jsonStr
     }
     
