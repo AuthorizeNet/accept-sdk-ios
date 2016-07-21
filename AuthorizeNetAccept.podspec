@@ -8,10 +8,10 @@
 
 Pod::Spec.new do |s|
 
-    s.name             = 'AcceptSDK'
-    s.authors          = 'VISA Inc.'
-    s.version          = '1.0.0'
-    s.summary          = 'VISA iOS Accept SDK'
+    s.name             = 'AuthorizeNetAccept'
+    s.authors          = 'Authorize.Net'
+    s.version          = '0.0.1'
+    s.summary          = 'Authorize.Net Accept SDK for iOS'
     s.homepage         = 'https://visa.com'
 
     s.license          = { :type => 'VISA', :text => <<-LICENSE
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                          }
     s.platform         = :ios, "8.4"
 
-    s.source           = {:git => 'https://github.com/RakeshVisa/accept-sdk-ios.git'}
+    s.source           = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git'}
 
     s.requires_arc = true
 
