@@ -121,17 +121,6 @@ class HTTP: NSObject, NSURLSessionDelegate {
         return httpResponse
     }
 
-    /*
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
-    {
-        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-            if (challenge.protectionSpace.host.containsString(IAPBaseURLBuilder().getHostPort()) || challenge.protectionSpace.host.containsString(IAPRetailerURLBuilder().getHostPort())) {
-                completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!))
-            }
-        }
-    }
-     */
-    
     private func getErrorResponse(responseDict:Dictionary<String, AnyObject>)->String? {
         var errorMessage:String?
         if  let errorArray = responseDict[HTTPErrorKeys.kErrorsKey] as? [[String:String]] {
@@ -154,8 +143,7 @@ class HTTP: NSObject, NSURLSessionDelegate {
             jsonDict = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String, AnyObject>
         }
         catch let error as NSError{
-            //DDLogError("*** Error: \(#file)->\(#function)->\(#line): \(error)")
-            print(error)
+            //todo handle error
         }
         return jsonDict
         
@@ -163,36 +151,7 @@ class HTTP: NSObject, NSURLSessionDelegate {
 }
 
 extension NSMutableURLRequest {
-    func setBodyContent1(contentMap: Dictionary<String, AnyObject>?) {
-        if let content = contentMap {
-            var firstOneAdded = false
-            var contentBodyAsString = String()
-            let contentKeys:Array<String> = Array(content.keys)
-            for contentKey in contentKeys {
-                if(!firstOneAdded) {
-                    
-                    contentBodyAsString = contentBodyAsString + contentKey + "=" + (content[contentKey]! as! String)
-                    firstOneAdded = true
-                }
-                else {
-                    contentBodyAsString = contentBodyAsString + "&" + contentKey + "=" + (content[contentKey]! as! String)
-                }
-            }
-            contentBodyAsString = contentBodyAsString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-            self.HTTPBody = contentBodyAsString.dataUsingEncoding(NSUTF8StringEncoding)
-        }
-    }
-    
     func setBodyContent(contentStr: String?) {
-//        var contentBodyAsString = String()
-//        contentBodyAsString = JSONSerializer.toJson(contentMap, prettify: false)
-//        contentBodyAsString = contentBodyAsString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-//        self.HTTPBody = contentBodyAsString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-//        let jsonData = try! NSJSONSerialization.dataWithJSONObject(contentMap!, options: NSJSONWritingOptions.PrettyPrinted)
-//        let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-//        self.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
-        
         self.HTTPBody = contentStr!.dataUsingEncoding(NSUTF8StringEncoding)
     }
 }
