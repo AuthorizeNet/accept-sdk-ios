@@ -23,7 +23,7 @@ public class AcceptSDKHandler : NSObject {
         super.init()
         
         let settings = AcceptSDKSettings.sharedInstance
-        settings.acceptSDKEnvironment = AcceptSDKEnvironment.ENV_TEST.rawValue
+        settings.acceptSDKEnvironment = environment.rawValue
     }
     
     public func getTokenWithRequest(inRequest: AcceptSDKRequest, successHandler:(AcceptSDKTokenResponse)->(),failureHandler:(AcceptSDKErrorResponse)->()) {

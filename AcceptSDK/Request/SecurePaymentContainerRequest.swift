@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public enum WebCheckOutTypeEnum: String {
-    case kPAN       = "PAN"
+enum WebCheckOutTypeEnum: String {
+    //case kPAN       = "PAN"
     case kToken     = "TOKEN"
 }
 
