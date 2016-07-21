@@ -23,11 +23,13 @@ public class MerchantAuthenticaton {
         }
         
         if let key = self.clientKey {
-            //no validation for clientKey
-            if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
-                failureHandler(withResponse: errorResponse)
-            } else {
-                successHandler(isSuccess: true)
+            //todo change this..redundant check
+            if key.characters.count > 0 {
+                if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
+                    failureHandler(withResponse: errorResponse)
+                } else {
+                    successHandler(isSuccess: true)
+                }
             }
         } else {
             self.fingerPrint!.validate(self.fingerPrint!, successHandler: { (isSuccess) -> () in
