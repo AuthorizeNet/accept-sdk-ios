@@ -67,6 +67,98 @@ class MerchantAuthenticationTests: XCTestCase {
         XCTAssertTrue(request.isValidMobileDeviceId(request.mobileDeviceId!), "Not a valid mobile device id")
     }
 
+    func testMerchantAuthenticationValidationErrorCodeE_WC_18() {
+        let request = MerchantAuthenticaton()
+        request.name = "ValidName"
+        request.mobileDeviceId = "fhhyh-dhdu7un-08790jb"
+        
+        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_18", "Client key  empty Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Client key is required.", "Cleint key empty mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testEmptyNameValidationErrorCodeE_WC_17() {
+        let request = getValidMerchantAuthentication()
+        request.name = ""
+        
+        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_17", "Client key empty Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid card holder name.", "Cleint key empty mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testEmptyMobileDeviceIdValidationErrorCodeE_WC_04() {
+        let request = getValidMerchantAuthentication()
+        request.mobileDeviceId = ""
+        
+        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_04", "Mobile device id empty Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide mandatory fileds", "Mobile device id empty mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testMerchantAuthenticationValidationSuccess() {
+        let request = getValidMerchantAuthentication()
+        
+        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+                XCTAssertTrue(isSuccess)
+        
+                expectation.fulfill()
+            }, failureHandler: { (withResponse) -> () in
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
     func getValidMerchantAuthentication() -> MerchantAuthenticaton {
         let request = MerchantAuthenticaton()
         request.name = "ValidName"

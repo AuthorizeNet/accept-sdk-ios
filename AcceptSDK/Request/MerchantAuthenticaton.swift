@@ -54,7 +54,7 @@ public class MerchantAuthenticaton {
         if let deviceId = inDeviceId {
             if isValidMobileDeviceId(deviceId) {
             } else {
-                errorResponse = self.getSDKErrorResponse("EC_WC_1001", message: "Invalid Mobile device id")
+                errorResponse = self.getSDKErrorResponse("E_WC_04", message: "Please provide mandatory fileds")
             }
         }
 

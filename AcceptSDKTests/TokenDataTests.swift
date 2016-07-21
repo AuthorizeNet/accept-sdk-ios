@@ -479,6 +479,25 @@ class TokenDataTests: XCTestCase {
         }
     }
     
+    func testTokenValidationSuccess() {
+        let request = getValidTokenRequest()
+        
+        let expectation = expectationWithDescription("Token validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            XCTAssertTrue(isSuccess)
+            
+            expectation.fulfill()
+            }, failureHandler: { (withResponse) -> () in
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
     func getValidTokenRequest() -> Token {
         let tokenRequest = Token()
         
