@@ -52,6 +52,14 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
     }
     
+    func testCreditCardValidationFailsWhenContainsSpaces() {
+        let request = Token()
+        request.cardNumber = "1123 135 345 123"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
+    }
+    
     func testCreditCardValidationSuccess() {
         let request = Token()
         request.cardNumber = "378282246310005"
