@@ -49,7 +49,7 @@ public class MerchantAuthenticaton {
         if let validName = inName {
             if isValidName(validName) {
             } else {
-                errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
+                errorResponse = self.getSDKErrorResponse("E_WC_10", message: "Please provide valid apiloginid.")
             }
         }
         

@@ -92,7 +92,7 @@ class MerchantAuthenticationTests: XCTestCase {
         }
     }
 
-    func testEmptyNameValidationErrorCodeE_WC_17() {
+    func testEmptyNameValidationErrorCodeE_WC_10() {
         let request = getValidMerchantAuthentication()
         request.name = ""
         
@@ -103,8 +103,8 @@ class MerchantAuthenticationTests: XCTestCase {
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
                 
-                XCTAssertEqual(errorCode, "E_WC_17", "Client key empty Error code mapping is wrong")
-                XCTAssertEqual(errorText, "Please provide valid card holder name.", "Cleint key empty mapping is wrong")
+                XCTAssertEqual(errorCode, "E_WC_10", "Apiloginid empty Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid apiloginid.", "Apiloginid empty mapping is wrong")
                 
                 expectation.fulfill()
         })
