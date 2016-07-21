@@ -33,8 +33,8 @@
 		8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
 		8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
 		8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
-		8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
-		8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		8DCBB2AD1D3F4E8600E6FDDA /* AccepSDKtHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */; };
+		8DCBB2AE1D3F4E8800E6FDDA /* AcceptSDKHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */; };
 		8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
 		8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
 		8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */; };
@@ -54,8 +54,8 @@
 		A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
 		A0070D131D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
 		A0070D141D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
-		A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
-		A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		A0070D151D38AEED008BD8D4 /* AccepSDKtHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */; };
+		A0070D161D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */; };
 		A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */; };
 		A0070D181D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */; };
 		A0070D191D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */; };
@@ -106,8 +106,8 @@
 		A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKSettings.swift; sourceTree = "<group>"; };
 		A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseInterface.swift; sourceTree = "<group>"; };
 		A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenInterface.swift; sourceTree = "<group>"; };
-		A0070D031D38AEED008BD8D4 /* IAPHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttp.swift; sourceTree = "<group>"; };
-		A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttpConnection.swift; sourceTree = "<group>"; };
+		A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccepSDKtHttp.swift; sourceTree = "<group>"; };
+		A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKHttpConnection.swift; sourceTree = "<group>"; };
 		A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKPaymentRequest.swift; sourceTree = "<group>"; };
 		A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
 		A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenResponse.swift; sourceTree = "<group>"; };
@@ -227,8 +227,8 @@
 		A0070D021D38AEED008BD8D4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A0070D031D38AEED008BD8D4 /* IAPHttp.swift */,
-				A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */,
+				A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */,
+				A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -483,9 +483,9 @@
 			files = (
 				A027CA621D3A0062007A8D73 /* FingerPrint.swift in Sources */,
 				A0C04C1F1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
-				A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */,
+				A0070D151D38AEED008BD8D4 /* AccepSDKtHttp.swift in Sources */,
 				A027CA641D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift in Sources */,
-				A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */,
+				A0070D161D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift in Sources */,
 				A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */,
 				A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */,
 				A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */,
@@ -508,7 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */,
-				8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */,
+				8DCBB2AE1D3F4E8800E6FDDA /* AcceptSDKHttpConnection.swift in Sources */,
 				8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
 				8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */,
 				8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */,
@@ -517,7 +517,7 @@
 				8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */,
 				8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */,
 				8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */,
-				8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */,
+				8DCBB2AD1D3F4E8600E6FDDA /* AccepSDKtHttp.swift in Sources */,
 				A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */,
 				8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */,
 				8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */,
