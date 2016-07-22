@@ -28,6 +28,30 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(isValid, "Should return false when card number is empty")
     }
     
+    func testCreditCardValidationFailsWhenContainsAlphaNumeric() {
+        let request = Token()
+        request.cardNumber = "a67675"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not be alpa numeric")
+    }
+    
+    func testCreditCardValidationFailsWhenContainsNegativeNunber() {
+        let request = Token()
+        request.cardNumber = "-9989"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not be a negative")
+    }
+
+    func testCreditCardValidationFailsWhenContainsDecimal() {
+        let request = Token()
+        request.cardNumber = "1908.8"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not contain decimal places")
+    }
+
     func testCreditCardValidationFailsWhenLessThan4Characters() {
         let request = Token()
         request.cardNumber = "234"

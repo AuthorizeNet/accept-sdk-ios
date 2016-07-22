@@ -132,7 +132,7 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber){
+        if ((AcceptSDKStringValidator.isAlphanumeric(inNumber) == false) && (Int(inNumber) > 0) && inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
