@@ -145,7 +145,11 @@ public class Message {
         self.init()
         
         if let code = inDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String {
-            self.code      = code
+            if code == "I00001" {
+                self.code = "I_WC_01"
+            } else {
+                self.code      = code
+            }
         }
         if let text = inDict[AcceptSDKTokenResponseKeys.kTextKey] as? String {
             self.text      = text

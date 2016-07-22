@@ -33,19 +33,16 @@
 		8DCBB2AA1D3F4E7900E6FDDA /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
 		8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
 		8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
-		8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
-		8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		8DCBB2AD1D3F4E8600E6FDDA /* AccepSDKtHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */; };
+		8DCBB2AE1D3F4E8800E6FDDA /* AcceptSDKHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */; };
 		8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
 		8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
-		8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */; };
-		8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */; };
 		8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1B1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift */; };
 		8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */; };
 		8DCBB2B51D3F4EA100E6FDDA /* AcceptSDKTokenAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */; };
 		8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */; };
 		8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */; };
 		8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
-		8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
 		8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */; };
 		8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */; };
 		8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */; };
@@ -55,18 +52,15 @@
 		A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */; };
 		A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */; };
 		A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */; };
-		A0070D111D38AEED008BD8D4 /* AcceptSDKCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */; };
-		A0070D121D38AEED008BD8D4 /* AcceptSDKTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */; };
 		A0070D131D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */; };
 		A0070D141D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */; };
-		A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* IAPHttp.swift */; };
-		A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */; };
+		A0070D151D38AEED008BD8D4 /* AccepSDKtHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */; };
+		A0070D161D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */; };
 		A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */; };
 		A0070D181D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */; };
 		A0070D191D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */; };
 		A0070D1A1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */; };
 		A0070D1B1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */; };
-		A027CA5E1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */; };
 		A027CA601D39FFA3007A8D73 /* MerchantAuthenticaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */; };
 		A027CA621D3A0062007A8D73 /* FingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA611D3A0062007A8D73 /* FingerPrint.swift */; };
 		A027CA641D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */; };
@@ -110,18 +104,15 @@
 		A0070CF11D38AEE2008BD8D4 /* AcceptSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKHandler.swift; sourceTree = "<group>"; };
 		A0070CF21D38AEE2008BD8D4 /* AcceptSDKInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKInternal.swift; sourceTree = "<group>"; };
 		A0070CF31D38AEE2008BD8D4 /* AcceptSDKSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKSettings.swift; sourceTree = "<group>"; };
-		A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKCardData.swift; sourceTree = "<group>"; };
-		A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenData.swift; sourceTree = "<group>"; };
 		A0070D001D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseInterface.swift; sourceTree = "<group>"; };
 		A0070D011D38AEED008BD8D4 /* AcceptSDKTokenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenInterface.swift; sourceTree = "<group>"; };
-		A0070D031D38AEED008BD8D4 /* IAPHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttp.swift; sourceTree = "<group>"; };
-		A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHttpConnection.swift; sourceTree = "<group>"; };
+		A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccepSDKtHttp.swift; sourceTree = "<group>"; };
+		A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKHttpConnection.swift; sourceTree = "<group>"; };
 		A0070D061D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKPaymentRequest.swift; sourceTree = "<group>"; };
 		A0070D081D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
 		A0070D091D38AEED008BD8D4 /* AcceptSDKTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenResponse.swift; sourceTree = "<group>"; };
 		A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKCardFieldsValidator.swift; sourceTree = "<group>"; };
 		A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKStringValidator.swift; sourceTree = "<group>"; };
-		A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKValidationHandler.swift; sourceTree = "<group>"; };
 		A027CA5F1D39FFA3007A8D73 /* MerchantAuthenticaton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantAuthenticaton.swift; sourceTree = "<group>"; };
 		A027CA611D3A0062007A8D73 /* FingerPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPrint.swift; sourceTree = "<group>"; };
 		A027CA631D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurePaymentContainerRequest.swift; sourceTree = "<group>"; };
@@ -198,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				A0C04C1A1D3D3604002C567C /* AcceptBuilder */,
-				A0070CFC1D38AEED008BD8D4 /* DataModel */,
 				A0070CFF1D38AEED008BD8D4 /* Interface */,
 				A0070D021D38AEED008BD8D4 /* Network */,
 				A0070D051D38AEED008BD8D4 /* Request */,
@@ -225,15 +215,6 @@
 			path = AcceptSDKTests;
 			sourceTree = "<group>";
 		};
-		A0070CFC1D38AEED008BD8D4 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				A0070CFD1D38AEED008BD8D4 /* AcceptSDKCardData.swift */,
-				A0070CFE1D38AEED008BD8D4 /* AcceptSDKTokenData.swift */,
-			);
-			path = DataModel;
-			sourceTree = "<group>";
-		};
 		A0070CFF1D38AEED008BD8D4 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,8 +227,8 @@
 		A0070D021D38AEED008BD8D4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A0070D031D38AEED008BD8D4 /* IAPHttp.swift */,
-				A0070D041D38AEED008BD8D4 /* IAPHttpConnection.swift */,
+				A0070D031D38AEED008BD8D4 /* AccepSDKtHttp.swift */,
+				A0070D041D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -277,7 +258,6 @@
 			children = (
 				A0070D0B1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift */,
 				A0070D0C1D38AEED008BD8D4 /* AcceptSDKStringValidator.swift */,
-				A027CA5D1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -501,13 +481,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0070D111D38AEED008BD8D4 /* AcceptSDKCardData.swift in Sources */,
 				A027CA621D3A0062007A8D73 /* FingerPrint.swift in Sources */,
-				A0070D121D38AEED008BD8D4 /* AcceptSDKTokenData.swift in Sources */,
 				A0C04C1F1D3D3604002C567C /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
-				A0070D151D38AEED008BD8D4 /* IAPHttp.swift in Sources */,
+				A0070D151D38AEED008BD8D4 /* AccepSDKtHttp.swift in Sources */,
 				A027CA641D3A02D7007A8D73 /* SecurePaymentContainerRequest.swift in Sources */,
-				A0070D161D38AEED008BD8D4 /* IAPHttpConnection.swift in Sources */,
+				A0070D161D38AEED008BD8D4 /* AcceptSDKHttpConnection.swift in Sources */,
 				A0070CF41D38AEE2008BD8D4 /* AcceptSDKHandler.swift in Sources */,
 				A0070D171D38AEED008BD8D4 /* AcceptSDKPaymentRequest.swift in Sources */,
 				A0070CF51D38AEE2008BD8D4 /* AcceptSDKInternal.swift in Sources */,
@@ -516,7 +494,6 @@
 				A0070CF61D38AEE2008BD8D4 /* AcceptSDKSettings.swift in Sources */,
 				A0070D181D38AEED008BD8D4 /* AcceptSDKErrorResponse.swift in Sources */,
 				A0070D131D38AEED008BD8D4 /* AcceptSDKBaseInterface.swift in Sources */,
-				A027CA5E1D39FC88007A8D73 /* AcceptSDKValidationHandler.swift in Sources */,
 				A0C04C201D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift in Sources */,
 				A0070D1A1D38AEED008BD8D4 /* AcceptSDKCardFieldsValidator.swift in Sources */,
 				A0C04C221D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
@@ -530,9 +507,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DCBB2B21D3F4E9700E6FDDA /* AcceptSDKTokenData.swift in Sources */,
 				8DCBB2B71D3F4EEF00E6FDDA /* AcceptSDKCardFieldsValidator.swift in Sources */,
-				8DCBB2AE1D3F4E8800E6FDDA /* IAPHttpConnection.swift in Sources */,
+				8DCBB2AE1D3F4E8800E6FDDA /* AcceptSDKHttpConnection.swift in Sources */,
 				8DCBB2B61D3F4EA400E6FDDA /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
 				8DCBB2B81D3F4EF100E6FDDA /* AcceptSDKStringValidator.swift in Sources */,
 				8DCBB2A91D3F4E7500E6FDDA /* AcceptSDKTokenResponse.swift in Sources */,
@@ -541,16 +517,14 @@
 				8DCBB2AF1D3F4E8D00E6FDDA /* AcceptSDKBaseInterface.swift in Sources */,
 				8DCBB2A81D3F4E7300E6FDDA /* AcceptSDKErrorResponse.swift in Sources */,
 				8DCBB2AB1D3F4E7B00E6FDDA /* AcceptSDKInternal.swift in Sources */,
-				8DCBB2AD1D3F4E8600E6FDDA /* IAPHttp.swift in Sources */,
+				8DCBB2AD1D3F4E8600E6FDDA /* AccepSDKtHttp.swift in Sources */,
 				A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */,
 				8DCBB2B01D3F4E9000E6FDDA /* AcceptSDKTokenInterface.swift in Sources */,
 				8DCBB2A51D3F4E6700E6FDDA /* FingerPrint.swift in Sources */,
 				8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */,
 				8DCBB2B41D3F4E9E00E6FDDA /* AcceptSDKBaseURLBuilder.swift in Sources */,
 				8DCBB2A41D3F4B8100E6FDDA /* SecurePaymentContainerRequest.swift in Sources */,
-				8DCBB2B91D3F4EF400E6FDDA /* AcceptSDKValidationHandler.swift in Sources */,
 				8DCBB2AC1D3F4E7E00E6FDDA /* AcceptSDKSettings.swift in Sources */,
-				8DCBB2B11D3F4E9400E6FDDA /* AcceptSDKCardData.swift in Sources */,
 				8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */,
 				8DCBB2B31D3F4E9B00E6FDDA /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
 				8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */,

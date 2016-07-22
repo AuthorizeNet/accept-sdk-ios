@@ -28,6 +28,30 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(isValid, "Should return false when card number is empty")
     }
     
+    func testCreditCardValidationFailsWhenContainsAlphaNumeric() {
+        let request = Token()
+        request.cardNumber = "a67675"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not be alpa numeric")
+    }
+    
+    func testCreditCardValidationFailsWhenContainsNegativeNunber() {
+        let request = Token()
+        request.cardNumber = "-9989"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not be a negative")
+    }
+
+    func testCreditCardValidationFailsWhenContainsDecimal() {
+        let request = Token()
+        request.cardNumber = "1908.8"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "Card number should not contain decimal places")
+    }
+
     func testCreditCardValidationFailsWhenLessThan4Characters() {
         let request = Token()
         request.cardNumber = "234"
@@ -47,6 +71,14 @@ class TokenDataTests: XCTestCase {
     func testCreditCardValidationFailsWhenLuhnAlgorithmFails() {
         let request = Token()
         request.cardNumber = "1234567891234567"
+        
+        let isValid = request.isValidCardNumber(request.cardNumber)
+        XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
+    }
+    
+    func testCreditCardValidationFailsWhenContainsSpaces() {
+        let request = Token()
+        request.cardNumber = "1123 135 345 123"
         
         let isValid = request.isValidCardNumber(request.cardNumber)
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
@@ -153,6 +185,27 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenEmptyString fails")
     }
     
+    func testValidateZipReturnsFalseWhenOnlySpacesString() {
+        let request = Token()
+        request.zip = "    "
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code has only spaces")
+    }
+
+    func testValidateZipReturnsFalseWhenStartWithSpace() {
+        let request = Token()
+        request.zip = " dhjqwhdjqwd"
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't start with spaces")
+    }
+    
+    func testValidateZipReturnsFalseWhenEndsWithSpace() {
+        let request = Token()
+        request.zip = "4563 "
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't end with spaces")
+    }
+
     func testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20() {
         let request = Token()
         request.zip = "z7676777786767678678678678"
@@ -172,6 +225,13 @@ class TokenDataTests: XCTestCase {
         request.fullName = ""
         
         XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenEmptyString fails")
+    }
+    
+    func testValidateFullNameReturnsFalseWhenOnlySpacesString() {
+        let request = Token()
+        request.fullName = "   "
+        
+        XCTAssertFalse(request.isValidFullName(request.fullName!), "Full name contains only spaces")
     }
     
     func testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64() {
@@ -479,6 +539,25 @@ class TokenDataTests: XCTestCase {
         }
     }
     
+    func testTokenValidationSuccess() {
+        let request = getValidTokenRequest()
+        
+        let expectation = expectationWithDescription("Token validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            XCTAssertTrue(isSuccess)
+            
+            expectation.fulfill()
+            }, failureHandler: { (withResponse) -> () in
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
     func getValidTokenRequest() -> Token {
         let tokenRequest = Token()
         

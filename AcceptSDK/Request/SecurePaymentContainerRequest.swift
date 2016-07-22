@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public enum WebCheckOutTypeEnum: String {
-    case kPAN       = "PAN"
+enum WebCheckOutTypeEnum: String {
+    //case kPAN       = "PAN"
     case kToken     = "TOKEN"
 }
 
@@ -132,7 +132,7 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber){
+        if ((AcceptSDKStringValidator.isAlphanumeric(inNumber) == false) && (Int(inNumber) > 0) && inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
@@ -183,7 +183,7 @@ public class Token {
     func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 &&  inZip.characters.count <= 20 {
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
             isValid = true
         }
         
@@ -193,7 +193,7 @@ public class Token {
     func isValidFullName(inFullName:String) -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 &&  inFullName.characters.count <= 64 {
+        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
             isValid = true
         }
         
@@ -214,5 +214,30 @@ public class Token {
     func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
+    }
+    
+    func isStringContainsOnlySpaces(inString: String) -> Bool {
+        var result = true
+        
+        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if trimmedStr.characters.count > 0 {
+            result = false
+        }
+        
+        return result
+    }
+    
+    func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
+        var result = false
+        
+        let startStr = String(inString[inString.startIndex])
+        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
+
+        if  startStr == String.space() || endStr == String.space() {
+            result = true
+        }
+        
+        return result
     }
 }

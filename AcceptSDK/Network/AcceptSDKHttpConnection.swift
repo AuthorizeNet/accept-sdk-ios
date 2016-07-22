@@ -15,7 +15,7 @@ class HttpConnection{
     private let responseQueue : dispatch_queue_t
     
     init () {
-        self.requestQueue = dispatch_queue_create("IAPRequestQueue", nil)
+        self.requestQueue = dispatch_queue_create("AcceptSDKRequestQueue", nil)
         self.responseQueue = dispatch_get_main_queue()
         self.http = HTTP()
     }

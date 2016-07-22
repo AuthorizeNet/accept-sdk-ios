@@ -88,8 +88,8 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         var fingerPrintDictKeyValueStr = String()
         
         var clientKeyValueStr = String()
-        if let str = request.merchantAuthentication.clientKey {
-            clientKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kClientKeyKey, value: (request.merchantAuthentication.clientKey)!)
+        if let clientStr = request.merchantAuthentication.clientKey {
+            clientKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kClientKeyKey, value: clientStr)
         } else {
             var sequenceStr = String()
             var currenctCodeStr = String()
@@ -185,7 +185,6 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
             jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor())
         }
 
-        print(jsonStr)
         return jsonStr
     }
     

@@ -8,13 +8,6 @@
 
 import Foundation
 
-//public class AcceptSDKPaymentRequest: NSObject {
-//    public var name:String!
-//    public var clinetKey:String!
-//
-//    public var cardData = AcceptSDKCardData()
-//}
-
 public class AcceptSDKRequest: NSObject {
     public var merchantAuthentication:MerchantAuthenticaton = MerchantAuthenticaton()
     public var securePaymentContainerRequest:SecurePaymentContainerRequest = SecurePaymentContainerRequest()

@@ -23,11 +23,13 @@ public class MerchantAuthenticaton {
         }
         
         if let key = self.clientKey {
-            //no validation for clientKey
-            if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
-                failureHandler(withResponse: errorResponse)
-            } else {
-                successHandler(isSuccess: true)
+            //todo change this..redundant check
+            if key.characters.count > 0 {
+                if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
+                    failureHandler(withResponse: errorResponse)
+                } else {
+                    successHandler(isSuccess: true)
+                }
             }
         } else {
             self.fingerPrint!.validate(self.fingerPrint!, successHandler: { (isSuccess) -> () in
@@ -47,14 +49,14 @@ public class MerchantAuthenticaton {
         if let validName = inName {
             if isValidName(validName) {
             } else {
-                errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
+                errorResponse = self.getSDKErrorResponse("E_WC_10", message: "Please provide valid apiloginid.")
             }
         }
         
         if let deviceId = inDeviceId {
             if isValidMobileDeviceId(deviceId) {
             } else {
-                errorResponse = self.getSDKErrorResponse("EC_WC_1001", message: "Invalid Mobile device id")
+                errorResponse = self.getSDKErrorResponse("E_WC_04", message: "Please provide mandatory fileds")
             }
         }
 

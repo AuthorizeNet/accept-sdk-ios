@@ -66,7 +66,7 @@ class FingerPrintTests: XCTestCase {
     }
     func testEmptySequenceErrorCodeE_WC_12() {
         let request = self.getValidFingerprintRequest()
-        request.hashValue = ""
+        request.sequence = ""
         
         let expectation = expectationWithDescription("Empty sequence error mapping failed")
         
@@ -76,7 +76,7 @@ class FingerPrintTests: XCTestCase {
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
                 
                 XCTAssertEqual(errorCode, "E_WC_12", "Empty sequence Error code mapping is wrong")
-                XCTAssertEqual(errorText, "Fingerprint hash should not be blank.", "Empty sequence text mapping is wrong")
+                XCTAssertEqual(errorText, "Sequence attribute should not be blank.", "Empty sequence text mapping is wrong")
                 
                 expectation.fulfill()
         })
@@ -127,6 +127,25 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorText, "Invalid Fingerprint.", "Negative Amount text mapping is wrong")
                 
                 expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testFingerPrintValidationSuccess() {
+        let request = getValidFingerprintRequest()
+        
+        let expectation = expectationWithDescription("FingerPrint validation failed")
+        
+        request.validate(request, successHandler: { (isSuccess) -> () in
+            XCTAssertTrue(isSuccess)
+            
+            expectation.fulfill()
+            }, failureHandler: { (withResponse) -> () in
         })
         
         waitForExpectationsWithTimeout(1) { error in
