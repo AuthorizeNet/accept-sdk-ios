@@ -161,6 +161,13 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenEmptyString fails")
     }
     
+    func testValidateZipReturnsFalseWhenOnlySpacesString() {
+        let request = Token()
+        request.zip = "    "
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code has only spaces")
+    }
+
     func testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20() {
         let request = Token()
         request.zip = "z7676777786767678678678678"
@@ -180,6 +187,13 @@ class TokenDataTests: XCTestCase {
         request.fullName = ""
         
         XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenEmptyString fails")
+    }
+    
+    func testValidateFullNameReturnsFalseWhenOnlySpacesString() {
+        let request = Token()
+        request.fullName = "   "
+        
+        XCTAssertFalse(request.isValidFullName(request.fullName!), "Full name contains only spaces")
     }
     
     func testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64() {

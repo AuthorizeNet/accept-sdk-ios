@@ -183,7 +183,7 @@ public class Token {
     func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 &&  inZip.characters.count <= 20 {
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) {
             isValid = true
         }
         
@@ -193,7 +193,7 @@ public class Token {
     func isValidFullName(inFullName:String) -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 &&  inFullName.characters.count <= 64 {
+        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
             isValid = true
         }
         
@@ -214,5 +214,17 @@ public class Token {
     func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
+    }
+    
+    func isStringContainsOnlySpaces(inString: String) -> Bool {
+        var result = true
+        
+        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if trimmedStr.characters.count > 0 {
+            result = false
+        }
+        
+        return result
     }
 }
