@@ -168,6 +168,20 @@ class TokenDataTests: XCTestCase {
         XCTAssertFalse(request.isValidZip(request.zip!), "Zip code has only spaces")
     }
 
+    func testValidateZipReturnsFalseWhenStartWithSpace() {
+        let request = Token()
+        request.zip = " dhjqwhdjqwd"
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't start with spaces")
+    }
+    
+    func testValidateZipReturnsFalseWhenEndsWithSpace() {
+        let request = Token()
+        request.zip = "4563 "
+        
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't end with spaces")
+    }
+
     func testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20() {
         let request = Token()
         request.zip = "z7676777786767678678678678"

@@ -183,7 +183,7 @@ public class Token {
     func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) {
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
             isValid = true
         }
         
@@ -223,6 +223,19 @@ public class Token {
         
         if trimmedStr.characters.count > 0 {
             result = false
+        }
+        
+        return result
+    }
+    
+    func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
+        var result = false
+        
+        let startStr = String(inString[inString.startIndex])
+        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
+
+        if  startStr == String.space() || endStr == String.space() {
+            result = true
         }
         
         return result
