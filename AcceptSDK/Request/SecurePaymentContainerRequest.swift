@@ -88,21 +88,21 @@ public class Token {
                         var errorResponse:AcceptSDKErrorResponse?
                         
                         if let zipCode = self.zip {
-                            if isValidZip() {
+                            if isValidZip(zipCode) {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_16", message: "Please provide valid Zip code.")
                             }
                         }
                         if let fName = self.fullName {
-                            if isValidFullName() {
+                            if isValidFullName(fName) {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
                             }
                         }
                         if let code = self.cardCode {
-                            if isValidCardCode() {
+                            if isValidCardCode(code) {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_15", message: "Please provide valid CVV.")
@@ -180,38 +180,32 @@ public class Token {
         return isValid
     }
 
-    func isValidZip() -> Bool {
+    func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if let inZip = self.zip {
-            if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
-                isValid = true
-            }
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
+            isValid = true
         }
         
         return isValid
     }
 
-    func isValidFullName() -> Bool {
+    func isValidFullName(inFullName:String) -> Bool {
         var isValid = false
         
-        if let inFullName = self.fullName {
-            if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
-                isValid = true
-            }
+        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
+            isValid = true
         }
         
         return isValid
     }
     
-    func isValidCardCode() -> Bool {
+    func isValidCardCode(inCardCode:String) -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if let inCardCode = self.cardCode {
-            if validator.validateSecurityCodeWithString(inCardCode) {
-                isValid = true
-            }
+        if validator.validateSecurityCodeWithString(inCardCode) {
+            isValid = true
         }
         
         return isValid

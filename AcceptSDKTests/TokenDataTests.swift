@@ -181,105 +181,105 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.zip = ""
 
-        XCTAssertFalse(request.isValidZip(), "testValidateZipReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateZipReturnsFalseWhenOnlySpacesString() {
         let request = Token()
         request.zip = "    "
         
-        XCTAssertFalse(request.isValidZip(), "Zip code has only spaces")
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code has only spaces")
     }
 
     func testValidateZipReturnsFalseWhenStartWithSpace() {
         let request = Token()
         request.zip = " dhjqwhdjqwd"
         
-        XCTAssertFalse(request.isValidZip(), "Zip code cann't start with spaces")
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't start with spaces")
     }
     
     func testValidateZipReturnsFalseWhenEndsWithSpace() {
         let request = Token()
         request.zip = "4563 "
         
-        XCTAssertFalse(request.isValidZip(), "Zip code cann't end with spaces")
+        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't end with spaces")
     }
 
     func testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20() {
         let request = Token()
         request.zip = "z7676777786767678678678678"
         
-        XCTAssertFalse(request.isValidZip(), "testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20 fails")
+        XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20 fails")
     }
     
     func testValidateZipReturnsTrueWhenZipIsValid() {
         let request = Token()
         request.zip = "560085"
         
-        XCTAssertTrue(request.isValidZip(), "testValidateZipReturnsTrueWhenZipIsValid fails")
+        XCTAssertTrue(request.isValidZip(request.zip!), "testValidateZipReturnsTrueWhenZipIsValid fails")
     }
     
     func testValidateFullNameReturnsFalseWhenEmptyString() {
         let request = Token()
         request.fullName = ""
         
-        XCTAssertFalse(request.isValidFullName(), "testValidateFullNameReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateFullNameReturnsFalseWhenOnlySpacesString() {
         let request = Token()
         request.fullName = "   "
         
-        XCTAssertFalse(request.isValidFullName(), "Full name contains only spaces")
+        XCTAssertFalse(request.isValidFullName(request.fullName!), "Full name contains only spaces")
     }
     
     func testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64() {
         let request = Token()
         request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
         
-        XCTAssertFalse(request.isValidFullName(), "testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64 fails")
+        XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64 fails")
     }
     
     func testValidateFullNameReturnsTrueWhenValidName() {
         let request = Token()
         request.fullName = "john doe"
         
-        XCTAssertTrue(request.isValidFullName(), "testValidateFullNameReturnsTrueWhenValidName fails")
+        XCTAssertTrue(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsTrueWhenValidName fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenEmptyString() {
         let request = Token()
         request.cardCode = ""
         
-        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3() {
         let request = Token()
         request.cardCode = "12"
         
-        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3 fails")
+        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3 fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4() {
         let request = Token()
         request.cardCode = "12345"
         
-        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4 fails")
+        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4 fails")
     }
     
     func testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3() {
         let request = Token()
         request.cardCode = "123"
         
-        XCTAssertTrue(request.isValidCardCode(), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3 fails")
+        XCTAssertTrue(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3 fails")
     }
     
     func testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4() {
         let request = Token()
         request.cardCode = "1234"
         
-        XCTAssertTrue(request.isValidCardCode(), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4 fails")
+        XCTAssertTrue(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4 fails")
     }
  
     func testTokenValidationErrorCodeE_WC_05() {
