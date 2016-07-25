@@ -33,5 +33,10 @@ Pod::Spec.new do |s|
 
     end
 
+    s.subspec 'Binary' do |binary|
+        binary.module_name = 'AuthorizeNetAccept'
+        binary.ios.vendored_frameworks = 'AcceptSDK\ Binary/AcceptSDK.framework'
+    end
+
 end
 
