@@ -18,7 +18,7 @@ public class SecurePaymentContainerRequest {
     public var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
     func validate(request: SecurePaymentContainerRequest, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
-        self.webCheckOutDataType.validate(request.webCheckOutDataType, successHandler: successHandler, failureHandler: failureHandler)
+        self.webCheckOutDataType.validate(successHandler, failureHandler: failureHandler)
     }
 }
 
@@ -27,10 +27,10 @@ public class WebCheckOutDataType {
     var id = UIDevice.currentDevice().identifierForVendor!.UUIDString
     public var token:Token = Token()
     
-    func validate(request: WebCheckOutDataType, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         
-        if isValidType(self.type) {
-            if (isValidId(self.id)) {
+        if isValidType() {
+            if (isValidId()) {
                 self.token.validate({ (isSuccess) -> () in
                     successHandler(isSuccess: true)
                     }, failureHandler: failureHandler)
@@ -44,7 +44,7 @@ public class WebCheckOutDataType {
         
     }
     
-    func isValidType(type:String) -> Bool {
+    func isValidType() -> Bool {
         var isValid = false
         
         if self.type.characters.count > 0 {
@@ -54,7 +54,7 @@ public class WebCheckOutDataType {
         return isValid
     }
     
-    func isValidId(inId:String) -> Bool {
+    func isValidId() -> Bool {
         var isValid = false
         
         if self.id.characters.count >= 1  && self.id.characters.count <= 64 {

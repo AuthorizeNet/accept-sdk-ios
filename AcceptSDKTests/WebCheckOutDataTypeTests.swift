@@ -28,20 +28,20 @@ class WebCheckOutDataTypeTests: XCTestCase {
         let request = WebCheckOutDataType()
         request.type = ""
 
-        XCTAssertFalse(request.isValidType(request.type), "Type cann't be empty and should initialize to TOKEN")
+        XCTAssertFalse(request.isValidType(), "Type cann't be empty and should initialize to TOKEN")
     }
 
     func testValidateTypeReturnsTrueWhenValidString() {
         let request = WebCheckOutDataType()
         
-        XCTAssertTrue(request.isValidType(request.type), "Type cann't be empty and should initialize to TOKEN")
+        XCTAssertTrue(request.isValidType(), "Type cann't be empty and should initialize to TOKEN")
     }
     
     func testValidateIdReturnsFalseWhenEmptyString() {
         let request = WebCheckOutDataType()
         request.id = ""
         
-        XCTAssertFalse(request.isValidId(request.id), "Id cann't be empty")
+        XCTAssertFalse(request.isValidId(), "Id cann't be empty")
     }
 
     func testTypeInitializesToUUIDString() {
@@ -54,14 +54,14 @@ class WebCheckOutDataTypeTests: XCTestCase {
         let request = WebCheckOutDataType()
         request.id = "some really really long name whose length is more than sixty four characters which required to validate"
         
-        XCTAssertFalse(request.isValidId(request.id), "Id cann't be more than 64 characters")
+        XCTAssertFalse(request.isValidId(), "Id cann't be more than 64 characters")
     }
 
     func testValidateIdReturnsTrueWhenValidString() {
         let request = WebCheckOutDataType()
         request.id = UIDevice.currentDevice().identifierForVendor!.UUIDString
         
-        XCTAssertTrue(request.isValidId(request.id), "Id cann't be empty")
+        XCTAssertTrue(request.isValidId(), "Id cann't be empty")
     }
     
     func testWebCheckOutDataTypeValidation() {
@@ -73,7 +73,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
 
         let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
             expectation.fulfill()
@@ -95,7 +95,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
         
         let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -120,7 +120,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
         
         let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
