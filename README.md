@@ -6,7 +6,7 @@
 
 ### CocoaPods
 ````
-     pod 'accept-sdk-ios'  
+     pod 'AuthorizeNetAccept'  
 ````  
 
 ### Manual Installation
