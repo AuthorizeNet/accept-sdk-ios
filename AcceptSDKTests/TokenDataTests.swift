@@ -8,7 +8,6 @@
 
 import Foundation
 import XCTest
-//@testable import AcceptSDK
 
 class TokenDataTests: XCTestCase {
     
@@ -24,7 +23,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = ""
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Should return false when card number is empty")
     }
     
@@ -32,7 +31,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "a67675"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not be alpa numeric")
     }
     
@@ -40,7 +39,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "-9989"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not be a negative")
     }
 
@@ -48,7 +47,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1908.8"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not contain decimal places")
     }
 
@@ -56,7 +55,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "234"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid)
     }
     
@@ -64,7 +63,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "234787"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid)
     }
     
@@ -72,7 +71,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1234567891234567"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
     }
     
@@ -80,7 +79,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1123 135 345 123"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
     }
     
@@ -88,7 +87,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "378282246310005"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertTrue(isValid, "testCreditCardValidationSuccess fails")
     }
     
@@ -96,70 +95,70 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.expirationMonth = "122"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testExpirationMonthFailsWhenNumberOfCharactersIsMoreThan2 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testExpirationMonthFailsWhenNumberOfCharactersIsMoreThan2 fails")
     }
     
     func testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1() {
         let request = Token()
         request.expirationMonth = "1"
         
-        XCTAssertTrue(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1 fails")
+        XCTAssertTrue(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1 fails")
     }
     
     func testValidateExpirationMonthReturnsFalseWhenMonthLessThan1() {
         let request = Token()
         request.expirationMonth = "0"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsFalseWhenMonthLessThan1 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsFalseWhenMonthLessThan1 fails")
     }
     
     func testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12() {
         let request = Token()
         request.expirationMonth = "15"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12 fails")
     }
     
     func testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2() {
         let request = Token()
         request.expirationMonth = "11"
         
-        XCTAssertTrue(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2 fails")
+        XCTAssertTrue(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2() {
         let request = Token()
         request.expirationYear = "5"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2 fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4() {
         let request = Token()
         request.expirationYear = "53453"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4 fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNotNumber() {
         let request = Token()
         request.expirationYear = "abcd"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNotNumber fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNotNumber fails")
     }
     
     func testValidateExpirationMonthReturnsTrueWhenValidYearWith4Characters() {
         let request = Token()
         request.expirationYear = "2028"
         
-        XCTAssertTrue(request.isValidExpirationYear(request.expirationYear), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
+        XCTAssertTrue(request.isValidExpirationYear(), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
     }
 
     func testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters() {
         let request = Token()
         request.expirationYear = "28"
         
-        XCTAssertTrue(request.isValidExpirationYear(request.expirationYear), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
+        XCTAssertTrue(request.isValidExpirationYear(), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
     }
     
     func testValidateExpirationDateReturnsFalseWhenYearExpired() {
@@ -167,7 +166,7 @@ class TokenDataTests: XCTestCase {
         request.expirationYear = "1990"
         request.expirationMonth = "11"
 
-        XCTAssertFalse(request.isValidExpirationDate(request.expirationMonth, inYear: request.expirationYear), "testValidateExpirationDateReturnsFalseWhenYearExpired fails")
+        XCTAssertFalse(request.isValidExpirationDate(), "testValidateExpirationDateReturnsFalseWhenYearExpired fails")
     }
     
     func testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate() {
@@ -175,7 +174,7 @@ class TokenDataTests: XCTestCase {
         request.expirationYear = "2020"
         request.expirationMonth = "11"
         
-        XCTAssertTrue(request.isValidExpirationDate(request.expirationMonth, inYear: request.expirationYear), "testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate fails")
+        XCTAssertTrue(request.isValidExpirationDate(), "testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate fails")
     }
     
     func testValidateZipReturnsFalseWhenEmptyString() {
@@ -289,7 +288,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Card Number error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -313,7 +312,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration month error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -337,7 +336,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration year error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -362,7 +361,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration date error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -385,7 +384,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = "1"
         let expectation = expectationWithDescription("Card code min length error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -407,7 +406,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = "12345"
         let expectation = expectationWithDescription("Card code max length error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -429,7 +428,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = ""
         let expectation = expectationWithDescription("Empty card code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -452,7 +451,7 @@ class TokenDataTests: XCTestCase {
         request.zip = ""
         let expectation = expectationWithDescription("Empty zip code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -475,7 +474,7 @@ class TokenDataTests: XCTestCase {
         request.zip = "123456789012345678901"
         let expectation = expectationWithDescription("Max length of zip code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -498,7 +497,7 @@ class TokenDataTests: XCTestCase {
         request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
         let expectation = expectationWithDescription("Max length of fullname error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -521,7 +520,7 @@ class TokenDataTests: XCTestCase {
         request.fullName = ""
         let expectation = expectationWithDescription("Empty fullname error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -544,7 +543,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Token validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
             expectation.fulfill()

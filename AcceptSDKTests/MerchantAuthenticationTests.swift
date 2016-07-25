@@ -74,7 +74,7 @@ class MerchantAuthenticationTests: XCTestCase {
         
         let expectation = expectationWithDescription("MerchantAuthentication validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -98,7 +98,7 @@ class MerchantAuthenticationTests: XCTestCase {
         
         let expectation = expectationWithDescription("MerchantAuthentication validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -122,7 +122,7 @@ class MerchantAuthenticationTests: XCTestCase {
         
         let expectation = expectationWithDescription("MerchantAuthentication validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -145,7 +145,7 @@ class MerchantAuthenticationTests: XCTestCase {
         
         let expectation = expectationWithDescription("MerchantAuthentication validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
                 XCTAssertTrue(isSuccess)
         
                 expectation.fulfill()

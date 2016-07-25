@@ -30,12 +30,12 @@ public class FingerPrint {
         }
     }
     
-    func validate(fingerPrint: FingerPrint, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
 
         if self.hashValue.isEmpty == false {
             if self.timestamp.isEmpty == false {
                 if self.sequence.isEmpty == false {
-                    if self.isValidAmount(self.amount) {
+                    if self.isValidAmount() {
                         successHandler(isSuccess: true)
                     } else {
                         failureHandler(withResponse: self.getSDKErrorResponse("E_WC_13", message: "Invalid Fingerprint."))
@@ -51,7 +51,7 @@ public class FingerPrint {
         }
     }
     
-    func isValidAmount(inAmount:String) -> Bool {
+    func isValidAmount() -> Bool {
         var isValid = false
         
         /*

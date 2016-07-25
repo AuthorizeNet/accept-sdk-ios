@@ -1,0 +1,10 @@
+framework module AcceptSDK {
+  umbrella header "AcceptSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module AcceptSDK.Swift {
+    header "AcceptSDK-Swift.h"
+}

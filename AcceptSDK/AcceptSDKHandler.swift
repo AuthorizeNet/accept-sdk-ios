@@ -28,7 +28,7 @@ public class AcceptSDKHandler : NSObject {
     
     public func getTokenWithRequest(inRequest: AcceptSDKRequest, successHandler:(AcceptSDKTokenResponse)->(),failureHandler:(AcceptSDKErrorResponse)->()) {
         
-        inRequest.validate(inRequest, successHandler: { (isSuccess) -> () in
+        inRequest.validate({ (isSuccess) -> () in
             let sdkInternal = AcceptSDKInternal()
             sdkInternal.getToken(inRequest, success: successHandler, failure: failureHandler)
             }, failureHandler: failureHandler)

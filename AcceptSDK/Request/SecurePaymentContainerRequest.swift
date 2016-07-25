@@ -17,8 +17,8 @@ enum WebCheckOutTypeEnum: String {
 public class SecurePaymentContainerRequest {
     public var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
-    func validate(request: SecurePaymentContainerRequest, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
-        self.webCheckOutDataType.validate(request.webCheckOutDataType, successHandler: successHandler, failureHandler: failureHandler)
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+        self.webCheckOutDataType.validate(successHandler, failureHandler: failureHandler)
     }
 }
 
@@ -27,11 +27,11 @@ public class WebCheckOutDataType {
     var id = UIDevice.currentDevice().identifierForVendor!.UUIDString
     public var token:Token = Token()
     
-    func validate(request: WebCheckOutDataType, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         
-        if isValidType(self.type) {
-            if (isValidId(self.id)) {
-                self.token.validate(self.token, successHandler:{ (isSuccess) -> () in
+        if isValidType() {
+            if (isValidId()) {
+                self.token.validate({ (isSuccess) -> () in
                     successHandler(isSuccess: true)
                     }, failureHandler: failureHandler)
             } else {
@@ -44,7 +44,7 @@ public class WebCheckOutDataType {
         
     }
     
-    func isValidType(type:String) -> Bool {
+    func isValidType() -> Bool {
         var isValid = false
         
         if self.type.characters.count > 0 {
@@ -54,7 +54,7 @@ public class WebCheckOutDataType {
         return isValid
     }
     
-    func isValidId(inId:String) -> Bool {
+    func isValidId() -> Bool {
         var isValid = false
         
         if self.id.characters.count >= 1  && self.id.characters.count <= 64 {
@@ -79,11 +79,11 @@ public class Token {
     public var zip:String?
     public var fullName:String?
 
-    func validate(request: Token, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
-        if isValidCardNumber(self.cardNumber) {
-            if isValidExpirationMonth(self.expirationMonth) {
-                if isValidExpirationYear(self.expirationYear) {
-                    if isValidExpirationDate(self.expirationMonth, inYear: self.expirationYear) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+        if isValidCardNumber() {
+            if isValidExpirationMonth() {
+                if isValidExpirationYear() {
+                    if isValidExpirationDate() {
                         var intermediateResult = true
                         var errorResponse:AcceptSDKErrorResponse?
                         
@@ -128,18 +128,18 @@ public class Token {
         }
     }
     
-    func isValidCardNumber(inNumber:String) -> Bool {
+    func isValidCardNumber() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if ((AcceptSDKStringValidator.isAlphanumeric(inNumber) == false) && (Int(inNumber) > 0) && inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
+        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
         return isValid
     }
     
-    func isValidExpirationMonth(inMonthStr:String) -> Bool {
+    func isValidExpirationMonth() -> Bool {
         
         if (self.expirationMonth.characters.count == 1)
         {
@@ -151,29 +151,29 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
-        if inMonthStr.characters.count >= 1 &&  inMonthStr.characters.count <= 2 && validator.validateMonthWithString(inMonthStr) {
+        if self.expirationMonth.characters.count >= 1 &&  self.expirationMonth.characters.count <= 2 && validator.validateMonthWithString(self.expirationMonth) {
             isValid = true
         }
         
         return isValid
     }
 
-    func isValidExpirationYear(inYearStr:String) -> Bool {
+    func isValidExpirationYear() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
-        if validator.validateYearWithString(inYearStr) {
+        if validator.validateYearWithString(self.expirationYear) {
             isValid = true
         }
         
         return isValid
     }
 
-    func isValidExpirationDate(inMonth: String, inYear:String) -> Bool {
+    func isValidExpirationDate() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if /*inDateStr.characters.count >= 4 &&  inDateStr.characters.count <= 7 && */validator.validateExpirationDate(inMonth, inYear:inYear) {
+        if /*inDateStr.characters.count >= 4 &&  inDateStr.characters.count <= 7 && */validator.validateExpirationDate(self.expirationMonth, inYear:self.expirationYear) {
             isValid = true
         }
         
@@ -183,7 +183,7 @@ public class Token {
     func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
             isValid = true
         }
         
@@ -193,7 +193,7 @@ public class Token {
     func isValidFullName(inFullName:String) -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
+        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
             isValid = true
         }
         
@@ -216,28 +216,4 @@ public class Token {
         return AcceptSDKErrorResponse(withMessage: message)
     }
     
-    func isStringContainsOnlySpaces(inString: String) -> Bool {
-        var result = true
-        
-        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
-        if trimmedStr.characters.count > 0 {
-            result = false
-        }
-        
-        return result
-    }
-    
-    func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
-        var result = false
-        
-        let startStr = String(inString[inString.startIndex])
-        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
-
-        if  startStr == String.space() || endStr == String.space() {
-            result = true
-        }
-        
-        return result
-    }
 }

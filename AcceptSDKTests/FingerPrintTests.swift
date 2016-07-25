@@ -24,21 +24,21 @@ class FingerPrintTests: XCTestCase {
         let request = getValidFingerprintRequest()
         request.amount = "ghwq"
         
-        XCTAssertFalse(request.isValidAmount(request.amount), "Amount should be number")
+        XCTAssertFalse(request.isValidAmount(), "Amount should be number")
     }
 
     func testNegativeAmountValidationReturnsFalse() {
         let request = getValidFingerprintRequest()
         request.amount = "-12"
         
-        XCTAssertFalse(request.isValidAmount(request.amount), "Amount should not be negative")
+        XCTAssertFalse(request.isValidAmount(), "Amount should not be negative")
     }
     
     func testAmountValidationSuccess() {
         let request = getValidFingerprintRequest()
         request.amount = "12.99"
         
-        XCTAssertTrue(request.isValidAmount(request.amount), "Amount is not a valid number")
+        XCTAssertTrue(request.isValidAmount(), "Amount is not a valid number")
     }
     
     func testEmptyHashvalueErrorCodeE_WC_09() {
@@ -47,7 +47,7 @@ class FingerPrintTests: XCTestCase {
         
         let expectation = expectationWithDescription("Empty hashvalue error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -70,7 +70,7 @@ class FingerPrintTests: XCTestCase {
         
         let expectation = expectationWithDescription("Empty sequence error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -94,7 +94,7 @@ class FingerPrintTests: XCTestCase {
         
         let expectation = expectationWithDescription("Empty Amount error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -118,7 +118,7 @@ class FingerPrintTests: XCTestCase {
         
         let expectation = expectationWithDescription("Negative Amount error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -141,7 +141,7 @@ class FingerPrintTests: XCTestCase {
         
         let expectation = expectationWithDescription("FingerPrint validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
             expectation.fulfill()

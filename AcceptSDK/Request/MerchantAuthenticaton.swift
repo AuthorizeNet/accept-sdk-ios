@@ -15,7 +15,7 @@ public class MerchantAuthenticaton {
     public var clientKey: String?
     public var mobileDeviceId:String?
     
-    func validate(mecrhantAuth: MerchantAuthenticaton, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         
         if ((self.clientKey?.isEmpty) == nil && self.fingerPrint == nil) {
             failureHandler(withResponse: self.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
@@ -32,7 +32,7 @@ public class MerchantAuthenticaton {
                 }
             }
         } else {
-            self.fingerPrint!.validate(self.fingerPrint!, successHandler: { (isSuccess) -> () in
+            self.fingerPrint!.validate({ (isSuccess) -> () in
                 if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
                     failureHandler(withResponse: errorResponse)
                 } else {
