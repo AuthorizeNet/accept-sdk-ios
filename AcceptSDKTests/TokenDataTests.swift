@@ -23,7 +23,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = ""
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Should return false when card number is empty")
     }
     
@@ -31,7 +31,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "a67675"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not be alpa numeric")
     }
     
@@ -39,7 +39,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "-9989"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not be a negative")
     }
 
@@ -47,7 +47,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1908.8"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "Card number should not contain decimal places")
     }
 
@@ -55,7 +55,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "234"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid)
     }
     
@@ -63,7 +63,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "234787"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid)
     }
     
@@ -71,7 +71,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1234567891234567"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
     }
     
@@ -79,7 +79,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "1123 135 345 123"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertFalse(isValid, "testCreditCardValidationFailsWhenLuhnAlgorithmFails fails")
     }
     
@@ -87,7 +87,7 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.cardNumber = "378282246310005"
         
-        let isValid = request.isValidCardNumber(request.cardNumber)
+        let isValid = request.isValidCardNumber()
         XCTAssertTrue(isValid, "testCreditCardValidationSuccess fails")
     }
     
@@ -95,70 +95,70 @@ class TokenDataTests: XCTestCase {
         let request = Token()
         request.expirationMonth = "122"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testExpirationMonthFailsWhenNumberOfCharactersIsMoreThan2 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testExpirationMonthFailsWhenNumberOfCharactersIsMoreThan2 fails")
     }
     
     func testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1() {
         let request = Token()
         request.expirationMonth = "1"
         
-        XCTAssertTrue(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1 fails")
+        XCTAssertTrue(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsTruesWhenNumberOfCharactersIs1 fails")
     }
     
     func testValidateExpirationMonthReturnsFalseWhenMonthLessThan1() {
         let request = Token()
         request.expirationMonth = "0"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsFalseWhenMonthLessThan1 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsFalseWhenMonthLessThan1 fails")
     }
     
     func testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12() {
         let request = Token()
         request.expirationMonth = "15"
         
-        XCTAssertFalse(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12 fails")
+        XCTAssertFalse(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnFalseWhenMonthGreaterThan12 fails")
     }
     
     func testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2() {
         let request = Token()
         request.expirationMonth = "11"
         
-        XCTAssertTrue(request.isValidExpirationMonth(request.expirationMonth), "testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2 fails")
+        XCTAssertTrue(request.isValidExpirationMonth(), "testValidateExpirationMonthReturnsTrueWhenNumberOfCharactersIs2 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2() {
         let request = Token()
         request.expirationYear = "5"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2 fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsLessThan2 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4() {
         let request = Token()
         request.expirationYear = "53453"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4 fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNumberOfCharactersIsGreaterThan4 fails")
     }
     
     func testValidateExpirationYearReturnsFalseWhenNotNumber() {
         let request = Token()
         request.expirationYear = "abcd"
         
-        XCTAssertFalse(request.isValidExpirationYear(request.expirationMonth), "testValidateExpirationYearReturnsFalseWhenNotNumber fails")
+        XCTAssertFalse(request.isValidExpirationYear(), "testValidateExpirationYearReturnsFalseWhenNotNumber fails")
     }
     
     func testValidateExpirationMonthReturnsTrueWhenValidYearWith4Characters() {
         let request = Token()
         request.expirationYear = "2028"
         
-        XCTAssertTrue(request.isValidExpirationYear(request.expirationYear), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
+        XCTAssertTrue(request.isValidExpirationYear(), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
     }
 
     func testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters() {
         let request = Token()
         request.expirationYear = "28"
         
-        XCTAssertTrue(request.isValidExpirationYear(request.expirationYear), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
+        XCTAssertTrue(request.isValidExpirationYear(), "testValidateExpirationMonthReturnsTrueWhenValidYearWith2Characters fails")
     }
     
     func testValidateExpirationDateReturnsFalseWhenYearExpired() {
@@ -166,7 +166,7 @@ class TokenDataTests: XCTestCase {
         request.expirationYear = "1990"
         request.expirationMonth = "11"
 
-        XCTAssertFalse(request.isValidExpirationDate(request.expirationMonth, inYear: request.expirationYear), "testValidateExpirationDateReturnsFalseWhenYearExpired fails")
+        XCTAssertFalse(request.isValidExpirationDate(), "testValidateExpirationDateReturnsFalseWhenYearExpired fails")
     }
     
     func testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate() {
@@ -174,112 +174,112 @@ class TokenDataTests: XCTestCase {
         request.expirationYear = "2020"
         request.expirationMonth = "11"
         
-        XCTAssertTrue(request.isValidExpirationDate(request.expirationMonth, inYear: request.expirationYear), "testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate fails")
+        XCTAssertTrue(request.isValidExpirationDate(), "testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate fails")
     }
     
     func testValidateZipReturnsFalseWhenEmptyString() {
         let request = Token()
         request.zip = ""
 
-        XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidZip(), "testValidateZipReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateZipReturnsFalseWhenOnlySpacesString() {
         let request = Token()
         request.zip = "    "
         
-        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code has only spaces")
+        XCTAssertFalse(request.isValidZip(), "Zip code has only spaces")
     }
 
     func testValidateZipReturnsFalseWhenStartWithSpace() {
         let request = Token()
         request.zip = " dhjqwhdjqwd"
         
-        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't start with spaces")
+        XCTAssertFalse(request.isValidZip(), "Zip code cann't start with spaces")
     }
     
     func testValidateZipReturnsFalseWhenEndsWithSpace() {
         let request = Token()
         request.zip = "4563 "
         
-        XCTAssertFalse(request.isValidZip(request.zip!), "Zip code cann't end with spaces")
+        XCTAssertFalse(request.isValidZip(), "Zip code cann't end with spaces")
     }
 
     func testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20() {
         let request = Token()
         request.zip = "z7676777786767678678678678"
         
-        XCTAssertFalse(request.isValidZip(request.zip!), "testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20 fails")
+        XCTAssertFalse(request.isValidZip(), "testValidateZipReturnsFalseWhenNumberOfCharactersGreaterThan20 fails")
     }
     
     func testValidateZipReturnsTrueWhenZipIsValid() {
         let request = Token()
         request.zip = "560085"
         
-        XCTAssertTrue(request.isValidZip(request.zip!), "testValidateZipReturnsTrueWhenZipIsValid fails")
+        XCTAssertTrue(request.isValidZip(), "testValidateZipReturnsTrueWhenZipIsValid fails")
     }
     
     func testValidateFullNameReturnsFalseWhenEmptyString() {
         let request = Token()
         request.fullName = ""
         
-        XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidFullName(), "testValidateFullNameReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateFullNameReturnsFalseWhenOnlySpacesString() {
         let request = Token()
         request.fullName = "   "
         
-        XCTAssertFalse(request.isValidFullName(request.fullName!), "Full name contains only spaces")
+        XCTAssertFalse(request.isValidFullName(), "Full name contains only spaces")
     }
     
     func testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64() {
         let request = Token()
         request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
         
-        XCTAssertFalse(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64 fails")
+        XCTAssertFalse(request.isValidFullName(), "testValidateFullNameReturnsFalseWhenNumberOfCharactersGreaterThan64 fails")
     }
     
     func testValidateFullNameReturnsTrueWhenValidName() {
         let request = Token()
         request.fullName = "john doe"
         
-        XCTAssertTrue(request.isValidFullName(request.fullName!), "testValidateFullNameReturnsTrueWhenValidName fails")
+        XCTAssertTrue(request.isValidFullName(), "testValidateFullNameReturnsTrueWhenValidName fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenEmptyString() {
         let request = Token()
         request.cardCode = ""
         
-        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenEmptyString fails")
+        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenEmptyString fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3() {
         let request = Token()
         request.cardCode = "12"
         
-        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3 fails")
+        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenMinimumCharactersLessThan3 fails")
     }
     
     func testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4() {
         let request = Token()
         request.cardCode = "12345"
         
-        XCTAssertFalse(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4 fails")
+        XCTAssertFalse(request.isValidCardCode(), "testValidateCardCodeReturnsFalseWhenMinimumCharactersGreaterThan4 fails")
     }
     
     func testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3() {
         let request = Token()
         request.cardCode = "123"
         
-        XCTAssertTrue(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3 fails")
+        XCTAssertTrue(request.isValidCardCode(), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo3 fails")
     }
     
     func testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4() {
         let request = Token()
         request.cardCode = "1234"
         
-        XCTAssertTrue(request.isValidCardCode(request.cardCode!), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4 fails")
+        XCTAssertTrue(request.isValidCardCode(), "testValidateCardCodeReturnsTrueWhenMinimumCharactersEqualTo4 fails")
     }
  
     func testTokenValidationErrorCodeE_WC_05() {

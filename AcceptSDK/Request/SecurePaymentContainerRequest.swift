@@ -80,29 +80,29 @@ public class Token {
     public var fullName:String?
 
     func validate(request: Token, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
-        if isValidCardNumber(self.cardNumber) {
-            if isValidExpirationMonth(self.expirationMonth) {
-                if isValidExpirationYear(self.expirationYear) {
-                    if isValidExpirationDate(self.expirationMonth, inYear: self.expirationYear) {
+        if isValidCardNumber() {
+            if isValidExpirationMonth() {
+                if isValidExpirationYear() {
+                    if isValidExpirationDate() {
                         var intermediateResult = true
                         var errorResponse:AcceptSDKErrorResponse?
                         
                         if let zipCode = self.zip {
-                            if isValidZip(zipCode) {
+                            if isValidZip() {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_16", message: "Please provide valid Zip code.")
                             }
                         }
                         if let fName = self.fullName {
-                            if isValidFullName(fName) {
+                            if isValidFullName() {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_17", message: "Please provide valid card holder name.")
                             }
                         }
                         if let code = self.cardCode {
-                            if isValidCardCode(code) {
+                            if isValidCardCode() {
                             } else {
                                 intermediateResult = false
                                 errorResponse = self.getSDKErrorResponse("E_WC_15", message: "Please provide valid CVV.")
@@ -128,18 +128,18 @@ public class Token {
         }
     }
     
-    func isValidCardNumber(inNumber:String) -> Bool {
+    func isValidCardNumber() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if ((AcceptSDKStringValidator.isAlphanumeric(inNumber) == false) && (Int(inNumber) > 0) && inNumber.characters.count >= 4 &&  inNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
+        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (Int(self.cardNumber) > 0) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
         return isValid
     }
     
-    func isValidExpirationMonth(inMonthStr:String) -> Bool {
+    func isValidExpirationMonth() -> Bool {
         
         if (self.expirationMonth.characters.count == 1)
         {
@@ -151,61 +151,67 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
-        if inMonthStr.characters.count >= 1 &&  inMonthStr.characters.count <= 2 && validator.validateMonthWithString(inMonthStr) {
+        if self.expirationMonth.characters.count >= 1 &&  self.expirationMonth.characters.count <= 2 && validator.validateMonthWithString(self.expirationMonth) {
             isValid = true
         }
         
         return isValid
     }
 
-    func isValidExpirationYear(inYearStr:String) -> Bool {
+    func isValidExpirationYear() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
-        if validator.validateYearWithString(inYearStr) {
+        if validator.validateYearWithString(self.expirationYear) {
             isValid = true
         }
         
         return isValid
     }
 
-    func isValidExpirationDate(inMonth: String, inYear:String) -> Bool {
+    func isValidExpirationDate() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if /*inDateStr.characters.count >= 4 &&  inDateStr.characters.count <= 7 && */validator.validateExpirationDate(inMonth, inYear:inYear) {
+        if /*inDateStr.characters.count >= 4 &&  inDateStr.characters.count <= 7 && */validator.validateExpirationDate(self.expirationMonth, inYear:self.expirationYear) {
             isValid = true
         }
         
         return isValid
     }
 
-    func isValidZip(inZip:String) -> Bool {
+    func isValidZip() -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
-            isValid = true
+        if let inZip = self.zip {
+            if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
+                isValid = true
+            }
         }
         
         return isValid
     }
 
-    func isValidFullName(inFullName:String) -> Bool {
+    func isValidFullName() -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
-            isValid = true
+        if let inFullName = self.fullName {
+            if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
+                isValid = true
+            }
         }
         
         return isValid
     }
     
-    func isValidCardCode(inCardCode:String) -> Bool {
+    func isValidCardCode() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if validator.validateSecurityCodeWithString(inCardCode) {
-            isValid = true
+        if let inCardCode = self.cardCode {
+            if validator.validateSecurityCodeWithString(inCardCode) {
+                isValid = true
+            }
         }
         
         return isValid
