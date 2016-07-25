@@ -132,7 +132,7 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (Int(self.cardNumber) > 0) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
+        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (self.isStringContainsDecimalCharacter(self.cardNumber) == false) && (self.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
@@ -236,6 +236,32 @@ public class Token {
 
         if  startStr == String.space() || endStr == String.space() {
             result = true
+        }
+        
+        return result
+    }
+    
+    func isStringContainsDecimalCharacter(inString: String) -> Bool {
+        var result = false
+        
+        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet())
+        
+        if trimmedStr.characters.count > 0 {
+            result = true
+        }
+        
+        return result
+    }
+
+    func isStringIsNegativeNumber(inString: String) -> Bool {
+        var result = false
+        
+        if inString.characters.count > 0 {
+            let startStr = String(inString[inString.startIndex])
+            
+            if startStr == "-" {
+                result = true
+            }
         }
         
         return result
