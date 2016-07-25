@@ -288,7 +288,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Card Number error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -312,7 +312,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration month error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -336,7 +336,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration year error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -361,7 +361,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Expiration date error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -384,7 +384,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = "1"
         let expectation = expectationWithDescription("Card code min length error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -406,7 +406,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = "12345"
         let expectation = expectationWithDescription("Card code max length error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -428,7 +428,7 @@ class TokenDataTests: XCTestCase {
         request.cardCode = ""
         let expectation = expectationWithDescription("Empty card code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -451,7 +451,7 @@ class TokenDataTests: XCTestCase {
         request.zip = ""
         let expectation = expectationWithDescription("Empty zip code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -474,7 +474,7 @@ class TokenDataTests: XCTestCase {
         request.zip = "123456789012345678901"
         let expectation = expectationWithDescription("Max length of zip code error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -497,7 +497,7 @@ class TokenDataTests: XCTestCase {
         request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
         let expectation = expectationWithDescription("Max length of fullname error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -520,7 +520,7 @@ class TokenDataTests: XCTestCase {
         request.fullName = ""
         let expectation = expectationWithDescription("Empty fullname error mapping failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
                 let errorCode = withResponse.getMessages().getMessages()[0].getCode()
                 let errorText = withResponse.getMessages().getMessages()[0].getText()
@@ -543,7 +543,7 @@ class TokenDataTests: XCTestCase {
         
         let expectation = expectationWithDescription("Token validation failed")
         
-        request.validate(request, successHandler: { (isSuccess) -> () in
+        request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
             expectation.fulfill()

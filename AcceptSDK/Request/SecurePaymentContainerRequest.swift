@@ -31,7 +31,7 @@ public class WebCheckOutDataType {
         
         if isValidType(self.type) {
             if (isValidId(self.id)) {
-                self.token.validate(self.token, successHandler:{ (isSuccess) -> () in
+                self.token.validate({ (isSuccess) -> () in
                     successHandler(isSuccess: true)
                     }, failureHandler: failureHandler)
             } else {
@@ -79,7 +79,7 @@ public class Token {
     public var zip:String?
     public var fullName:String?
 
-    func validate(request: Token, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         if isValidCardNumber() {
             if isValidExpirationMonth() {
                 if isValidExpirationYear() {
