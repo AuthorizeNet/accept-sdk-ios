@@ -132,7 +132,7 @@ public class Token {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (self.isStringContainsDecimalCharacter(self.cardNumber) == false) && (self.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
+        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
@@ -183,7 +183,7 @@ public class Token {
     func isValidZip(inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (self.isStringContainsOnlySpaces(inZip) == false) && (self.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
+        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
             isValid = true
         }
         
@@ -193,7 +193,7 @@ public class Token {
     func isValidFullName(inFullName:String) -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (self.isStringContainsOnlySpaces(inFullName) == false) {
+        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
             isValid = true
         }
         
@@ -216,54 +216,4 @@ public class Token {
         return AcceptSDKErrorResponse(withMessage: message)
     }
     
-    func isStringContainsOnlySpaces(inString: String) -> Bool {
-        var result = true
-        
-        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
-        if trimmedStr.characters.count > 0 {
-            result = false
-        }
-        
-        return result
-    }
-    
-    func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
-        var result = false
-        
-        let startStr = String(inString[inString.startIndex])
-        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
-
-        if  startStr == String.space() || endStr == String.space() {
-            result = true
-        }
-        
-        return result
-    }
-    
-    func isStringContainsDecimalCharacter(inString: String) -> Bool {
-        var result = false
-        
-        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet())
-        
-        if trimmedStr.characters.count > 0 {
-            result = true
-        }
-        
-        return result
-    }
-
-    func isStringIsNegativeNumber(inString: String) -> Bool {
-        var result = false
-        
-        if inString.characters.count > 0 {
-            let startStr = String(inString[inString.startIndex])
-            
-            if startStr == "-" {
-                result = true
-            }
-        }
-        
-        return result
-    }
 }

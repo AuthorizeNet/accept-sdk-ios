@@ -108,6 +108,56 @@ class AcceptSDKStringValidator {
         return result;
     }
 
+    class func isStringContainsOnlySpaces(inString: String) -> Bool {
+        var result = true
+        
+        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if trimmedStr.characters.count > 0 {
+            result = false
+        }
+        
+        return result
+    }
+    
+    class func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
+        var result = false
+        
+        let startStr = String(inString[inString.startIndex])
+        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
+        
+        if  startStr == String.space() || endStr == String.space() {
+            result = true
+        }
+        
+        return result
+    }
+    
+    class func isStringContainsDecimalCharacter(inString: String) -> Bool {
+        var result = false
+        
+        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet())
+        
+        if trimmedStr.characters.count > 0 {
+            result = true
+        }
+        
+        return result
+    }
+    
+    class func isStringIsNegativeNumber(inString: String) -> Bool {
+        var result = false
+        
+        if inString.characters.count > 0 {
+            let startStr = String(inString[inString.startIndex])
+            
+            if startStr == "-" {
+                result = true
+            }
+        }
+        
+        return result
+    }
 }
 
 
