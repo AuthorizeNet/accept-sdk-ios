@@ -32,7 +32,7 @@ public class MerchantAuthenticaton {
                 }
             }
         } else {
-            self.fingerPrint!.validate(self.fingerPrint!, successHandler: { (isSuccess) -> () in
+            self.fingerPrint!.validate({ (isSuccess) -> () in
                 if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
                     failureHandler(withResponse: errorResponse)
                 } else {
