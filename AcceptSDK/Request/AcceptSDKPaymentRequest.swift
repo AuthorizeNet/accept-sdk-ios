@@ -14,7 +14,7 @@ public class AcceptSDKRequest: NSObject {
     
     func validate(request: AcceptSDKRequest, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         self.merchantAuthentication.validate(request.merchantAuthentication, successHandler: {_ in 
-            self.securePaymentContainerRequest.validate(request.securePaymentContainerRequest, successHandler: successHandler, failureHandler: failureHandler)
+            self.securePaymentContainerRequest.validate(successHandler, failureHandler: failureHandler)
             }, failureHandler: failureHandler)
     }
 }

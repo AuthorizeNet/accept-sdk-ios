@@ -17,7 +17,7 @@ enum WebCheckOutTypeEnum: String {
 public class SecurePaymentContainerRequest {
     public var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
-    func validate(request: SecurePaymentContainerRequest, successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
         self.webCheckOutDataType.validate(successHandler, failureHandler: failureHandler)
     }
 }
