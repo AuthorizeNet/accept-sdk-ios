@@ -10,7 +10,7 @@ import Foundation
 
 
 public class MerchantAuthenticaton {
-    public var name:String?
+    public var name = String()
     public var fingerPrint:FingerPrint?
     public var clientKey: String?
     public var mobileDeviceId:String?

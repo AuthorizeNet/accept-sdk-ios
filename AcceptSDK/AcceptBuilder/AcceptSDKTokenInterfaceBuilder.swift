@@ -78,10 +78,7 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
     func getRequestJSONString(request: AcceptSDKRequest) -> String {
         var jsonStr: String = String("")
         
-        var nameKeyValueStr:String?
-        if let str = request.merchantAuthentication.name {
-            nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: str)
-        }
+        var nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: request.merchantAuthentication.name)
         
         //fingerprint
         var fingerPrintArrayStr = String()
@@ -118,11 +115,8 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         
         var authenticationArrayStr = String()
         
-        if let str = nameKeyValueStr {
-            authenticationArrayStr = self.createJSONArray(NSArray(arrayLiteral: str, clientKeyValueStr, fingerPrintDictKeyValueStr) as! Array<String>)
-        } else {
-            authenticationArrayStr = self.createJSONArray(NSArray(arrayLiteral: clientKeyValueStr, fingerPrintDictKeyValueStr) as! Array<String>)
-        }
+        authenticationArrayStr = self.createJSONArray(NSArray(arrayLiteral: nameKeyValueStr, clientKeyValueStr, fingerPrintDictKeyValueStr) as! Array<String>)
+        
         let merchantAuthenticationDictStr = self.createJSONDict(AcceptSDKTokenAPIRequest.kMerchantAuthenticationKey, valueString: authenticationArrayStr)
         
         let typeKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kTypeKey, value: request.securePaymentContainerRequest.webCheckOutDataType.type)

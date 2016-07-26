@@ -22,28 +22,28 @@ class MerchantAuthenticationTests: XCTestCase {
         let request = getValidMerchantAuthentication()
         request.name = ""
         
-        XCTAssertFalse(request.isValidName(request.name!), "Name cann't be empty")
+        XCTAssertFalse(request.isValidName(request.name), "Name cann't be empty")
     }
     
     func testValidateNameReturnsFalseWhenLengthGreaterThan25() {
         let request = getValidMerchantAuthentication()
         request.name = "some name with characters count greater than twenty five"
         
-        XCTAssertFalse(request.isValidName(request.name!), "Name cann't contain more than 25 characters")
+        XCTAssertFalse(request.isValidName(request.name), "Name cann't contain more than 25 characters")
     }
     
     func testValidateNameReturnsTrueWhenValid() {
         let request = getValidMerchantAuthentication()
         request.name = "valid name"
         
-        XCTAssertTrue(request.isValidName(request.name!), "Not a valid name")
+        XCTAssertTrue(request.isValidName(request.name), "Not a valid name")
     }
 
     func testValidateNameReturnsTrueWhenValidAlphaNumeric() {
         let request = getValidMerchantAuthentication()
         request.name = "ajw12ujhg12"
         
-        XCTAssertTrue(request.isValidName(request.name!), "Not a valid name")
+        XCTAssertTrue(request.isValidName(request.name), "Not a valid name")
     }
 
     func testValidateMobileDeviceIdReturnsFalseWhenEmptyString() {
