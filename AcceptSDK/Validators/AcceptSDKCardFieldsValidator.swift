@@ -180,7 +180,7 @@ public class AcceptSDKCardFieldsValidator {
             let monthComponents = NSDateComponents()
             monthComponents.month = 1
             
-            let nextDayAfterExpirationDate = NSCalendar.currentCalendar().dateByAddingComponents(monthComponents, toDate: expirationDate!, options: NSCalendarOptions.WrapComponents)
+            let nextDayAfterExpirationDate = NSCalendar.currentCalendar().dateByAddingComponents(monthComponents, toDate: expirationDate!, options: NSCalendarOptions(rawValue: 0))
             
             let timeIntervalSinceDate = nextDayAfterExpirationDate!.timeIntervalSinceDate(nowDate)
             result = (timeIntervalSinceDate > 0)
