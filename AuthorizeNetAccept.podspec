@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.default_subspec = 'Source'
+    s.default_subspec = 'Binary'
 
     s.subspec 'Source' do |source|
 
