@@ -33,7 +33,7 @@ public class FingerPrint {
     func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
 
         if self.hashValue.isEmpty == false {
-            if self.timestamp.isEmpty == false {
+            if isValidTimestamp() {
                 if self.sequence.isEmpty == false {
                     if self.isValidAmount() {
                         successHandler(isSuccess: true)
@@ -49,6 +49,16 @@ public class FingerPrint {
         } else {
             failureHandler(withResponse: self.getSDKErrorResponse("E_WC_09", message: "Fingerprint hash should not be blank."))
         }
+    }
+    
+    func isValidTimestamp() -> Bool {
+        var isValid = false
+        
+        if ((self.timestamp.characters.count > 0) && AcceptSDKStringValidator.isAlphanumeric(self.timestamp) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.timestamp) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.timestamp) == false) {
+            isValid = true
+        }
+        
+        return isValid
     }
     
     func isValidAmount() -> Bool {

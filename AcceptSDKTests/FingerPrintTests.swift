@@ -20,6 +20,41 @@ class FingerPrintTests: XCTestCase {
         super.tearDown()
     }
 
+    func testEmptyTimestampReturnsFalse() {
+        let request = getValidFingerprintRequest()
+        request.timestamp = ""
+        
+        XCTAssertFalse(request.isValidTimestamp(), "Timestamp value should not be empty")
+    }
+
+    func testAlphaNumericTimestampReturnsFalse() {
+        let request = getValidFingerprintRequest()
+        request.timestamp = "23473hv232"
+        
+        XCTAssertFalse(request.isValidTimestamp(), "Timestamp value should contains only numbers")
+    }
+    
+    func testNegativeTimestampReturnsFalse() {
+        let request = getValidFingerprintRequest()
+        request.timestamp = "-2987665"
+        
+        XCTAssertFalse(request.isValidTimestamp(), "Timestamp value should not be negative numbers")
+    }
+
+    func testFloatingNumberTimestampReturnsFalse() {
+        let request = getValidFingerprintRequest()
+        request.timestamp = "945.87665"
+        
+        XCTAssertFalse(request.isValidTimestamp(), "Timestamp value should not contains decimal numbers")
+    }
+
+    func testValidTimestampReturnsTrue() {
+        let request = getValidFingerprintRequest()
+        request.timestamp = "94587665"
+        
+        XCTAssertTrue(request.isValidTimestamp(), "Timestamp value is not valid")
+    }
+
     func testAmountValidationReturnsFalseWhenNotNumber() {
         let request = getValidFingerprintRequest()
         request.amount = "ghwq"
@@ -64,6 +99,7 @@ class FingerPrintTests: XCTestCase {
             }
         }
     }
+    
     func testEmptySequenceErrorCodeE_WC_12() {
         let request = self.getValidFingerprintRequest()
         request.sequence = ""
@@ -125,6 +161,30 @@ class FingerPrintTests: XCTestCase {
                 
                 XCTAssertEqual(errorCode, "E_WC_13", "Negative Amount Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Invalid Fingerprint.", "Negative Amount text mapping is wrong")
+                
+                expectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    func testNegativeTimestampErrorCodeE_WC_13() {
+        let request = self.getValidFingerprintRequest()
+        request.timestamp = "-12324424a"
+        
+        let expectation = expectationWithDescription("Invalid Timestamp error mapping failed")
+        
+        request.validate({ (isSuccess) -> () in
+            }, failureHandler: { (withResponse) -> () in
+                let errorCode = withResponse.getMessages().getMessages()[0].getCode()
+                let errorText = withResponse.getMessages().getMessages()[0].getText()
+                
+                XCTAssertEqual(errorCode, "E_WC_11", "Invalid Timestamp Error code mapping is wrong")
+                XCTAssertEqual(errorText, "Please provide valid timestamp in utc.", "Invalid Timestamp text mapping is wrong")
                 
                 expectation.fulfill()
         })
