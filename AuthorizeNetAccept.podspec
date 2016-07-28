@@ -24,19 +24,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.default_subspec = 'Source'
-
-    s.subspec 'Source' do |source|
-
-        source.source_files  = "AcceptSDK/**/*.{swift}"
-        source.xcconfig = { 'ENABLE_BITCODE' => 'NO' }
-
-    end
-
-    s.subspec 'Binary' do |binary|
-        binary.module_name = 'AuthorizeNetAccept'
-        binary.ios.vendored_frameworks = 'AcceptSDK\ Binary/AcceptSDK.framework'
-    end
+    s.ios.vendored_frameworks = 'AcceptRepoNew/accept-sdk-ios-1/AcceptSDK\ Binary/AcceptSDK.framework'
 
 end
 
