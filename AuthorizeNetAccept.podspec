@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
+    s.module_name      = 'AuthorizeNetAccept'
     s.vendored_framework = 'AcceptSDK-Framework/AcceptSDK.framework'
 
 end
