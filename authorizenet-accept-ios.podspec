@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.vendored_frameworks = 'AcceptSDK\ Binary/AcceptSDK.framework'
+    s.vendored_framework = 'AcceptSDK\ Binary/AcceptSDK.framework'
 
 end
 
