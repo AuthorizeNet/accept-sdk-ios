@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint AcceptSDK.podspec' to ensure this is a
+# Be sure to run `pod lib lint AuthorizeNetAccept.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.ios.vendored_frameworks = 'AcceptSDK\ Binary/AcceptSDK.framework'
+    s.vendored_frameworks = 'AcceptSDK-Framework/AcceptSDK.framework'
 
 end
 
