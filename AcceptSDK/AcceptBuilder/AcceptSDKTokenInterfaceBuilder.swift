@@ -28,6 +28,7 @@ struct AcceptSDKTokenAPIRequest{
     static let kCardCodeKey                         = "cardCode"
     static let kZipKey                              = "zip"
     static let kFullNameKey                         = "fullName"
+    static let kClientId                            = "clientId"
 }
 
 class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
@@ -146,7 +147,8 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         let dataArrayStr = self.createJSONArray(NSArray(arrayLiteral: typeKeyValueStr, idKeyValueStr, tokenDictKeyValueStr) as! Array<String>)
         let dataDictStr = self.createJSONDict(AcceptSDKTokenAPIRequest.kDataKey, valueString: dataArrayStr)
         
-        let finalArrayStr = self.createJSONArray(NSArray(arrayLiteral: merchantAuthenticationDictStr, dataDictStr) as! Array<String>)
+        let clientIdKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kClientId, value: request.clientId)
+        let finalArrayStr = self.createJSONArray(NSArray(arrayLiteral: merchantAuthenticationDictStr, clientIdKeyValueStr, dataDictStr) as! Array<String>)
         jsonStr = self.createJSONFinalDict(AcceptSDKTokenAPIRequest.kSecurePaymentContainerRequestKey, valueString: finalArrayStr)
 
         return jsonStr
