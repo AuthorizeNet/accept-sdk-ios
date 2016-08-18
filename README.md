@@ -60,8 +60,8 @@ You can then
    {
     "createTransactionRequest": {
         "merchantAuthentication": {
-            "name": "5KP3u95bQpv",
-            "transactionKey": "4Ktq966gC55GAX7S"
+            "name": "YOUR_API_LOGIN_ID",
+            "transactionKey": "YOUR_TRANSACTION_KEY"
         },
         "refId": "123456",
         "transactionRequest": {
@@ -70,7 +70,7 @@ You can then
             "payment": {
                 "opaqueData": {
                     "dataDescriptor": "COMMON.ACCEPT.INAPP.PAYMENT",
-                    "dataValue": "PAYMENT-NONCE-GOES_HERE"
+                    "dataValue": "PAYMENT_NONCE_GOES_HERE"
                 }
             }
         }
