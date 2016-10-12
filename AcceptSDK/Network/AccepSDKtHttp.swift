@@ -9,7 +9,7 @@
 
 import Foundation
 
-let HTTP_TIMEOUT = NSTimeInterval(30)
+let HTTP_TIMEOUT = TimeInterval(30)
 
 private struct HTTPStatusCode {
     static let kHTTPSuccessCode         = 200
@@ -36,11 +36,11 @@ class HttpRequest {
     }
     
     internal func urlRequest () -> NSMutableURLRequest {
-        let result = NSMutableURLRequest(URL: NSURL(string: self.url!)!)
+        let result = NSMutableURLRequest(url: URL(string: self.url!)!)
 //        result.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         result.setValue("application/json", forHTTPHeaderField: "Accept")
         result.timeoutInterval = HTTP_TIMEOUT
-        result.HTTPMethod = self.method!
+        result.httpMethod = self.method!
         
         if let parameters = self.bodyParameters {
             result.setBodyContent(parameters)
@@ -76,30 +76,30 @@ class HTTPResponse {
     }
 }
 
-class HTTP: NSObject, NSURLSessionDelegate {
+class HTTP: NSObject, URLSessionDelegate {
     
-    func request(request : HttpRequest) -> HTTPResponse {
+    func request(_ request : HttpRequest) -> HTTPResponse {
         
         let urlRequest : NSMutableURLRequest = request.urlRequest()
                 
-        return self.requestSynchronousData(urlRequest)
+        return self.requestSynchronousData(urlRequest as URLRequest)
         
     }
     
-    private func requestSynchronousData(request: NSURLRequest) -> HTTPResponse {
+    fileprivate func requestSynchronousData(_ request: URLRequest) -> HTTPResponse {
         let httpResponse = HTTPResponse()
         
-        let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0)
+        let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
         
-        let sessionConfiguration = NSURLSessionConfiguration.ephemeralSessionConfiguration()
-        let session = NSURLSession(configuration: sessionConfiguration, delegate: self, delegateQueue: nil)
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        let session = URLSession(configuration: sessionConfiguration, delegate: self, delegateQueue: nil)
         
-        let task = session.dataTaskWithRequest(request, completionHandler: {
+        let task = session.dataTask(with: request, completionHandler: {
             taskData, response, error -> () in
             if (error != nil) {
-                httpResponse.error = error
+                httpResponse.error = error as NSError?
             }
-            else if let castedResponse = response as? NSHTTPURLResponse {
+            else if let castedResponse = response as? HTTPURLResponse {
                 let bodyDict = self.deserializeData(taskData!)
                 
                 if HTTPStatusCode.kHTTPSuccessCode == castedResponse.statusCode || HTTPStatusCode.kHTTPCreationSuccessCode == castedResponse.statusCode {
@@ -114,14 +114,14 @@ class HTTP: NSObject, NSURLSessionDelegate {
                 }
             }
             
-            dispatch_semaphore_signal(semaphore);
+            semaphore.signal();
         })
         task.resume()
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        semaphore.wait(timeout: DispatchTime.distantFuture)
         return httpResponse
     }
 
-    private func getErrorResponse(responseDict:Dictionary<String, AnyObject>)->String? {
+    fileprivate func getErrorResponse(_ responseDict:Dictionary<String, AnyObject>)->String? {
         var errorMessage:String?
         if  let errorArray = responseDict[HTTPErrorKeys.kErrorsKey] as? [[String:String]] {
             if let error = errorArray.first {
@@ -131,16 +131,16 @@ class HTTP: NSObject, NSURLSessionDelegate {
         return errorMessage
     }
 
-    private func serializeJson (json : Dictionary <String, AnyObject>) -> NSData? {
-        let result : NSData? = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+    fileprivate func serializeJson (_ json : Dictionary <String, AnyObject>) -> Data? {
+        let result : Data? = try! JSONSerialization.data(withJSONObject: json, options: [])
         
         return result;
     }
     
-    private func deserializeData (data : NSData) -> Dictionary<String, AnyObject>? {
+    fileprivate func deserializeData (_ data : Data) -> Dictionary<String, AnyObject>? {
         var jsonDict:Dictionary<String, AnyObject> = [:]
         do{
-            jsonDict = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String, AnyObject>
+            jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, AnyObject>
         }
         catch let error as NSError{
             //todo handle error
@@ -151,7 +151,7 @@ class HTTP: NSObject, NSURLSessionDelegate {
 }
 
 extension NSMutableURLRequest {
-    func setBodyContent(contentStr: String?) {
-        self.HTTPBody = contentStr!.dataUsingEncoding(NSUTF8StringEncoding)
+    func setBodyContent(_ contentStr: String?) {
+        self.httpBody = contentStr!.data(using: String.Encoding.utf8)
     }
 }

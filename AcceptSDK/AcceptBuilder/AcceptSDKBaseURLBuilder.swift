@@ -9,11 +9,11 @@
 import Foundation
 
 class AcceptSDKBaseURLBuilder {
-    private var baseurl:String!
-    private var scheme:String!
-    private var environmentURL:String!
-    private var type:String!
-    private var version:String!
+    fileprivate var baseurl:String!
+    fileprivate var scheme:String!
+    fileprivate var environmentURL:String!
+    fileprivate var type:String!
+    fileprivate var version:String!
     
     init(){
         self.scheme         = "https"

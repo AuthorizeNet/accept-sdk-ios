@@ -7,13 +7,33 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-public class FingerPrint {
-    public var hashValue:String = String()
-    public var sequence:String = String()
-    public var timestamp:String = String()
-    public var currencyCode:String?
-    public var amount:String = String()
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
+
+open class FingerPrint {
+    open var hashValue:String = String()
+    open var sequence:String = String()
+    open var timestamp:String = String()
+    open var currencyCode:String?
+    open var amount:String = String()
 
     public init?(inHashValue: String, inSequence: String, inTimestamp: String, inCurrencyCode: String?, inAmount: String?) {
 //        guard inHashValue.characters.count > 0 else {return nil}
@@ -30,24 +50,24 @@ public class FingerPrint {
         }
     }
     
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
 
         if self.hashValue.isEmpty == false {
             if isValidTimestamp() {
                 if self.sequence.isEmpty == false {
                     if self.isValidAmount() {
-                        successHandler(isSuccess: true)
+                        successHandler(true)
                     } else {
-                        failureHandler(withResponse: self.getSDKErrorResponse("E_WC_13", message: "Invalid Fingerprint."))
+                        failureHandler(self.getSDKErrorResponse("E_WC_13", message: "Invalid Fingerprint."))
                     }
                 } else {
-                    failureHandler(withResponse: self.getSDKErrorResponse("E_WC_12", message: "Sequence attribute should not be blank."))
+                    failureHandler(self.getSDKErrorResponse("E_WC_12", message: "Sequence attribute should not be blank."))
                 }
             } else {
-                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_11", message: "Please provide valid timestamp in utc."))
+                failureHandler(self.getSDKErrorResponse("E_WC_11", message: "Please provide valid timestamp in utc."))
             }
         } else {
-            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_09", message: "Fingerprint hash should not be blank."))
+            failureHandler(self.getSDKErrorResponse("E_WC_09", message: "Fingerprint hash should not be blank."))
         }
     }
     
@@ -83,7 +103,7 @@ public class FingerPrint {
     }
     
     
-    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

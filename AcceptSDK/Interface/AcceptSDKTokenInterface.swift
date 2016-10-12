@@ -10,7 +10,7 @@ import Foundation
 
 class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
     
-    func getToken(paymentRequest: AcceptSDKRequest, success:AcceptSDKCompletionHandlers.AcceptSDKSuccessHandler, failure:(AcceptSDKErrorResponse)->()) {
+    func getToken(_ paymentRequest: AcceptSDKRequest, success:@escaping AcceptSDKCompletionHandlers.AcceptSDKSuccessHandler, failure:@escaping (AcceptSDKErrorResponse)->()) {
         let tokenAPIBuilder = AcceptSDKTokenAPIBuilder()
         let urlString = tokenAPIBuilder.getTokenAPIUrl()
         
@@ -23,7 +23,7 @@ class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
                         success: { (inDict:Dictionary<String, AnyObject>) -> () in
                                 self.handleResponse(inDict,
                                     successHandler: { (isSuccess) -> () in
-                                                    success(withResponse: AcceptSDKTokenResponse(inDict:inDict))
+                                                    success(AcceptSDKTokenResponse(inDict:inDict))
                                                     },
                                     failureHandler: { (isSuccess) -> () in
                                                     failure(AcceptSDKErrorResponse(inMappingErrorDict: inDict))
@@ -33,13 +33,13 @@ class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
         })
     }
     
-    private func handleResponse(response:Dictionary<String, AnyObject>,successHandler:(isSuccess:Bool)->(),failureHandler:(isSuccess:Bool)->()) {
+    fileprivate func handleResponse(_ response:Dictionary<String, AnyObject>,successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ isSuccess:Bool)->()) {
         let messagesDict = response[AcceptSDKResponse.kMessagesKey]
         let statusCode = messagesDict![AcceptSDKResponse.kResultCodeKey] as? String
         if  statusCode == AcceptSDKResponse.kResultCodeOkValueKey {
-            successHandler(isSuccess:true)
+            successHandler(true)
         } else if statusCode == AcceptSDKResponse.kResultCodeErrorValueKey {
-            failureHandler(isSuccess:false)
+            failureHandler(false)
         } else {
             //some thing is missing!
             print("error handling missing!!!")

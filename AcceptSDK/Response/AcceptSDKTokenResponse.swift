@@ -19,9 +19,9 @@ struct AcceptSDKTokenResponseKeys {
     static let kTextKey             = "text"
 }
 
-public class AcceptSDKTokenResponse: NSObject {
-    private var opaqueData:OpaqueData!
-    private var messages:Messages!
+open class AcceptSDKTokenResponse: NSObject {
+    fileprivate var opaqueData:OpaqueData!
+    fileprivate var messages:Messages!
     
     convenience init(inDict:Dictionary<String,AnyObject>) {
         self.init()
@@ -35,18 +35,18 @@ public class AcceptSDKTokenResponse: NSObject {
         }
     }
     
-    public func getOpaqueData() -> OpaqueData {
+    open func getOpaqueData() -> OpaqueData {
         return self.opaqueData
     }
     
-    public func getMessages() -> Messages {
+    open func getMessages() -> Messages {
         return self.messages
     }
 }
 
-public class OpaqueData {
-    private var dataDescriptor:String?
-    private var dataValue:String?
+open class OpaqueData {
+    fileprivate var dataDescriptor:String?
+    fileprivate var dataValue:String?
     
     convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
@@ -59,18 +59,18 @@ public class OpaqueData {
         }
     }
 
-    public func getDataDescriptor()->String {
+    open func getDataDescriptor()->String {
         return self.dataDescriptor!
     }
     
-    public func getDataValue() -> String {
+    open func getDataValue() -> String {
         return self.dataValue!
     }
 }
 
-public class Messages {
-    private var resultCode: String!
-    private var messages: Array<Message> = []
+open class Messages {
+    fileprivate var resultCode: String!
+    fileprivate var messages: Array<Message> = []
     
     convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
@@ -128,18 +128,18 @@ public class Messages {
         self.messages.append(withMessage)
     }
 
-    public func getResultCode() -> String {
+    open func getResultCode() -> String {
         return self.resultCode
     }
     
-    public func getMessages() -> Array<Message> {
+    open func getMessages() -> Array<Message> {
         return self.messages
     }
 }
 
-public class Message {
-    private var code:String!
-    private var text:String!
+open class Message {
+    fileprivate var code:String!
+    fileprivate var text:String!
     
     convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
@@ -181,11 +181,11 @@ public class Message {
         self.text = inErrorMessage
     }
 
-    public func getCode() -> String {
+    open func getCode() -> String {
         return self.code
     }
     
-    public func getText() -> String {
+    open func getText() -> String {
         return self.text
     }
 }
