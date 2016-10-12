@@ -344,6 +344,8 @@
 					};
 					A0070CE01D38AE0A008BD8D4 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8WQ4DJVQC2;
+						LastSwiftMigration = 0800;
 					};
 					A0070D1C1D38B017008BD8D4 = {
 						CreatedOnToolsVersion = 7.3;
@@ -702,10 +704,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78B322530E9B573771CA8FE9 /* Pods-AcceptSDKTests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -713,10 +717,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9EAA72D02D6526594F23B9C6 /* Pods-AcceptSDKTests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
