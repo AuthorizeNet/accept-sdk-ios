@@ -159,7 +159,7 @@ open class Message {
     convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
         self.init()
         
-        if let code = inMappingErrorDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String {
+        if (inMappingErrorDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String) != nil {
             self.code      = "E_WC_14"
         }
         if let text = inMappingErrorDict[AcceptSDKTokenResponseKeys.kTextKey] as? String {

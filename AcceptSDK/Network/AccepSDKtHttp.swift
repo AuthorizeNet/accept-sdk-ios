@@ -142,7 +142,7 @@ class HTTP: NSObject, URLSessionDelegate {
         do{
             jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, AnyObject>
         }
-        catch let error as NSError{
+        catch _ as NSError{
             //todo handle error
         }
         return jsonDict

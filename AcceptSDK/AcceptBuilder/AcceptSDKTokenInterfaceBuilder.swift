@@ -79,7 +79,7 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
     func getRequestJSONString(_ request: AcceptSDKRequest) -> String {
         var jsonStr: String = String("")
         
-        var nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: request.merchantAuthentication.name)
+        let nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: request.merchantAuthentication.name)
         
         //fingerprint
         var fingerPrintArrayStr = String()
