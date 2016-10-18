@@ -47,7 +47,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
     func testTypeInitializesToUUIDString() {
         let request = WebCheckOutDataType()
         
-        XCTAssertEqual(request.id, UIDevice.currentDevice().identifierForVendor!.UUIDString, "Id is not initialized to TOKEN")
+        XCTAssertEqual(request.id, UIDevice.current.identifierForVendor!.uuidString, "Id is not initialized to TOKEN")
     }
 
     func testValidateIdReturnsFalseWhenCharactersGreaterThan64() {
@@ -59,7 +59,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
 
     func testValidateIdReturnsTrueWhenValidString() {
         let request = WebCheckOutDataType()
-        request.id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        request.id = UIDevice.current.identifierForVendor!.uuidString
         
         XCTAssertTrue(request.isValidId(), "Id cann't be empty")
     }
@@ -71,17 +71,17 @@ class WebCheckOutDataTypeTests: XCTestCase {
         request.token.expirationMonth = "11"
         request.token.expirationYear = "2023"
 
-        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        let exp = expectation(description: "WebCheckOutDataType validation failed")
         
         request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
-            expectation.fulfill()
+            exp.fulfill()
             }, failureHandler: {_ in
                 
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -93,7 +93,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
         request.type = ""
         request.token = self.getValidTokenRequest()
         
-        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        let exp = expectation(description: "WebCheckOutDataType validation failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -103,10 +103,10 @@ class WebCheckOutDataTypeTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_04", "Type Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Invalid type", "Type Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -118,7 +118,7 @@ class WebCheckOutDataTypeTests: XCTestCase {
         request.id = ""
         request.token = self.getValidTokenRequest()
         
-        let expectation = expectationWithDescription("WebCheckOutDataType validation failed")
+        let exp = expectation(description: "WebCheckOutDataType validation failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -128,10 +128,10 @@ class WebCheckOutDataTypeTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_04", "Type Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Invalid id", "Type Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }

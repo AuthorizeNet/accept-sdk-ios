@@ -7,6 +7,44 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 public struct AcceptSDKCardFieldsValidatorConstants {
     public static let kInAppSDKCardNumberCharacterCountMin:Int = 12
@@ -19,21 +57,21 @@ public struct AcceptSDKCardFieldsValidatorConstants {
     public static let kInAppSDKZipCodeCharacterCountMax:Int = 5
 }
 
-public class AcceptSDKCardFieldsValidator {
+open class AcceptSDKCardFieldsValidator {
     
     public init() {
     }
     
-    public func cardExpirationYearMin() -> Int {
-        let gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let components = gregorian?.components(.Year, fromDate: NSDate())
+    open func cardExpirationYearMin() -> Int {
+        let gregorian = Calendar(identifier: Calendar.Identifier.gregorian)
+        let components = (gregorian as NSCalendar?)?.components(.year, from: Date())
         return (components?.year)! % 100
     }
     
-    func validateCardNumberWithString(inCardNumber: String) -> Bool {
+    func validateCardNumberWithString(_ inCardNumber: String) -> Bool {
         var result = false
         
-        let tempCardNumber = inCardNumber.stringByReplacingOccurrencesOfString(String.space(), withString: String())
+        let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
         
         if AcceptSDKStringValidator.isNumber(tempCardNumber) {
             if ((tempCardNumber.characters.count >= AcceptSDKCardFieldsValidatorConstants.kInAppSDKCardNumberCharacterCountMin) &&
@@ -44,7 +82,7 @@ public class AcceptSDKCardFieldsValidator {
         return result
     }
     
-    func validateMonthWithString(inMonth: String) -> Bool {
+    func validateMonthWithString(_ inMonth: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inMonth) {
@@ -59,7 +97,7 @@ public class AcceptSDKCardFieldsValidator {
         return result
     }
 
-    func validateYearWithString(inYear: String) -> Bool {
+    func validateYearWithString(_ inYear: String) -> Bool {
         var result = false
         
         if ((inYear.characters.count != 2) || (inYear.characters.count != 4)) {
@@ -90,7 +128,7 @@ public class AcceptSDKCardFieldsValidator {
         return result
     }
 
-    public func validateSecurityCodeWithString(inSecurityCode: String) -> Bool {
+    open func validateSecurityCodeWithString(_ inSecurityCode: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inSecurityCode) {
@@ -103,7 +141,7 @@ public class AcceptSDKCardFieldsValidator {
         return result
     }
     
-    func validateZipCodeWithString(inZipCode: String) -> Bool {
+    func validateZipCodeWithString(_ inZipCode: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inZipCode) {
@@ -117,31 +155,31 @@ public class AcceptSDKCardFieldsValidator {
     
     //!--------------------------------------------- advance validation -----------------------------------
     
-    public func validateCardWithLuhnAlgorithm(inCardNumber: String) -> Bool {
+    open func validateCardWithLuhnAlgorithm(_ inCardNumber: String) -> Bool {
         var result = false
         
-        let tempCardNumber = inCardNumber.stringByReplacingOccurrencesOfString(String.space(), withString: String())
+        let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
         
         if inCardNumber.characters.count > 0 {
             let elementsCount = tempCardNumber.characters.count
-            var arrayOfIntegers = [Int?](count:elementsCount, repeatedValue: nil)
+            var arrayOfIntegers = [Int?](repeating: nil, count: elementsCount)
 
-            for (index, _) in tempCardNumber.characters.enumerate() {
-                let charIndex = tempCardNumber.startIndex.advancedBy(index)
-                let tempStr = String(tempCardNumber.characters.suffixFrom(charIndex))
+            for (index, _) in tempCardNumber.characters.enumerated() {
+                let charIndex = tempCardNumber.characters.index(tempCardNumber.startIndex, offsetBy: index)
+                let tempStr = String(tempCardNumber.characters.suffix(from: charIndex))
                 let singleCharacter = String(tempStr.characters.prefix(1))//String(tempStr.characters.first)
                 
                 arrayOfIntegers[tempCardNumber.characters.count - 1 - index] = Int(singleCharacter)
             }
             
-            for (index, _) in tempCardNumber.characters.enumerate() {
+            for (index, _) in tempCardNumber.characters.enumerated() {
                 if index%2 != 0 {
                     arrayOfIntegers[index] = arrayOfIntegers[index]! * 2
                 }
             }
             
             var theSum = 0
-            for (index, _) in tempCardNumber.characters.enumerate() {
+            for (index, _) in tempCardNumber.characters.enumerated() {
                 if arrayOfIntegers[index] > 9 {
                     theSum += arrayOfIntegers[index]! / 10
                     theSum += arrayOfIntegers[index]! % 10
@@ -157,15 +195,15 @@ public class AcceptSDKCardFieldsValidator {
         return result
     }
 
-    public func validateExpirationDate(inMonth: String, inYear:String) -> Bool {
+    open func validateExpirationDate(_ inMonth: String, inYear:String) -> Bool {
         var result = false
 
         if (self.validateMonthWithString(inMonth) && self.validateYearWithString(inYear)) {
             //---  now date
-            let nowDate = NSDate()
+            let nowDate = Date()
             
             //--- date expiration
-            let comps = NSDateComponents()
+            var comps = DateComponents()
             comps.day = 1
             comps.month = Int(inMonth)!
             if inYear.characters.count == 2 {
@@ -174,28 +212,28 @@ public class AcceptSDKCardFieldsValidator {
                 comps.year = Int(inYear)!
             }
             
-            let expirationDate = NSCalendar.currentCalendar().dateFromComponents(comps)
+            let expirationDate = Calendar.current.date(from: comps)
             
             //--- next month after expiration
-            let monthComponents = NSDateComponents()
+            var monthComponents = DateComponents()
             monthComponents.month = 1
             
-            let nextDayAfterExpirationDate = NSCalendar.currentCalendar().dateByAddingComponents(monthComponents, toDate: expirationDate!, options: NSCalendarOptions(rawValue: 0))
+            let nextDayAfterExpirationDate = (Calendar.current as NSCalendar).date(byAdding: monthComponents, to: expirationDate!, options: NSCalendar.Options(rawValue: 0))
             
-            let timeIntervalSinceDate = nextDayAfterExpirationDate!.timeIntervalSinceDate(nowDate)
+            let timeIntervalSinceDate = nextDayAfterExpirationDate!.timeIntervalSince(nowDate)
             result = (timeIntervalSinceDate > 0)
         }
 
         return result
     }
     
-    func validateExpirationDate(inExpirationDate: String) -> Bool {
+    func validateExpirationDate(_ inExpirationDate: String) -> Bool {
         var result = false
         
-        let monthRange = inExpirationDate.startIndex..<inExpirationDate.startIndex.advancedBy(2)
+        let monthRange = inExpirationDate.startIndex..<inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)
         let month = inExpirationDate[monthRange]
         
-        let yearRange = inExpirationDate.startIndex.advancedBy(2)..<inExpirationDate.endIndex
+        let yearRange = inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)..<inExpirationDate.endIndex
         let year = inExpirationDate[yearRange]
 
         if self.validateExpirationDate(month, inYear: year) {
@@ -209,7 +247,7 @@ public class AcceptSDKCardFieldsValidator {
 extension String {
     
     subscript (i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i)]
+        return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
     
     subscript (i: Int) -> String {
@@ -217,8 +255,8 @@ extension String {
     }
     
     subscript (r: Range<Int>) -> String {
-        let start = startIndex.advancedBy(r.startIndex)
-        let end = start.advancedBy(r.endIndex - r.startIndex)
+        let start = characters.index(startIndex, offsetBy: r.lowerBound)
+        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
         return self[Range(start ..< end)]
     }
 }

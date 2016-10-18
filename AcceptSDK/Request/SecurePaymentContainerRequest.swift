@@ -14,31 +14,31 @@ enum WebCheckOutTypeEnum: String {
     case kToken     = "TOKEN"
 }
 
-public class SecurePaymentContainerRequest {
-    public var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
+open class SecurePaymentContainerRequest {
+    open var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         self.webCheckOutDataType.validate(successHandler, failureHandler: failureHandler)
     }
 }
 
-public class WebCheckOutDataType {
+open class WebCheckOutDataType {
     var type = WebCheckOutTypeEnum.kToken.rawValue
-    var id = UIDevice.currentDevice().identifierForVendor!.UUIDString
-    public var token:Token = Token()
+    var id = UIDevice.current.identifierForVendor!.uuidString
+    open var token:Token = Token()
     
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         
         if isValidType() {
             if (isValidId()) {
                 self.token.validate({ (isSuccess) -> () in
-                    successHandler(isSuccess: true)
+                    successHandler(true)
                     }, failureHandler: failureHandler)
             } else {
-                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_04", message: "Invalid id"))
+                failureHandler(self.getSDKErrorResponse("E_WC_04", message: "Invalid id"))
             }
         } else {
-            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_04", message: "Invalid type"))
+            failureHandler(self.getSDKErrorResponse("E_WC_04", message: "Invalid type"))
             return
         }
         
@@ -64,22 +64,22 @@ public class WebCheckOutDataType {
         return isValid
     }
     
-    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }
 }
 
-public class Token {
-    public var cardNumber:String = String()
+open class Token {
+    open var cardNumber:String = String()
 //    public var expirationDate:String = String()
-    public var expirationMonth = String()
-    public var expirationYear = String()
-    public var cardCode:String?
-    public var zip:String?
-    public var fullName:String?
+    open var expirationMonth = String()
+    open var expirationYear = String()
+    open var cardCode:String?
+    open var zip:String?
+    open var fullName:String?
 
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         if isValidCardNumber() {
             if isValidExpirationMonth() {
                 if isValidExpirationYear() {
@@ -110,21 +110,21 @@ public class Token {
                         }
                         
                         if intermediateResult {
-                            successHandler(isSuccess: true)
+                            successHandler(true)
                         } else {
-                            failureHandler(withResponse: errorResponse!)
+                            failureHandler(errorResponse!)
                         }
                     } else {
-                        failureHandler(withResponse: self.getSDKErrorResponse("E_WC_08", message: "Expiration date must be in the future."))
+                        failureHandler(self.getSDKErrorResponse("E_WC_08", message: "Expiration date must be in the future."))
                     }
                 } else {
-                    failureHandler(withResponse: self.getSDKErrorResponse("E_WC_07", message: "Please provide valid expiration year."))
+                    failureHandler(self.getSDKErrorResponse("E_WC_07", message: "Please provide valid expiration year."))
                 }
             } else {
-                failureHandler(withResponse: self.getSDKErrorResponse("E_WC_06", message: "Please provide valid expiration month."))
+                failureHandler(self.getSDKErrorResponse("E_WC_06", message: "Please provide valid expiration month."))
             }
         } else {
-            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_05", message: "Please provide valid credit card number."))
+            failureHandler(self.getSDKErrorResponse("E_WC_05", message: "Please provide valid credit card number."))
         }
     }
     
@@ -144,7 +144,7 @@ public class Token {
         if (self.expirationMonth.characters.count == 1)
         {
             if ((self.expirationMonth == "0") == false) {
-                self.expirationMonth = "0".stringByAppendingString(self.expirationMonth)
+                self.expirationMonth = "0" + self.expirationMonth
             }
         }
 
@@ -180,7 +180,7 @@ public class Token {
         return isValid
     }
 
-    func isValidZip(inZip:String) -> Bool {
+    func isValidZip(_ inZip:String) -> Bool {
         var isValid = false
         
         if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
@@ -190,7 +190,7 @@ public class Token {
         return isValid
     }
 
-    func isValidFullName(inFullName:String) -> Bool {
+    func isValidFullName(_ inFullName:String) -> Bool {
         var isValid = false
         
         if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
@@ -200,7 +200,7 @@ public class Token {
         return isValid
     }
     
-    func isValidCardCode(inCardCode:String) -> Bool {
+    func isValidCardCode(_ inCardCode:String) -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
@@ -211,7 +211,7 @@ public class Token {
         return isValid
     }
     
-    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

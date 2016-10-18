@@ -9,7 +9,7 @@
 import Foundation
 
 class AcceptSDKInternal {
-    func getToken(paymentRequest: AcceptSDKRequest, success:(AcceptSDKTokenResponse)->(), failure:(AcceptSDKErrorResponse)->()) {
+    func getToken(_ paymentRequest: AcceptSDKRequest, success:@escaping (AcceptSDKTokenResponse)->(), failure:@escaping (AcceptSDKErrorResponse)->()) {
         let acceptSDKInteface = self.getTokenInterface()
         
         acceptSDKInteface.getToken(paymentRequest, success: {(response:AcceptSDKTokenResponse)->() in

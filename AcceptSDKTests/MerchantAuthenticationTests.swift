@@ -72,7 +72,7 @@ class MerchantAuthenticationTests: XCTestCase {
         request.name = "ValidName"
         request.mobileDeviceId = "fhhyh-dhdu7un-08790jb"
         
-        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        let exp = expectation(description: "MerchantAuthentication validation failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -82,10 +82,10 @@ class MerchantAuthenticationTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_18", "Client key  empty Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Client key is required.", "Cleint key empty mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -96,7 +96,7 @@ class MerchantAuthenticationTests: XCTestCase {
         let request = getValidMerchantAuthentication()
         request.name = ""
         
-        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        let exp = expectation(description: "MerchantAuthentication validation failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -106,10 +106,10 @@ class MerchantAuthenticationTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_10", "Apiloginid empty Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid apiloginid.", "Apiloginid empty mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -120,7 +120,7 @@ class MerchantAuthenticationTests: XCTestCase {
         let request = getValidMerchantAuthentication()
         request.mobileDeviceId = ""
         
-        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        let exp = expectation(description: "MerchantAuthentication validation failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -130,10 +130,10 @@ class MerchantAuthenticationTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_04", "Mobile device id empty Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide mandatory fileds", "Mobile device id empty mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -143,16 +143,16 @@ class MerchantAuthenticationTests: XCTestCase {
     func testMerchantAuthenticationValidationSuccess() {
         let request = getValidMerchantAuthentication()
         
-        let expectation = expectationWithDescription("MerchantAuthentication validation failed")
+        let exp = expectation(description: "MerchantAuthentication validation failed")
         
         request.validate({ (isSuccess) -> () in
                 XCTAssertTrue(isSuccess)
         
-                expectation.fulfill()
+                exp.fulfill()
             }, failureHandler: { (withResponse) -> () in
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }

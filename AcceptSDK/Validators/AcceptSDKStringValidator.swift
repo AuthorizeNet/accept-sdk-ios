@@ -58,13 +58,13 @@ extension String {
 
 class AcceptSDKStringValidator {
     
-    class func isEmpty(paramString:String) -> Bool {
+    class func isEmpty(_ paramString:String) -> Bool {
         var result = false
         
         if paramString.isEmpty {
             result = true
         } else {
-            let tempString = paramString.stringByReplacingOccurrencesOfString(String.space(), withString: String())
+            let tempString = paramString.replacingOccurrences(of: String.space(), with: String())
             if tempString.characters.count < 0 {
                 result = true
             }
@@ -72,13 +72,13 @@ class AcceptSDKStringValidator {
         return result;
     }
     
-    class func isNumber(paramString:String) -> Bool {
+    class func isNumber(_ paramString:String) -> Bool {
         var result = true
         
         if paramString.characters.count == 0 {
             result = false
         } else {
-            let tempString = paramString.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet())
+            let tempString = paramString.trimmingCharacters(in: CharacterSet.decimalDigits)
             
             if tempString.characters.count > 0 {
                 result = false
@@ -88,7 +88,7 @@ class AcceptSDKStringValidator {
         return result;
     }
     
-    class func isAlphanumeric(paramString:String) -> Bool {
+    class func isAlphanumeric(_ paramString:String) -> Bool {
         var result = true
         
         if paramString.characters.count == 0 {
@@ -97,7 +97,7 @@ class AcceptSDKStringValidator {
             if self.isNumber(paramString) {
                 result = false
             } else {
-                let trimmedString = paramString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet())
+                let trimmedString = paramString.trimmingCharacters(in: CharacterSet.alphanumerics)
                 
                 if trimmedString.characters.count > 0 {
                     result = false
@@ -108,10 +108,10 @@ class AcceptSDKStringValidator {
         return result;
     }
 
-    class func isStringContainsOnlySpaces(inString: String) -> Bool {
+    class func isStringContainsOnlySpaces(_ inString: String) -> Bool {
         var result = true
         
-        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let trimmedStr = inString.trimmingCharacters(in: CharacterSet.whitespaces)
         
         if trimmedStr.characters.count > 0 {
             result = false
@@ -120,11 +120,11 @@ class AcceptSDKStringValidator {
         return result
     }
     
-    class func isStringContainsSpaceAtBeginningAndEnd(inString: String) -> Bool {
+    class func isStringContainsSpaceAtBeginningAndEnd(_ inString: String) -> Bool {
         var result = false
         
         let startStr = String(inString[inString.startIndex])
-        let endStr = inString.substringFromIndex(inString.endIndex.predecessor())
+        let endStr = inString.substring(from: inString.characters.index(before: inString.endIndex))
         
         if  startStr == String.space() || endStr == String.space() {
             result = true
@@ -133,10 +133,10 @@ class AcceptSDKStringValidator {
         return result
     }
     
-    class func isStringContainsDecimalCharacter(inString: String) -> Bool {
+    class func isStringContainsDecimalCharacter(_ inString: String) -> Bool {
         var result = false
         
-        let trimmedStr = inString.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet())
+        let trimmedStr = inString.trimmingCharacters(in: CharacterSet.decimalDigits)
         
         if trimmedStr.characters.count > 0 {
             result = true
@@ -145,7 +145,7 @@ class AcceptSDKStringValidator {
         return result
     }
     
-    class func isStringIsNegativeNumber(inString: String) -> Bool {
+    class func isStringIsNegativeNumber(_ inString: String) -> Bool {
         var result = false
         
         if inString.characters.count > 0 {

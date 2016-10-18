@@ -286,7 +286,7 @@ class TokenDataTests: XCTestCase {
         let request = self.getValidTokenRequest()
         request.cardNumber = "671"
         
-        let expectation = expectationWithDescription("Card Number error mapping failed")
+        let exp = expectation(description: "Card Number error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -296,10 +296,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_05", "Card number Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid credit card number.", "Card number Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -310,7 +310,7 @@ class TokenDataTests: XCTestCase {
         let request = self.getValidTokenRequest()
         request.expirationMonth = "21"
         
-        let expectation = expectationWithDescription("Expiration month error mapping failed")
+        let exp = expectation(description: "Expiration month error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -320,10 +320,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_06", "Expiration month Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid expiration month.", "Expiration month Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -334,7 +334,7 @@ class TokenDataTests: XCTestCase {
         let request = self.getValidTokenRequest()
         request.expirationYear = "29088"
         
-        let expectation = expectationWithDescription("Expiration year error mapping failed")
+        let exp = expectation(description: "Expiration year error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -344,10 +344,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_07", "Expiration year Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid expiration year.", "Expiration year Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -359,7 +359,7 @@ class TokenDataTests: XCTestCase {
         request.expirationYear = "1999"
         request.expirationMonth = "11"
         
-        let expectation = expectationWithDescription("Expiration date error mapping failed")
+        let exp = expectation(description: "Expiration date error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -369,10 +369,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_08", "Expiration date Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Expiration date must be in the future.", "Expiration date Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -382,7 +382,7 @@ class TokenDataTests: XCTestCase {
     func testCardCodeMinLengthValidationErrorCodeE_WC_15() {
         let request = self.getValidTokenRequest()
         request.cardCode = "1"
-        let expectation = expectationWithDescription("Card code min length error mapping failed")
+        let exp = expectation(description: "Card code min length error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -392,10 +392,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -404,7 +404,7 @@ class TokenDataTests: XCTestCase {
     func testCardCodeMaxLengthValidationErrorCodeE_WC_15() {
         let request = self.getValidTokenRequest()
         request.cardCode = "12345"
-        let expectation = expectationWithDescription("Card code max length error mapping failed")
+        let exp = expectation(description: "Card code max length error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -414,10 +414,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -426,7 +426,7 @@ class TokenDataTests: XCTestCase {
     func testCardCodeNullValidationErrorCodeE_WC_15() {
         let request = self.getValidTokenRequest()
         request.cardCode = ""
-        let expectation = expectationWithDescription("Empty card code error mapping failed")
+        let exp = expectation(description: "Empty card code error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -436,10 +436,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_15", "CardCode Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid CVV.", "CardCode Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -449,7 +449,7 @@ class TokenDataTests: XCTestCase {
     func testZipcodeNullValidationErrorCodeE_WC_16() {
         let request = self.getValidTokenRequest()
         request.zip = ""
-        let expectation = expectationWithDescription("Empty zip code error mapping failed")
+        let exp = expectation(description: "Empty zip code error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -459,10 +459,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_16", "Zipcode Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid Zip code.", "Zipcode Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -472,7 +472,7 @@ class TokenDataTests: XCTestCase {
     func testZipcodeMaxLengthValidationErrorCodeE_WC_16() {
         let request = self.getValidTokenRequest()
         request.zip = "123456789012345678901"
-        let expectation = expectationWithDescription("Max length of zip code error mapping failed")
+        let exp = expectation(description: "Max length of zip code error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -482,10 +482,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_16", "Zipcode Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid Zip code.", "Zipcode Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -495,7 +495,7 @@ class TokenDataTests: XCTestCase {
     func testFullnameLengthValidationErrorCodeE_WC_17() {
         let request = self.getValidTokenRequest()
         request.fullName = "some really really long name whose length is more than sixty four characters which required to validate"
-        let expectation = expectationWithDescription("Max length of fullname error mapping failed")
+        let exp = expectation(description: "Max length of fullname error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -505,10 +505,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_17", "Fullname Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid card holder name.", "Fullname Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -518,7 +518,7 @@ class TokenDataTests: XCTestCase {
     func testFullnameEmptyStringValidationErrorCodeE_WC_17() {
         let request = self.getValidTokenRequest()
         request.fullName = ""
-        let expectation = expectationWithDescription("Empty fullname error mapping failed")
+        let exp = expectation(description: "Empty fullname error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -528,10 +528,10 @@ class TokenDataTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_17", "Fullname Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid card holder name.", "Fullname Error text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -541,16 +541,16 @@ class TokenDataTests: XCTestCase {
     func testTokenValidationSuccess() {
         let request = getValidTokenRequest()
         
-        let expectation = expectationWithDescription("Token validation failed")
+        let exp = expectation(description: "Token validation failed")
         
         request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
-            expectation.fulfill()
+            exp.fulfill()
             }, failureHandler: { (withResponse) -> () in
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
