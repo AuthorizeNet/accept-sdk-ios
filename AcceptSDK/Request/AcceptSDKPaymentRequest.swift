@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class AcceptSDKRequest: NSObject {
-    public var merchantAuthentication:MerchantAuthenticaton = MerchantAuthenticaton()
-    public var securePaymentContainerRequest:SecurePaymentContainerRequest = SecurePaymentContainerRequest()
+open class AcceptSDKRequest: NSObject {
+    open var merchantAuthentication:MerchantAuthenticaton = MerchantAuthenticaton()
+    open var securePaymentContainerRequest:SecurePaymentContainerRequest = SecurePaymentContainerRequest()
     let clientId = "accept-sdk-ios-1.0.0"
     
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:@escaping (_ withResponse:AcceptSDKErrorResponse)->()) {
         self.merchantAuthentication.validate({_ in
             self.securePaymentContainerRequest.validate(successHandler, failureHandler: failureHandler)
             }, failureHandler: failureHandler)

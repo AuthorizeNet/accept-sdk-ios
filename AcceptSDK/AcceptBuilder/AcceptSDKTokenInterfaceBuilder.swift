@@ -40,32 +40,32 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
     var cardNumber:String?
     var expirationDate:String?
 
-    func withName(inName:String)-> Self {
+    func withName(_ inName:String)-> Self {
         self.name = inName
         return self
     }
 
-    func withClientKey(inClientKey:String)-> Self {
+    func withClientKey(_ inClientKey:String)-> Self {
         self.clientKey = inClientKey
         return self
     }
 
-    func withRequestType(inRequestType:String)-> Self {
+    func withRequestType(_ inRequestType:String)-> Self {
         self.requestType = inRequestType
         return self
     }
 
-    func withMerchantId(inMerchantId:String)-> Self {
+    func withMerchantId(_ inMerchantId:String)-> Self {
         self.merchantId = inMerchantId
         return self
     }
     
-    func withCardNumber(inCardNumber:String)-> Self {
+    func withCardNumber(_ inCardNumber:String)-> Self {
         self.cardNumber = inCardNumber
         return self
     }
 
-    func withExpirationDate(inExpirationDate:String)-> Self {
+    func withExpirationDate(_ inExpirationDate:String)-> Self {
         self.expirationDate = inExpirationDate
         return self
     }
@@ -76,10 +76,10 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         return acceptSDKInterface
     }
     
-    func getRequestJSONString(request: AcceptSDKRequest) -> String {
+    func getRequestJSONString(_ request: AcceptSDKRequest) -> String {
         var jsonStr: String = String("")
         
-        var nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: request.merchantAuthentication.name)
+        let nameKeyValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kNameKey, value: request.merchantAuthentication.name)
         
         //fingerprint
         var fingerPrintArrayStr = String()
@@ -154,13 +154,13 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         return jsonStr
     }
     
-    func createJSONString(withKey: String, value: String) -> String {
+    func createJSONString(_ withKey: String, value: String) -> String {
         let jsonStr = String(format: "\"%@\":\"%@\"", withKey, value)
         
         return jsonStr
     }
     
-    func createJSONArray(arrayOfKeyValuePairs: Array<String>) -> String {
+    func createJSONArray(_ arrayOfKeyValuePairs: Array<String>) -> String {
         var jsonStr:String = ""
         
         var index = 1
@@ -178,19 +178,19 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         
         let lastChar = jsonStr.characters.last!
         if lastChar == "," {
-            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor())
+            jsonStr = jsonStr.substring(to: jsonStr.characters.index(before: jsonStr.endIndex))
         }
 
         return jsonStr
     }
     
-    func createJSONDict(key: String, valueString: String) -> String {
+    func createJSONDict(_ key: String, valueString: String) -> String {
         let jsonStr = String(format: "\"%@\":{ %@ }", key, valueString)
 
         return jsonStr
     }
     
-    func createJSONFinalDict(key: String, valueString: String) -> String {
+    func createJSONFinalDict(_ key: String, valueString: String) -> String {
         let jsonStr = String(format: "{\"%@\":{ %@ }}", key, valueString)
         
         return jsonStr

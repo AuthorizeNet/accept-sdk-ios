@@ -9,16 +9,16 @@
 import Foundation
 
 
-public class MerchantAuthenticaton {
-    public var name = String()
-    public var fingerPrint:FingerPrint?
-    public var clientKey: String?
-    public var mobileDeviceId:String?
+open class MerchantAuthenticaton {
+    open var name = String()
+    open var fingerPrint:FingerPrint?
+    open var clientKey: String?
+    open var mobileDeviceId:String?
     
-    func validate(successHandler:(isSuccess:Bool)->(),failureHandler:(withResponse:AcceptSDKErrorResponse)->()) {
+    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:@escaping (_ withResponse:AcceptSDKErrorResponse)->()) {
         
         if ((self.clientKey?.isEmpty) == nil && self.fingerPrint == nil) {
-            failureHandler(withResponse: self.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
+            failureHandler(self.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
             return
         }
         
@@ -26,23 +26,23 @@ public class MerchantAuthenticaton {
             //todo change this..redundant check
             if key.characters.count > 0 {
                 if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
-                    failureHandler(withResponse: errorResponse)
+                    failureHandler(errorResponse)
                 } else {
-                    successHandler(isSuccess: true)
+                    successHandler(true)
                 }
             }
         } else {
             self.fingerPrint!.validate({ (isSuccess) -> () in
                 if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
-                    failureHandler(withResponse: errorResponse)
+                    failureHandler(errorResponse)
                 } else {
-                    successHandler(isSuccess: true)
+                    successHandler(true)
                 }
             }, failureHandler: failureHandler)
         }
     }
     
-    func validateOptionalFileds(inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
+    func validateOptionalFileds(_ inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
         
         var errorResponse:AcceptSDKErrorResponse?
 
@@ -63,7 +63,7 @@ public class MerchantAuthenticaton {
         return errorResponse
     }
     
-    func isValidName(inName:String) -> Bool {
+    func isValidName(_ inName:String) -> Bool {
         var isValid = false
         
         if inName.characters.count >= 1 &&  inName.characters.count <= 25 {
@@ -73,7 +73,7 @@ public class MerchantAuthenticaton {
         return isValid
     }
     
-    func isValidMobileDeviceId(inValidMobileDeviceId:String) -> Bool {
+    func isValidMobileDeviceId(_ inValidMobileDeviceId:String) -> Bool {
         var isValid = false
         
         if inValidMobileDeviceId.characters.count >= 1 &&  inValidMobileDeviceId.characters.count <= 60 {
@@ -83,7 +83,7 @@ public class MerchantAuthenticaton {
         return isValid
     }
     
-    func getSDKErrorResponse(withCode: String, message:String) -> AcceptSDKErrorResponse {
+    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class AcceptSDKErrorResponse: NSObject {
-    private var messages:Messages!
+open class AcceptSDKErrorResponse: NSObject {
+    fileprivate var messages:Messages!
     
     convenience init(inDict:Dictionary<String,AnyObject>) {
         self.init()
@@ -39,7 +39,7 @@ public class AcceptSDKErrorResponse: NSObject {
         self.messages = Messages(withMessage: withMessage)
     }
 
-    public func getMessages() -> Messages {
+    open func getMessages() -> Messages {
         return self.messages
     }
 }
