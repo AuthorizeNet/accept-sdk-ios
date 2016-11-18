@@ -80,7 +80,7 @@ class FingerPrintTests: XCTestCase {
         let request = self.getValidFingerprintRequest()
         request.hashValue = ""
         
-        let expectation = expectationWithDescription("Empty hashvalue error mapping failed")
+        let exp = expectation(description: "Empty hashvalue error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -90,10 +90,10 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_09", "Empty hashvalue Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Fingerprint hash should not be blank.", "Empty hashvalueError text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -104,7 +104,7 @@ class FingerPrintTests: XCTestCase {
         let request = self.getValidFingerprintRequest()
         request.sequence = ""
         
-        let expectation = expectationWithDescription("Empty sequence error mapping failed")
+        let exp = expectation(description: "Empty sequence error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -114,10 +114,10 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_12", "Empty sequence Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Sequence attribute should not be blank.", "Empty sequence text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -128,7 +128,7 @@ class FingerPrintTests: XCTestCase {
         let request = self.getValidFingerprintRequest()
         request.amount = ""
         
-        let expectation = expectationWithDescription("Empty Amount error mapping failed")
+        let exp = expectation(description: "Empty Amount error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -138,10 +138,10 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_13", "Empty Amount Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Invalid Fingerprint.", "Empty Amount text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -152,7 +152,7 @@ class FingerPrintTests: XCTestCase {
         let request = self.getValidFingerprintRequest()
         request.amount = "-12"
         
-        let expectation = expectationWithDescription("Negative Amount error mapping failed")
+        let exp = expectation(description: "Negative Amount error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -162,10 +162,10 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_13", "Negative Amount Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Invalid Fingerprint.", "Negative Amount text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -176,7 +176,7 @@ class FingerPrintTests: XCTestCase {
         let request = self.getValidFingerprintRequest()
         request.timestamp = "-12324424a"
         
-        let expectation = expectationWithDescription("Invalid Timestamp error mapping failed")
+        let exp = expectation(description: "Invalid Timestamp error mapping failed")
         
         request.validate({ (isSuccess) -> () in
             }, failureHandler: { (withResponse) -> () in
@@ -186,10 +186,10 @@ class FingerPrintTests: XCTestCase {
                 XCTAssertEqual(errorCode, "E_WC_11", "Invalid Timestamp Error code mapping is wrong")
                 XCTAssertEqual(errorText, "Please provide valid timestamp in utc.", "Invalid Timestamp text mapping is wrong")
                 
-                expectation.fulfill()
+                exp.fulfill()
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
@@ -199,16 +199,16 @@ class FingerPrintTests: XCTestCase {
     func testFingerPrintValidationSuccess() {
         let request = getValidFingerprintRequest()
         
-        let expectation = expectationWithDescription("FingerPrint validation failed")
+        let exp = expectation(description: "FingerPrint validation failed")
         
         request.validate({ (isSuccess) -> () in
             XCTAssertTrue(isSuccess)
             
-            expectation.fulfill()
+            exp.fulfill()
             }, failureHandler: { (withResponse) -> () in
         })
         
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }

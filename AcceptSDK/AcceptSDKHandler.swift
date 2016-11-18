@@ -13,7 +13,7 @@ public enum AcceptSDKEnvironment: String {
     case ENV_TEST = "apitest.authorize.net"
 }
 
-public class AcceptSDKHandler : NSObject {
+open class AcceptSDKHandler : NSObject {
     
     public override init() {
         super.init()
@@ -26,7 +26,7 @@ public class AcceptSDKHandler : NSObject {
         settings.acceptSDKEnvironment = environment.rawValue
     }
     
-    public func getTokenWithRequest(inRequest: AcceptSDKRequest, successHandler:(AcceptSDKTokenResponse)->(),failureHandler:(AcceptSDKErrorResponse)->()) {
+    open func getTokenWithRequest(_ inRequest: AcceptSDKRequest, successHandler:@escaping (AcceptSDKTokenResponse)->(),failureHandler:@escaping (AcceptSDKErrorResponse)->()) {
         
         inRequest.validate({ (isSuccess) -> () in
             let sdkInternal = AcceptSDKInternal()

@@ -19,9 +19,9 @@ struct AcceptSDKResponse {
 }
 
 struct AcceptSDKCompletionHandlers {
-    typealias AcceptSDKSuccessHandler           = (withResponse:AcceptSDKTokenResponse)->()
-    typealias AcceptSDKValidationSuccessHandler = (isSuccess:Bool)->()
-    typealias AcceptSDKFailureHandler           = (withResponse:AcceptSDKErrorResponse)->()
+    typealias AcceptSDKSuccessHandler           = (_ withResponse:AcceptSDKTokenResponse)->()
+    typealias AcceptSDKValidationSuccessHandler = (_ isSuccess:Bool)->()
+    typealias AcceptSDKFailureHandler           = (_ withResponse:AcceptSDKErrorResponse)->()
 }
 
 struct AcceptSDKFailureHandlers {
