@@ -22,7 +22,7 @@ open class SecurePaymentContainerRequest: NSObject {
     }
 }
 
-open class WebCheckOutDataType {
+open class WebCheckOutDataType: NSObject {
     var type = WebCheckOutTypeEnum.kToken.rawValue
     var id = UIDevice.current.identifierForVendor!.uuidString
     open var token:Token = Token()
@@ -70,7 +70,7 @@ open class WebCheckOutDataType {
     }
 }
 
-open class Token {
+open class Token: NSObject {
     open var cardNumber:String = String()
 //    public var expirationDate:String = String()
     open var expirationMonth = String()
