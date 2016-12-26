@@ -44,7 +44,7 @@ open class AcceptSDKTokenResponse: NSObject {
     }
 }
 
-open class OpaqueData {
+open class OpaqueData: NSObject {
     fileprivate var dataDescriptor:String?
     fileprivate var dataValue:String?
     
@@ -137,7 +137,7 @@ open class Messages {
     }
 }
 
-open class Message {
+open class Message: NSObject {
     fileprivate var code:String!
     fileprivate var text:String!
     
