@@ -117,6 +117,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
+SWIFT_CLASS("_TtC9AcceptSDK28AcceptSDKCardFieldsValidator")
+@interface AcceptSDKCardFieldsValidator : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (NSInteger)cardExpirationYearMin;
+- (BOOL)validateSecurityCodeWithString:(NSString * _Nonnull)inSecurityCode;
+- (BOOL)validateCardWithLuhnAlgorithm:(NSString * _Nonnull)inCardNumber;
+- (BOOL)validateExpirationDate:(NSString * _Nonnull)inMonth inYear:(NSString * _Nonnull)inYear;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AcceptSDKEnvironment) {
+  AcceptSDKEnvironmentENV_LIVE = 0,
+  AcceptSDKEnvironmentENV_TEST = 1,
+};
+
+
 SWIFT_CLASS("_TtC9AcceptSDK22AcceptSDKErrorResponse")
 @interface AcceptSDKErrorResponse : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -128,12 +143,17 @@ SWIFT_CLASS("_TtC9AcceptSDK22AcceptSDKErrorResponse")
 SWIFT_CLASS("_TtC9AcceptSDK16AcceptSDKHandler")
 @interface AcceptSDKHandler : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithEnvironment:(enum AcceptSDKEnvironment)environment OBJC_DESIGNATED_INITIALIZER;
 - (void)getTokenWithRequest:(AcceptSDKRequest * _Nonnull)inRequest successHandler:(void (^ _Nonnull)(AcceptSDKTokenResponse * _Nonnull))successHandler failureHandler:(void (^ _Nonnull)(AcceptSDKErrorResponse * _Nonnull))failureHandler;
 @end
 
+@class MerchantAuthenticaton;
+@class SecurePaymentContainerRequest;
 
 SWIFT_CLASS("_TtC9AcceptSDK16AcceptSDKRequest")
 @interface AcceptSDKRequest : NSObject
+@property (nonatomic, strong) MerchantAuthenticaton * _Nonnull merchantAuthentication;
+@property (nonatomic, strong) SecurePaymentContainerRequest * _Nonnull securePaymentContainerRequest;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -150,7 +170,35 @@ SWIFT_CLASS("_TtC9AcceptSDK22AcceptSDKTokenResponse")
 @end
 
 
+SWIFT_CLASS("_TtC9AcceptSDK11FingerPrint")
+@interface FingerPrint : NSObject
+@property (nonatomic, copy) NSString * _Nonnull fingerPrintHashValue;
+@property (nonatomic, copy) NSString * _Nonnull sequence;
+@property (nonatomic, copy) NSString * _Nonnull timestamp;
+@property (nonatomic, copy) NSString * _Nullable currencyCode;
+@property (nonatomic, copy) NSString * _Nonnull amount;
+- (nullable instancetype)initInHashValue:(NSString * _Nonnull)inHashValue inSequence:(NSString * _Nonnull)inSequence inTimestamp:(NSString * _Nonnull)inTimestamp inCurrencyCode:(NSString * _Nullable)inCurrencyCode inAmount:(NSString * _Nullable)inAmount OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK21MerchantAuthenticaton")
+@interface MerchantAuthenticaton : NSObject
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic, strong) FingerPrint * _Nullable fingerPrint;
+@property (nonatomic, copy) NSString * _Nullable clientKey;
+@property (nonatomic, copy) NSString * _Nullable mobileDeviceId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 @interface NSMutableURLRequest (SWIFT_EXTENSION(AcceptSDK))
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK29SecurePaymentContainerRequest")
+@interface SecurePaymentContainerRequest : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #pragma clang diagnostic pop
