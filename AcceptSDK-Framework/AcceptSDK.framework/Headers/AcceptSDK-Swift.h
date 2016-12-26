@@ -195,9 +195,30 @@ SWIFT_CLASS("_TtC9AcceptSDK21MerchantAuthenticaton")
 @interface NSMutableURLRequest (SWIFT_EXTENSION(AcceptSDK))
 @end
 
+@class WebCheckOutDataType;
 
 SWIFT_CLASS("_TtC9AcceptSDK29SecurePaymentContainerRequest")
 @interface SecurePaymentContainerRequest : NSObject
+@property (nonatomic, strong) WebCheckOutDataType * _Nonnull webCheckOutDataType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK5Token")
+@interface Token : NSObject
+@property (nonatomic, copy) NSString * _Nonnull cardNumber;
+@property (nonatomic, copy) NSString * _Nonnull expirationMonth;
+@property (nonatomic, copy) NSString * _Nonnull expirationYear;
+@property (nonatomic, copy) NSString * _Nullable cardCode;
+@property (nonatomic, copy) NSString * _Nullable zip;
+@property (nonatomic, copy) NSString * _Nullable fullName;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK19WebCheckOutDataType")
+@interface WebCheckOutDataType : NSObject
+@property (nonatomic, strong) Token * _Nonnull token;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
