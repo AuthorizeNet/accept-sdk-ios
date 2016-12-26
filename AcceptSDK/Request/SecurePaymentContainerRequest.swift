@@ -14,7 +14,7 @@ enum WebCheckOutTypeEnum: String {
     case kToken     = "TOKEN"
 }
 
-open class SecurePaymentContainerRequest {
+open class SecurePaymentContainerRequest: NSObject {
     open var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
     func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
