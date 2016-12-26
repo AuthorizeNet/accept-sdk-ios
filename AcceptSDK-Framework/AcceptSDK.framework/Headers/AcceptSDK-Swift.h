@@ -131,9 +131,11 @@ typedef SWIFT_ENUM(NSInteger, AcceptSDKEnvironment) {
   AcceptSDKEnvironmentENV_TEST = 1,
 };
 
+@class Messages;
 
 SWIFT_CLASS("_TtC9AcceptSDK22AcceptSDKErrorResponse")
 @interface AcceptSDKErrorResponse : NSObject
+- (Messages * _Nonnull)getMessages;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -163,9 +165,12 @@ SWIFT_CLASS("_TtC9AcceptSDK17AcceptSDKSettings")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class OpaqueData;
 
 SWIFT_CLASS("_TtC9AcceptSDK22AcceptSDKTokenResponse")
 @interface AcceptSDKTokenResponse : NSObject
+- (OpaqueData * _Nonnull)getOpaqueData;
+- (Messages * _Nonnull)getMessages;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -192,7 +197,31 @@ SWIFT_CLASS("_TtC9AcceptSDK21MerchantAuthenticaton")
 @end
 
 
+SWIFT_CLASS("_TtC9AcceptSDK7Message")
+@interface Message : NSObject
+- (NSString * _Nonnull)getCode;
+- (NSString * _Nonnull)getText;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK8Messages")
+@interface Messages : NSObject
+- (NSString * _Nonnull)getResultCode;
+- (NSArray<Message *> * _Nonnull)getMessages;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 @interface NSMutableURLRequest (SWIFT_EXTENSION(AcceptSDK))
+@end
+
+
+SWIFT_CLASS("_TtC9AcceptSDK10OpaqueData")
+@interface OpaqueData : NSObject
+- (NSString * _Nonnull)getDataDescriptor;
+- (NSString * _Nonnull)getDataValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class WebCheckOutDataType;
