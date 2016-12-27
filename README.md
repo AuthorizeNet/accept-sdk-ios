@@ -11,7 +11,7 @@ This SDK allows mobile developers to provide credit card payment functionality w
 
 ### Manual Installation
 
-Include the ```AcceptSDK.framework``` in to the application. Select Target, In Embedded Binaries, press the plus (+)
+Include the ```AcceptSDK.framework``` in the application. Select Target, In Embedded Binaries, press the plus (+)
 and select the framework.
 
 Once included, make sure in “Build Settings” tab, in section “Search Paths” the path to these frameworks are added correctly. 
