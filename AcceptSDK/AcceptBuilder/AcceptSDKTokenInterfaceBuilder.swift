@@ -93,7 +93,7 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
             var currenctCodeStr = String()
             var amountStr = String()
             
-            let hashValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kHashValueKey, value: request.merchantAuthentication.fingerPrint!.hashValue)
+            let hashValueStr = self.createJSONString(AcceptSDKTokenAPIRequest.kHashValueKey, value: request.merchantAuthentication.fingerPrint!.fingerPrintHashValue)
             sequenceStr = self.createJSONString(AcceptSDKTokenAPIRequest.kSequenceKey, value: request.merchantAuthentication.fingerPrint!.sequence)
 
 //            if let seq = request.merchantAuthentication.fingerPrint!.sequence {
