@@ -11,9 +11,9 @@ This SDK allows mobile developers to provide credit card payment functionality w
 
 ### Manual Installation
 
-Include the ```AcceptSDK.framework``` in the application. Select Target, In Embedded Binaries, press the plus (+) and select the framework.
+Include the ```AcceptSDK.framework``` in the application. In Xcode, select the main project file for the target. In the "General" section of the project's properties, scroll down to "Embedded Binaries", press the plus sign (+), and select the framework.
 
-Once included, make sure in “Build Settings” tab, in section “Search Paths” the path to these frameworks are added correctly. 
+Once included, make sure in “Build Settings” tab, in section “Search Paths”, the path to these frameworks are added correctly. 
 
 ## SDK Usage
 ### Initialize the SDK and set the data to be dispatched directly to Authorize.Net
