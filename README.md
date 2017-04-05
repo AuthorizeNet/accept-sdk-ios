@@ -54,7 +54,7 @@ Once included, make sure in “Build Settings” tab, in section “Search Paths
         }
 
 ```
-## Using the Accept Payment Token
+### Using the Accept Payment Token
 You can then
 ```json
    {
@@ -77,7 +77,7 @@ You can then
     }
 }
 ```
-## Using from Objective-C
+### Using from Objective-C
 Calling the SDK from Objective-C should be simple and intuitive:  
 
 ```objective-c
