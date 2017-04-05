@@ -9,9 +9,9 @@
 import Foundation
 
 
-open class MerchantAuthenticaton {
+open class MerchantAuthenticaton: NSObject {
     open var name = String()
-    open var fingerPrint:FingerPrint?
+    open var fingerPrint: FingerPrint?
     open var clientKey: String?
     open var mobileDeviceId:String?
     

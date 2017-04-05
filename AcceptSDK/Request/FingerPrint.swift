@@ -28,8 +28,8 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-open class FingerPrint {
-    open var hashValue:String = String()
+open class FingerPrint: NSObject {
+    open var fingerPrintHashValue:String = String()
     open var sequence:String = String()
     open var timestamp:String = String()
     open var currencyCode:String?
@@ -39,7 +39,7 @@ open class FingerPrint {
 //        guard inHashValue.characters.count > 0 else {return nil}
 //        guard inTimestamp.characters.count > 0 else {return nil}
         
-        self.hashValue = inHashValue
+        self.fingerPrintHashValue = inHashValue
         self.timestamp = inTimestamp
         self.sequence = inSequence
         if let unwrappedCurrencyCode = inCurrencyCode {
@@ -52,7 +52,7 @@ open class FingerPrint {
     
     func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
 
-        if self.hashValue.isEmpty == false {
+        if self.fingerPrintHashValue.isEmpty == false {
             if isValidTimestamp() {
                 if self.sequence.isEmpty == false {
                     if self.isValidAmount() {

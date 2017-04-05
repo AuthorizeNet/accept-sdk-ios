@@ -57,9 +57,9 @@ public struct AcceptSDKCardFieldsValidatorConstants {
     public static let kInAppSDKZipCodeCharacterCountMax:Int = 5
 }
 
-open class AcceptSDKCardFieldsValidator {
+open class AcceptSDKCardFieldsValidator: NSObject {
     
-    public init() {
+    public override init() {
     }
     
     open func cardExpirationYearMin() -> Int {

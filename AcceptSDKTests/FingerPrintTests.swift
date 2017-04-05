@@ -78,7 +78,7 @@ class FingerPrintTests: XCTestCase {
     
     func testEmptyHashvalueErrorCodeE_WC_09() {
         let request = self.getValidFingerprintRequest()
-        request.hashValue = ""
+        request.fingerPrintHashValue = ""
         
         let exp = expectation(description: "Empty hashvalue error mapping failed")
         

@@ -11,8 +11,7 @@ This SDK allows mobile developers to provide credit card payment functionality w
 
 ### Manual Installation
 
-Include the ```AcceptSDK.framework``` in the application. Select Target, In Embedded Binaries, press the plus (+)
-and select the framework.
+Include the ```AcceptSDK.framework``` in the application. Select Target, In Embedded Binaries, press the plus (+) and select the framework.
 
 Once included, make sure in “Build Settings” tab, in section “Search Paths” the path to these frameworks are added correctly. 
 
@@ -77,6 +76,27 @@ You can then
         }
     }
 }
+```
+## Using from Objective-C
+Calling the SDK from Objective-C should be simple and intuitive:  
+
+```objective-c
+
+    AcceptSDKHandler *handler = [[AcceptSDKHandler alloc] initWithEnvironment:AcceptSDKEnvironmentENV_TEST];
+    AcceptSDKRequest *request = [[AcceptSDKRequest alloc] init];
+    request.merchantAuthentication.name = @""; //name
+    request.merchantAuthentication.clientKey = @""; //clientkey
+   
+    request.securePaymentContainerRequest.webCheckOutDataType.token.cardNumber = @""; //cardnumber
+    request.securePaymentContainerRequest.webCheckOutDataType.token.expirationMonth = @"";
+    request.securePaymentContainerRequest.webCheckOutDataType.token.expirationYear = @"";
+    request.securePaymentContainerRequest.webCheckOutDataType.token.cardCode = @"";
+   
+    [handler getTokenWithRequest:request successHandler:^(AcceptSDKTokenResponse * _Nonnull token) {
+        NSLog(@"success %@", token.getOpaqueData.getDataValue);
+    } failureHandler:^(AcceptSDKErrorResponse * _Nonnull error) {
+        NSLog(@"failed... );
+    }];
 ```
 ## Sample Application
 We have a sample application which demonstrates the SDK usage:  

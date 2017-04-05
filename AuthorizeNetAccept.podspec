@@ -10,14 +10,14 @@ Pod::Spec.new do |s|
 
     s.name             = 'AuthorizeNetAccept'
     s.authors          = 'Authorize.Net'
-    s.version          = '0.0.3'
+    s.version          = '0.0.4'
     s.summary          = 'Authorize.Net Accept SDK for iOS'
     s.homepage         = 'https://developer.authorize.net'
 
     s.license          = 'https://github.com/AuthorizeNet/accept-sdk-ios/blob/master/LICENSE.md'
     s.platform         = :ios, "8.4"
 
-    s.source           = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git'}
+    s.source           = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
 
     s.requires_arc = true
 

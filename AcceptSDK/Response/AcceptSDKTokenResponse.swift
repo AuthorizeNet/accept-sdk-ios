@@ -44,7 +44,7 @@ open class AcceptSDKTokenResponse: NSObject {
     }
 }
 
-open class OpaqueData {
+open class OpaqueData: NSObject {
     fileprivate var dataDescriptor:String?
     fileprivate var dataValue:String?
     
@@ -68,7 +68,7 @@ open class OpaqueData {
     }
 }
 
-open class Messages {
+open class Messages: NSObject {
     fileprivate var resultCode: String!
     fileprivate var messages: Array<Message> = []
     
@@ -112,13 +112,13 @@ open class Messages {
         self.messages.append(Message(inError: inError))
     }
 
-    convenience init (inError: Messages) {
-        self.init()
-        
-        self.resultCode = AcceptSDKResponse.kResultCodeErrorValueKey
-        
-        self.messages.append(inError.messages[0])
-    }
+//    convenience init (inError: Messages) {
+//        self.init()
+//        
+//        self.resultCode = AcceptSDKResponse.kResultCodeErrorValueKey
+//        
+//        self.messages.append(inError.messages[0])
+//    }
 
     convenience init (withMessage: Message) {
         self.init()
@@ -137,7 +137,7 @@ open class Messages {
     }
 }
 
-open class Message {
+open class Message: NSObject {
     fileprivate var code:String!
     fileprivate var text:String!
     
