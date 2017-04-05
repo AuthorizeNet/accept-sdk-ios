@@ -2,23 +2,22 @@
 
 This SDK allows mobile developers to provide credit card payment functionality within their iOS applications, without having to pass sensitive card data back to their application backend servers.  For more information on including payments in your mobile application see our [InApp Payments Guide](http://developer.authorize.net/api/reference/features/in-app.html)   
    
-##SDK Installation 
+## SDK Installation 
 
 ### CocoaPods
-````
-     pod 'AuthorizeNetAccept'  
-````  
+```
+    pod 'AuthorizeNetAccept'  
+```  
 
 ### Manual Installation
 
-Include the ```AcceptSDK.framework``` in to the application. Select Target, In Embedded Binaries, press the plus (+)
-and select the framework.
+Include the ```AcceptSDK.framework``` in the application. Select Target, In Embedded Binaries, press the plus (+) and select the framework.
 
 Once included, make sure in “Build Settings” tab, in section “Search Paths” the path to these frameworks are added correctly. 
 
-##SDK Usage
-###Initialize the SDK and set the data to be dispatched directly to Authorize.Net
-````swift
+## SDK Usage
+### Initialize the SDK and set the data to be dispatched directly to Authorize.Net
+```swift
         
         let handler = AcceptSDKHandler(environment: AcceptSDKEnvironment.ENV_TEST)
         
@@ -30,9 +29,9 @@ Once included, make sure in “Build Settings” tab, in section “Search Paths
         request.securePaymentContainerRequest.webCheckOutDataType.token.expirationMonth = self.cardExpirationMonth
         request.securePaymentContainerRequest.webCheckOutDataType.token.expirationYear = self.cardExpirationYear
         request.securePaymentContainerRequest.webCheckOutDataType.token.cardCode = self.cardVerificationCode
-````
-###Register the callback and call getTokenWithRequest
-````swift
+```
+### Register the callback and call getTokenWithRequest
+```swift
         handler!.getTokenWithRequest(request, successHandler: { (inResponse:AcceptSDKTokenResponse) -> () in
             dispatch_async(dispatch_get_main_queue(),{
                 self.updateTokenButton(true)
@@ -54,10 +53,10 @@ Once included, make sure in “Build Settings” tab, in section “Search Paths
             print(output)
         }
 
-````
-##Using the Accept Payment Token
+```
+## Using the Accept Payment Token
 You can then
-````json
+```json
    {
     "createTransactionRequest": {
         "merchantAuthentication": {
@@ -77,11 +76,11 @@ You can then
         }
     }
 }
-````   
+```
 ## Using from Objective-C
 Calling the SDK from Objective-C should be simple and intuitive:  
 
-````objective-c
+```objective-c
 
     AcceptSDKHandler *handler = [[AcceptSDKHandler alloc] initWithEnvironment:AcceptSDKEnvironmentENV_TEST];
     AcceptSDKRequest *request = [[AcceptSDKRequest alloc] init];
@@ -98,11 +97,11 @@ Calling the SDK from Objective-C should be simple and intuitive:
     } failureHandler:^(AcceptSDKErrorResponse * _Nonnull error) {
         NSLog(@"failed... );
     }];
-````
-##Sample Application
+```
+## Sample Application
 We have a sample application which demonstrates the SDK usage:  
    https://github.com/AuthorizeNet/accept-sample-ios
    
   
-##Apple In-App Purchase API  
+## Apple In-App Purchase API  
 Please remember that you are required to use Apple’s In-App Purchase API to sell virtual goods such as premium content for your app, and subscriptions for digital content. Specifically, Apple’s developer terms require that the In-App Purchase API must be used for digital “content, functionality, or services” such as premium features or credits. See https://developer.apple.com/app-store/review/guidelines/ for more details.
