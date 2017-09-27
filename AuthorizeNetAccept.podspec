@@ -8,21 +8,22 @@
 
 Pod::Spec.new do |s|
 
-    s.name             = 'AuthorizeNetAccept'
-    s.authors          = 'Authorize.Net'
-    s.version          = '0.0.4'
-    s.summary          = 'Authorize.Net Accept SDK for iOS'
-    s.homepage         = 'https://developer.authorize.net'
+    s.name                  = 'AuthorizeNetAccept'
+    s.authors               = 'Authorize.Net'
+    s.version               = '0.0.5'
+    s.summary               = 'Authorize.Net Accept SDK for iOS'
+    s.homepage              = 'https://developer.authorize.net'
 
-    s.license          = 'https://github.com/AuthorizeNet/accept-sdk-ios/blob/master/LICENSE.md'
-    s.platform         = :ios, "8.4"
+    s.license               = 'https://github.com/AuthorizeNet/accept-sdk-ios/blob/master/LICENSE.md'
+    s.platform              = :ios, "8.4"
 
-    s.source           = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
+    s.source                = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
+    s.user_target_xcconfig  = { "EMBEDDED_CONTENT_CONTAINS_SWIFT" => "YES", "CLANG_MODULES_AUTOLINK" => "YES" }
 
     s.requires_arc = true
 
-    s.module_name      = 'AuthorizeNetAccept'
-    s.vendored_framework = 'AcceptSDK-Framework/AcceptSDK.framework'
+    s.module_name           = 'AuthorizeNetAccept'
+    s.vendored_framework    = 'AcceptSDK-Framework/AcceptSDK.framework'
 
 end
 
