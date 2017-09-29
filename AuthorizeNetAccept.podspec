@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.name                  = 'AuthorizeNetAccept'
     s.authors               = 'Authorize.Net'
-    s.version               = '0.0.7'
+    s.version               = '0.0.8'
     s.summary               = 'Authorize.Net Accept SDK for iOS'
     s.homepage              = 'https://developer.authorize.net'
 
