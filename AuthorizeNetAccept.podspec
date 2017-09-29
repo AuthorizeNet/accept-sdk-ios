@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
     s.platform              = :ios, "8.4"
 
     s.source                = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
-    s.user_target_xcconfig  = { "EMBEDDED_CONTENT_CONTAINS_SWIFT" => "YES", "CLANG_MODULES_AUTOLINK" => "YES" }
 
     s.requires_arc = true
 
