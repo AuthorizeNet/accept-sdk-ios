@@ -151,7 +151,7 @@ class HTTP: NSObject, URLSessionDelegate {
 }
 
 extension NSMutableURLRequest {
-    func setBodyContent(_ contentStr: String?) {
+    @objc func setBodyContent(_ contentStr: String?) {
         self.httpBody = contentStr!.data(using: String.Encoding.utf8)
     }
 }

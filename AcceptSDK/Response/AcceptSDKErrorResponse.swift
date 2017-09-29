@@ -11,7 +11,7 @@ import Foundation
 open class AcceptSDKErrorResponse: NSObject {
     fileprivate var messages:Messages!
     
-    convenience init(inDict:Dictionary<String,AnyObject>) {
+    @objc convenience init(inDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let messagesDict = inDict[AcceptSDKTokenResponseKeys.kMessagesKey] as? Dictionary<String,AnyObject> {
@@ -19,7 +19,7 @@ open class AcceptSDKErrorResponse: NSObject {
         }
     }
     
-    convenience init(inMappingErrorDict:Dictionary<String,AnyObject>) {
+    @objc convenience init(inMappingErrorDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let messagesDict = inMappingErrorDict[AcceptSDKTokenResponseKeys.kMessagesKey] as? Dictionary<String,AnyObject> {
@@ -27,19 +27,19 @@ open class AcceptSDKErrorResponse: NSObject {
         }
     }
 
-    convenience init(inError: NSError) {
+    @objc convenience init(inError: NSError) {
         self.init()
         
         self.messages = Messages(inError: inError)
     }
 
-    convenience init(withMessage: Message) {
+    @objc convenience init(withMessage: Message) {
         self.init()
         
         self.messages = Messages(withMessage: withMessage)
     }
 
-    open func getMessages() -> Messages {
+    @objc open func getMessages() -> Messages {
         return self.messages
     }
 }

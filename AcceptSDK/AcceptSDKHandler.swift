@@ -42,14 +42,14 @@ open class AcceptSDKHandler : NSObject {
         super.init()
     }
     
-    public init?(environment: AcceptSDKEnvironment) {
+    @objc public init?(environment: AcceptSDKEnvironment) {
         super.init()
         
         let settings = AcceptSDKSettings.sharedInstance
         settings.acceptSDKEnvironment = environment.rawValue
     }
     
-    open func getTokenWithRequest(_ inRequest: AcceptSDKRequest, successHandler:@escaping (AcceptSDKTokenResponse)->(),failureHandler:@escaping (AcceptSDKErrorResponse)->()) {
+    @objc open func getTokenWithRequest(_ inRequest: AcceptSDKRequest, successHandler:@escaping (AcceptSDKTokenResponse)->(),failureHandler:@escaping (AcceptSDKErrorResponse)->()) {
         
         inRequest.validate({ (isSuccess) -> () in
             let sdkInternal = AcceptSDKInternal()

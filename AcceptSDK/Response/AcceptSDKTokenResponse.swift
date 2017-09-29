@@ -23,7 +23,7 @@ open class AcceptSDKTokenResponse: NSObject {
     fileprivate var opaqueData:OpaqueData!
     fileprivate var messages:Messages!
     
-    convenience init(inDict:Dictionary<String,AnyObject>) {
+    @objc convenience init(inDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let opaqueDataDict = inDict[AcceptSDKTokenResponseKeys.kOpaqueDataKey] as? Dictionary<String,AnyObject> {
@@ -35,11 +35,11 @@ open class AcceptSDKTokenResponse: NSObject {
         }
     }
     
-    open func getOpaqueData() -> OpaqueData {
+    @objc open func getOpaqueData() -> OpaqueData {
         return self.opaqueData
     }
     
-    open func getMessages() -> Messages {
+    @objc open func getMessages() -> Messages {
         return self.messages
     }
 }
@@ -48,7 +48,7 @@ open class OpaqueData: NSObject {
     fileprivate var dataDescriptor:String?
     fileprivate var dataValue:String?
     
-    convenience init (inDict:Dictionary<String,AnyObject>) {
+    @objc convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let descriptor = inDict[AcceptSDKTokenResponseKeys.kDataDescriptorKey] as? String {
@@ -59,11 +59,11 @@ open class OpaqueData: NSObject {
         }
     }
 
-    open func getDataDescriptor()->String {
+    @objc open func getDataDescriptor()->String {
         return self.dataDescriptor!
     }
     
-    open func getDataValue() -> String {
+    @objc open func getDataValue() -> String {
         return self.dataValue!
     }
 }
@@ -72,7 +72,7 @@ open class Messages: NSObject {
     fileprivate var resultCode: String!
     fileprivate var messages: Array<Message> = []
     
-    convenience init (inDict:Dictionary<String,AnyObject>) {
+    @objc convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let code = inDict[AcceptSDKTokenResponseKeys.kResultCodeKey] as? String {
@@ -88,7 +88,7 @@ open class Messages: NSObject {
         }
     }
 
-    convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
+    @objc convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let code = inMappingErrorDict[AcceptSDKTokenResponseKeys.kResultCodeKey] as? String {
@@ -104,7 +104,7 @@ open class Messages: NSObject {
         }
     }
 
-    convenience init (inError: NSError) {
+    @objc convenience init (inError: NSError) {
         self.init()
         
         self.resultCode = AcceptSDKResponse.kResultCodeErrorValueKey
@@ -120,7 +120,7 @@ open class Messages: NSObject {
 //        self.messages.append(inError.messages[0])
 //    }
 
-    convenience init (withMessage: Message) {
+    @objc convenience init (withMessage: Message) {
         self.init()
         
         self.resultCode = AcceptSDKResponse.kResultCodeErrorValueKey
@@ -128,11 +128,11 @@ open class Messages: NSObject {
         self.messages.append(withMessage)
     }
 
-    open func getResultCode() -> String {
+    @objc open func getResultCode() -> String {
         return self.resultCode
     }
     
-    open func getMessages() -> Array<Message> {
+    @objc open func getMessages() -> Array<Message> {
         return self.messages
     }
 }
@@ -141,7 +141,7 @@ open class Message: NSObject {
     fileprivate var code:String!
     fileprivate var text:String!
     
-    convenience init (inDict:Dictionary<String,AnyObject>) {
+    @objc convenience init (inDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if let code = inDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String {
@@ -156,7 +156,7 @@ open class Message: NSObject {
         }
     }
 
-    convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
+    @objc convenience init (inMappingErrorDict:Dictionary<String,AnyObject>) {
         self.init()
         
         if (inMappingErrorDict[AcceptSDKTokenResponseKeys.kCodeKey] as? String) != nil {
@@ -167,25 +167,25 @@ open class Message: NSObject {
         }
     }
     
-    convenience init (inError: NSError) {
+    @objc convenience init (inError: NSError) {
         self.init()
         
         self.code = "E_WC_02"//(inError.code as NSNumber).stringValue
         self.text = inError.localizedDescription
     }
 
-    convenience init (inErrorCode:String, inErrorMessage:String) {
+    @objc convenience init (inErrorCode:String, inErrorMessage:String) {
         self.init()
         
         self.code = inErrorCode
         self.text = inErrorMessage
     }
 
-    open func getCode() -> String {
+    @objc open func getCode() -> String {
         return self.code
     }
     
-    open func getText() -> String {
+    @objc open func getText() -> String {
         return self.text
     }
 }

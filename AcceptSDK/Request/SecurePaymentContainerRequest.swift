@@ -15,19 +15,19 @@ enum WebCheckOutTypeEnum: String {
 }
 
 open class SecurePaymentContainerRequest: NSObject {
-    open var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
+    @objc open var webCheckOutDataType:WebCheckOutDataType = WebCheckOutDataType()
     
-    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
+    @objc func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         self.webCheckOutDataType.validate(successHandler, failureHandler: failureHandler)
     }
 }
 
 open class WebCheckOutDataType: NSObject {
-    var type = WebCheckOutTypeEnum.kToken.rawValue
-    var id = UIDevice.current.identifierForVendor!.uuidString
-    open var token:Token = Token()
+    @objc var type = WebCheckOutTypeEnum.kToken.rawValue
+    @objc var id = UIDevice.current.identifierForVendor!.uuidString
+    @objc open var token:Token = Token()
     
-    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
+    @objc func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         
         if isValidType() {
             if (isValidId()) {
@@ -44,7 +44,7 @@ open class WebCheckOutDataType: NSObject {
         
     }
     
-    func isValidType() -> Bool {
+    @objc func isValidType() -> Bool {
         var isValid = false
         
         if self.type.characters.count > 0 {
@@ -54,7 +54,7 @@ open class WebCheckOutDataType: NSObject {
         return isValid
     }
     
-    func isValidId() -> Bool {
+    @objc func isValidId() -> Bool {
         var isValid = false
         
         if self.id.characters.count >= 1  && self.id.characters.count <= 64 {
@@ -64,22 +64,22 @@ open class WebCheckOutDataType: NSObject {
         return isValid
     }
     
-    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
+    @objc func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }
 }
 
 open class Token: NSObject {
-    open var cardNumber:String = String()
+    @objc open var cardNumber:String = String()
 //    public var expirationDate:String = String()
-    open var expirationMonth = String()
-    open var expirationYear = String()
-    open var cardCode:String?
-    open var zip:String?
-    open var fullName:String?
+    @objc open var expirationMonth = String()
+    @objc open var expirationYear = String()
+    @objc open var cardCode:String?
+    @objc open var zip:String?
+    @objc open var fullName:String?
 
-    func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
+    @objc func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
         if isValidCardNumber() {
             if isValidExpirationMonth() {
                 if isValidExpirationYear() {
@@ -128,7 +128,7 @@ open class Token: NSObject {
         }
     }
     
-    func isValidCardNumber() -> Bool {
+    @objc func isValidCardNumber() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
@@ -139,7 +139,7 @@ open class Token: NSObject {
         return isValid
     }
     
-    func isValidExpirationMonth() -> Bool {
+    @objc func isValidExpirationMonth() -> Bool {
         
         if (self.expirationMonth.characters.count == 1)
         {
@@ -158,7 +158,7 @@ open class Token: NSObject {
         return isValid
     }
 
-    func isValidExpirationYear() -> Bool {
+    @objc func isValidExpirationYear() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
@@ -169,7 +169,7 @@ open class Token: NSObject {
         return isValid
     }
 
-    func isValidExpirationDate() -> Bool {
+    @objc func isValidExpirationDate() -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
@@ -180,7 +180,7 @@ open class Token: NSObject {
         return isValid
     }
 
-    func isValidZip(_ inZip:String) -> Bool {
+    @objc func isValidZip(_ inZip:String) -> Bool {
         var isValid = false
         
         if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
@@ -190,7 +190,7 @@ open class Token: NSObject {
         return isValid
     }
 
-    func isValidFullName(_ inFullName:String) -> Bool {
+    @objc func isValidFullName(_ inFullName:String) -> Bool {
         var isValid = false
         
         if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
@@ -200,7 +200,7 @@ open class Token: NSObject {
         return isValid
     }
     
-    func isValidCardCode(_ inCardCode:String) -> Bool {
+    @objc func isValidCardCode(_ inCardCode:String) -> Bool {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
@@ -211,7 +211,7 @@ open class Token: NSObject {
         return isValid
     }
     
-    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
+    @objc func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

@@ -10,12 +10,12 @@ import Foundation
 
 
 open class MerchantAuthenticaton: NSObject {
-    open var name = String()
-    open var fingerPrint: FingerPrint?
-    open var clientKey: String?
-    open var mobileDeviceId:String?
+    @objc open var name = String()
+    @objc open var fingerPrint: FingerPrint?
+    @objc open var clientKey: String?
+    @objc open var mobileDeviceId:String?
     
-    func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:@escaping (_ withResponse:AcceptSDKErrorResponse)->()) {
+    @objc func validate(_ successHandler:@escaping (_ isSuccess:Bool)->(),failureHandler:@escaping (_ withResponse:AcceptSDKErrorResponse)->()) {
         
         if ((self.clientKey?.isEmpty) == nil && self.fingerPrint == nil) {
             failureHandler(self.getSDKErrorResponse("E_WC_18", message: "Client key is required."))
@@ -42,7 +42,7 @@ open class MerchantAuthenticaton: NSObject {
         }
     }
     
-    func validateOptionalFileds(_ inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
+    @objc func validateOptionalFileds(_ inName: String?, inDeviceId: String?) -> AcceptSDKErrorResponse? {
         
         var errorResponse:AcceptSDKErrorResponse?
 
@@ -63,7 +63,7 @@ open class MerchantAuthenticaton: NSObject {
         return errorResponse
     }
     
-    func isValidName(_ inName:String) -> Bool {
+    @objc func isValidName(_ inName:String) -> Bool {
         var isValid = false
         
         if inName.characters.count >= 1 &&  inName.characters.count <= 25 {
@@ -73,7 +73,7 @@ open class MerchantAuthenticaton: NSObject {
         return isValid
     }
     
-    func isValidMobileDeviceId(_ inValidMobileDeviceId:String) -> Bool {
+    @objc func isValidMobileDeviceId(_ inValidMobileDeviceId:String) -> Bool {
         var isValid = false
         
         if inValidMobileDeviceId.characters.count >= 1 &&  inValidMobileDeviceId.characters.count <= 60 {
@@ -83,7 +83,7 @@ open class MerchantAuthenticaton: NSObject {
         return isValid
     }
     
-    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
+    @objc func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

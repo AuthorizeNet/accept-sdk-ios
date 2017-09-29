@@ -62,13 +62,13 @@ open class AcceptSDKCardFieldsValidator: NSObject {
     public override init() {
     }
     
-    open func cardExpirationYearMin() -> Int {
+    @objc open func cardExpirationYearMin() -> Int {
         let gregorian = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = (gregorian as NSCalendar?)?.components(.year, from: Date())
         return (components?.year)! % 100
     }
     
-    func validateCardNumberWithString(_ inCardNumber: String) -> Bool {
+    @objc func validateCardNumberWithString(_ inCardNumber: String) -> Bool {
         var result = false
         
         let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
@@ -82,7 +82,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
     
-    func validateMonthWithString(_ inMonth: String) -> Bool {
+    @objc func validateMonthWithString(_ inMonth: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inMonth) {
@@ -97,7 +97,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
 
-    func validateYearWithString(_ inYear: String) -> Bool {
+    @objc func validateYearWithString(_ inYear: String) -> Bool {
         var result = false
         
         if ((inYear.characters.count != 2) || (inYear.characters.count != 4)) {
@@ -128,7 +128,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
 
-    open func validateSecurityCodeWithString(_ inSecurityCode: String) -> Bool {
+    @objc open func validateSecurityCodeWithString(_ inSecurityCode: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inSecurityCode) {
@@ -141,7 +141,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
     
-    func validateZipCodeWithString(_ inZipCode: String) -> Bool {
+    @objc func validateZipCodeWithString(_ inZipCode: String) -> Bool {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inZipCode) {
@@ -155,7 +155,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
     
     //!--------------------------------------------- advance validation -----------------------------------
     
-    open func validateCardWithLuhnAlgorithm(_ inCardNumber: String) -> Bool {
+    @objc open func validateCardWithLuhnAlgorithm(_ inCardNumber: String) -> Bool {
         var result = false
         
         let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
@@ -195,7 +195,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
 
-    open func validateExpirationDate(_ inMonth: String, inYear:String) -> Bool {
+    @objc open func validateExpirationDate(_ inMonth: String, inYear:String) -> Bool {
         var result = false
 
         if (self.validateMonthWithString(inMonth) && self.validateYearWithString(inYear)) {
@@ -227,7 +227,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         return result
     }
     
-    func validateExpirationDate(_ inExpirationDate: String) -> Bool {
+    @objc func validateExpirationDate(_ inExpirationDate: String) -> Bool {
         var result = false
         
         let monthRange = inExpirationDate.startIndex..<inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)
@@ -236,7 +236,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         let yearRange = inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)..<inExpirationDate.endIndex
         let year = inExpirationDate[yearRange]
 
-        if self.validateExpirationDate(month, inYear: year) {
+        if self.validateExpirationDate(String(month), inYear: String(year)) {
             result = true
         }
         
@@ -257,6 +257,6 @@ extension String {
     subscript (r: Range<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: r.lowerBound)
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
 }

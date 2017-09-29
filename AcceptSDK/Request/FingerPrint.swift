@@ -29,13 +29,13 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 open class FingerPrint: NSObject {
-    open var fingerPrintHashValue:String = String()
-    open var sequence:String = String()
-    open var timestamp:String = String()
-    open var currencyCode:String?
-    open var amount:String = String()
+    @objc open var fingerPrintHashValue:String = String()
+    @objc open var sequence:String = String()
+    @objc open var timestamp:String = String()
+    @objc open var currencyCode:String?
+    @objc open var amount:String = String()
 
-    public init?(inHashValue: String, inSequence: String, inTimestamp: String, inCurrencyCode: String?, inAmount: String?) {
+    @objc public init?(inHashValue: String, inSequence: String, inTimestamp: String, inCurrencyCode: String?, inAmount: String?) {
 //        guard inHashValue.characters.count > 0 else {return nil}
 //        guard inTimestamp.characters.count > 0 else {return nil}
         
@@ -50,7 +50,7 @@ open class FingerPrint: NSObject {
         }
     }
     
-    func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
+    @objc func validate(_ successHandler:(_ isSuccess:Bool)->(),failureHandler:(_ withResponse:AcceptSDKErrorResponse)->()) {
 
         if self.fingerPrintHashValue.isEmpty == false {
             if isValidTimestamp() {
@@ -71,7 +71,7 @@ open class FingerPrint: NSObject {
         }
     }
     
-    func isValidTimestamp() -> Bool {
+    @objc func isValidTimestamp() -> Bool {
         var isValid = false
         
         if ((self.timestamp.characters.count > 0) && AcceptSDKStringValidator.isAlphanumeric(self.timestamp) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.timestamp) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.timestamp) == false) {
@@ -81,7 +81,7 @@ open class FingerPrint: NSObject {
         return isValid
     }
     
-    func isValidAmount() -> Bool {
+    @objc func isValidAmount() -> Bool {
         var isValid = false
         
         /*
@@ -103,7 +103,7 @@ open class FingerPrint: NSObject {
     }
     
     
-    func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
+    @objc func getSDKErrorResponse(_ withCode: String, message:String) -> AcceptSDKErrorResponse {
         let message = Message(inErrorCode: withCode, inErrorMessage: message)
         return AcceptSDKErrorResponse(withMessage: message)
     }

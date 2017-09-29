@@ -10,11 +10,11 @@ import Foundation
 
 open class AcceptSDKSettings : NSObject {
     
-    static let sharedInstance = AcceptSDKSettings()
+    @objc static let sharedInstance = AcceptSDKSettings()
 
-    var acceptSDKEnvironment : String?
+    @objc var acceptSDKEnvironment : String?
 
-    static func setAcceptSDKEnvironment(_ environment: String) {
+    @objc static func setAcceptSDKEnvironment(_ environment: String) {
         sharedInstance.acceptSDKEnvironment = environment;
     }
 }
