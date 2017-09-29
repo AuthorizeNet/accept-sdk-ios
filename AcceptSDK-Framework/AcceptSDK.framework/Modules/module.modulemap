@@ -7,4 +7,5 @@ framework module AcceptSDK {
 
 module AcceptSDK.Swift {
     header "AcceptSDK-Swift.h"
+    requires objc
 }
