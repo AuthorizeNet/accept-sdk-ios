@@ -124,7 +124,7 @@ class AcceptSDKStringValidator {
         var result = false
         
         let startStr = String(inString[inString.startIndex])
-        let endStr = inString.substring(from: inString.index(before: inString.endIndex))
+        let endStr = String(inString[inString.index(before: inString.endIndex)])
         
         if  startStr == String.space() || endStr == String.space() {
             result = true
