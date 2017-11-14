@@ -65,7 +65,7 @@ class AcceptSDKStringValidator {
             result = true
         } else {
             let tempString = paramString.replacingOccurrences(of: String.space(), with: String())
-            if tempString.characters.count < 0 {
+            if tempString.count < 0 {
                 result = true
             }
         }
@@ -75,12 +75,12 @@ class AcceptSDKStringValidator {
     class func isNumber(_ paramString:String) -> Bool {
         var result = true
         
-        if paramString.characters.count == 0 {
+        if paramString.count == 0 {
             result = false
         } else {
             let tempString = paramString.trimmingCharacters(in: CharacterSet.decimalDigits)
             
-            if tempString.characters.count > 0 {
+            if tempString.count > 0 {
                 result = false
             }
         }
@@ -91,7 +91,7 @@ class AcceptSDKStringValidator {
     class func isAlphanumeric(_ paramString:String) -> Bool {
         var result = true
         
-        if paramString.characters.count == 0 {
+        if paramString.count == 0 {
             result = false
         } else {
             if self.isNumber(paramString) {
@@ -99,7 +99,7 @@ class AcceptSDKStringValidator {
             } else {
                 let trimmedString = paramString.trimmingCharacters(in: CharacterSet.alphanumerics)
                 
-                if trimmedString.characters.count > 0 {
+                if trimmedString.count > 0 {
                     result = false
                 }
             }
@@ -113,7 +113,7 @@ class AcceptSDKStringValidator {
         
         let trimmedStr = inString.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        if trimmedStr.characters.count > 0 {
+        if trimmedStr.count > 0 {
             result = false
         }
         
@@ -124,7 +124,7 @@ class AcceptSDKStringValidator {
         var result = false
         
         let startStr = String(inString[inString.startIndex])
-        let endStr = inString.substring(from: inString.characters.index(before: inString.endIndex))
+        let endStr = String(inString[inString.index(before: inString.endIndex)])
         
         if  startStr == String.space() || endStr == String.space() {
             result = true
@@ -138,7 +138,7 @@ class AcceptSDKStringValidator {
         
         let trimmedStr = inString.trimmingCharacters(in: CharacterSet.decimalDigits)
         
-        if trimmedStr.characters.count > 0 {
+        if trimmedStr.count > 0 {
             result = true
         }
         
@@ -148,7 +148,7 @@ class AcceptSDKStringValidator {
     class func isStringIsNegativeNumber(_ inString: String) -> Bool {
         var result = false
         
-        if inString.characters.count > 0 {
+        if inString.count > 0 {
             let startStr = String(inString[inString.startIndex])
             
             if startStr == "-" {

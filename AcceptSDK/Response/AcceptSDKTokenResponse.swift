@@ -81,9 +81,8 @@ open class Messages: NSObject {
         
         if let messageArr = inDict[AcceptSDKTokenResponseKeys.kMessageKey] as? Array<Dictionary<String,AnyObject>> {
             for message in messageArr {
-                if let messageDict = message as? Dictionary<String, AnyObject> {
-                    self.messages.append(Message(inDict: messageDict))
-                }
+                let messageDict = message as Dictionary<String, AnyObject>
+                self.messages.append(Message(inDict: messageDict))
             }
         }
     }
@@ -97,9 +96,8 @@ open class Messages: NSObject {
         
         if let messageArr = inMappingErrorDict[AcceptSDKTokenResponseKeys.kMessageKey] as? Array<Dictionary<String,AnyObject>> {
             for message in messageArr {
-                if let messageDict = message as? Dictionary<String, AnyObject> {
-                    self.messages.append(Message(inMappingErrorDict: messageDict))
-                }
+                let messageDict = message as Dictionary<String, AnyObject>
+                self.messages.append(Message(inMappingErrorDict: messageDict))
             }
         }
     }
