@@ -117,7 +117,7 @@ class HTTP: NSObject, URLSessionDelegate {
             semaphore.signal();
         })
         task.resume()
-        semaphore.wait(timeout: DispatchTime.distantFuture)
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         return httpResponse
     }
 
