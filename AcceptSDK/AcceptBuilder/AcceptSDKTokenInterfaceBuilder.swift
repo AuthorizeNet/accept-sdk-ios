@@ -178,7 +178,7 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         
         let lastChar = jsonStr.last!
         if lastChar == "," {
-            jsonStr = String(jsonStr[..<jsonStr.endIndex])
+            jsonStr = String(jsonStr[..<jsonStr.index(before: jsonStr.endIndex)])
         }
 
         return jsonStr
