@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.license               = 'https://github.com/AuthorizeNet/accept-sdk-ios/blob/master/LICENSE.md'
     s.platform              = :ios, "8.4"
 
-    s.source                = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
+    s.source                = {:git => 'https://github.com/hatboysoftware/accept-sdk-ios.git', :tag => s.version.to_s}
 
     s.requires_arc = true
 
