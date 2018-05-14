@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = A0070D1D1D38B017008BD8D4 /* Build configuration list for PBXAggregateTarget "AcceptSDKUniversal" */;
 			buildPhases = (
-				A0070D201D38B01E008BD8D4 /* ShellScript */,
+				A0070D201D38B01E008BD8D4 /* Run Script */,
 			);
 			dependencies = (
 				A0070D221D38B06B008BD8D4 /* PBXTargetDependency */,
@@ -420,13 +420,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A0070D201D38B01E008BD8D4 /* ShellScript */ = {
+		A0070D201D38B01E008BD8D4 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
