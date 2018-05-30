@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.name                  = 'AuthorizeNetAccept'
     s.authors               = 'Authorize.Net'
-    s.version               = '0.3.0'
+    s.version               = '0.4.0'
     s.summary               = 'Authorize.Net Accept SDK for iOS'
     s.homepage              = 'https://developer.authorize.net'
 
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.module_name           = 'AuthorizeNetAccept'
-    s.vendored_framework    = 'AcceptSDK-Framework/AcceptSDK.framework'
+    s.source_files          = "AcceptSDK/**/*.{swift}"
 
 end
 
