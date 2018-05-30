@@ -47,7 +47,7 @@ open class WebCheckOutDataType: NSObject {
     @objc func isValidType() -> Bool {
         var isValid = false
         
-        if self.type.characters.count > 0 {
+        if self.type.count > 0 {
             isValid = true
         }
         
@@ -57,7 +57,7 @@ open class WebCheckOutDataType: NSObject {
     @objc func isValidId() -> Bool {
         var isValid = false
         
-        if self.id.characters.count >= 1  && self.id.characters.count <= 64 {
+        if self.id.count >= 1  && self.id.count <= 64 {
             isValid = true
         }
         
@@ -132,7 +132,7 @@ open class Token: NSObject {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
 
-        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.characters.count >= 4 &&  self.cardNumber.characters.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
+        if ((AcceptSDKStringValidator.isAlphanumeric(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.cardNumber) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.cardNumber) == false) && self.cardNumber.count >= 4 &&  self.cardNumber.count <= 16 && validator.validateCardWithLuhnAlgorithm(self.cardNumber)) {
             isValid = true
         }
         
@@ -141,7 +141,7 @@ open class Token: NSObject {
     
     @objc func isValidExpirationMonth() -> Bool {
         
-        if (self.expirationMonth.characters.count == 1)
+        if (self.expirationMonth.count == 1)
         {
             if ((self.expirationMonth == "0") == false) {
                 self.expirationMonth = "0" + self.expirationMonth
@@ -151,7 +151,7 @@ open class Token: NSObject {
         var isValid = false
         let validator = AcceptSDKCardFieldsValidator()
         
-        if self.expirationMonth.characters.count >= 1 &&  self.expirationMonth.characters.count <= 2 && validator.validateMonthWithString(self.expirationMonth) {
+        if self.expirationMonth.count >= 1 &&  self.expirationMonth.count <= 2 && validator.validateMonthWithString(self.expirationMonth) {
             isValid = true
         }
         
@@ -183,7 +183,7 @@ open class Token: NSObject {
     @objc func isValidZip(_ inZip:String) -> Bool {
         var isValid = false
         
-        if inZip.characters.count >= 1 && inZip.characters.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
+        if inZip.count >= 1 && inZip.count <= 20 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inZip) == false) && (AcceptSDKStringValidator.isStringContainsSpaceAtBeginningAndEnd(inZip) == false) {
             isValid = true
         }
         
@@ -193,7 +193,7 @@ open class Token: NSObject {
     @objc func isValidFullName(_ inFullName:String) -> Bool {
         var isValid = false
         
-        if inFullName.characters.count >= 1 && inFullName.characters.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
+        if inFullName.count >= 1 && inFullName.count <= 64 && (AcceptSDKStringValidator.isStringContainsOnlySpaces(inFullName) == false) {
             isValid = true
         }
         

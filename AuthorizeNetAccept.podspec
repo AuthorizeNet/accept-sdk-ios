@@ -18,11 +18,9 @@ Pod::Spec.new do |s|
     s.platform              = :ios, "8.4"
 
     s.source                = {:git => 'https://github.com/AuthorizeNet/accept-sdk-ios.git', :tag => s.version.to_s}
-
     s.requires_arc = true
 
     s.module_name           = 'AuthorizeNetAccept'
     s.vendored_framework    = 'AcceptSDK-Framework/AcceptSDK.framework'
-
 end
 

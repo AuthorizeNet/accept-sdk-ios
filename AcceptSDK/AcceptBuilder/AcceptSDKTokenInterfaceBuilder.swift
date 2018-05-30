@@ -166,7 +166,7 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
         var index = 1
         
         for pair in arrayOfKeyValuePairs {
-            if pair.characters.count > 0 {
+            if pair.count > 0 {
                 if index < arrayOfKeyValuePairs.count {
                     jsonStr = jsonStr + pair + ","
                 } else {
@@ -176,9 +176,9 @@ class AcceptSDKTokenInterfaceBuilder: AcceptSDKBaseInterfaceBuilder {
             index += 1
         }
         
-        let lastChar = jsonStr.characters.last!
+        let lastChar = jsonStr.last!
         if lastChar == "," {
-            jsonStr = jsonStr.substring(to: jsonStr.characters.index(before: jsonStr.endIndex))
+            jsonStr = String(jsonStr[..<jsonStr.index(before: jsonStr.endIndex)])
         }
 
         return jsonStr
