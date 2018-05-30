@@ -74,8 +74,8 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
         
         if AcceptSDKStringValidator.isNumber(tempCardNumber) {
-            if ((tempCardNumber.characters.count >= AcceptSDKCardFieldsValidatorConstants.kInAppSDKCardNumberCharacterCountMin) &&
-                tempCardNumber.characters.count <= AcceptSDKCardFieldsValidatorConstants.kInAppSDKCardNumberCharacterCountMax) {
+            if ((tempCardNumber.count >= AcceptSDKCardFieldsValidatorConstants.kInAppSDKCardNumberCharacterCountMin) &&
+                tempCardNumber.count <= AcceptSDKCardFieldsValidatorConstants.kInAppSDKCardNumberCharacterCountMax) {
                 result = true
             }
         }
@@ -100,11 +100,11 @@ open class AcceptSDKCardFieldsValidator: NSObject {
     @objc func validateYearWithString(_ inYear: String) -> Bool {
         var result = false
         
-        if ((inYear.characters.count != 2) || (inYear.characters.count != 4)) {
+        if ((inYear.count != 2) || (inYear.count != 4)) {
             result = false
         }
         
-        if inYear.characters.count == 2 {
+        if inYear.count == 2 {
             if AcceptSDKStringValidator.isNumber(inYear) {
                 let yearNumber = Int(inYear)
                 
@@ -113,7 +113,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
                     result = true
                 }
             }
-        } else if inYear.characters.count == 4 {
+        } else if inYear.count == 4 {
             if AcceptSDKStringValidator.isNumber(inYear) {
                 let yearNumber = Int(inYear)
                 
@@ -132,8 +132,8 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inSecurityCode) {
-            if ((inSecurityCode.characters.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKSecurityCodeCharacterCountMin) ||
-                (inSecurityCode.characters.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKSecurityCodeCharacterCountMax)) {
+            if ((inSecurityCode.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKSecurityCodeCharacterCountMin) ||
+                (inSecurityCode.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKSecurityCodeCharacterCountMax)) {
                 result = true
             }
         }
@@ -145,7 +145,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         var result = false
         
         if AcceptSDKStringValidator.isNumber(inZipCode) {
-            if (inZipCode.characters.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKZipCodeCharacterCountMax) {
+            if (inZipCode.count == AcceptSDKCardFieldsValidatorConstants.kInAppSDKZipCodeCharacterCountMax) {
                 result = true
             }
         }
@@ -160,26 +160,26 @@ open class AcceptSDKCardFieldsValidator: NSObject {
         
         let tempCardNumber = inCardNumber.replacingOccurrences(of: String.space(), with: String())
         
-        if inCardNumber.characters.count > 0 {
-            let elementsCount = tempCardNumber.characters.count
+        if inCardNumber.count > 0 {
+            let elementsCount = tempCardNumber.count
             var arrayOfIntegers = [Int?](repeating: nil, count: elementsCount)
 
-            for (index, _) in tempCardNumber.characters.enumerated() {
-                let charIndex = tempCardNumber.characters.index(tempCardNumber.startIndex, offsetBy: index)
-                let tempStr = String(tempCardNumber.characters.suffix(from: charIndex))
-                let singleCharacter = String(tempStr.characters.prefix(1))//String(tempStr.characters.first)
+            for (index, _) in tempCardNumber.enumerated() {
+                let charIndex = tempCardNumber.index(tempCardNumber.startIndex, offsetBy: index)
+                let tempStr = String(tempCardNumber.suffix(from: charIndex))
+                let singleCharacter = String(tempStr.prefix(1))//String(tempStr.characters.first)
                 
-                arrayOfIntegers[tempCardNumber.characters.count - 1 - index] = Int(singleCharacter)
+                arrayOfIntegers[tempCardNumber.count - 1 - index] = Int(singleCharacter)
             }
             
-            for (index, _) in tempCardNumber.characters.enumerated() {
+            for (index, _) in tempCardNumber.enumerated() {
                 if index%2 != 0 {
                     arrayOfIntegers[index] = arrayOfIntegers[index]! * 2
                 }
             }
             
             var theSum = 0
-            for (index, _) in tempCardNumber.characters.enumerated() {
+            for (index, _) in tempCardNumber.enumerated() {
                 if arrayOfIntegers[index] > 9 {
                     theSum += arrayOfIntegers[index]! / 10
                     theSum += arrayOfIntegers[index]! % 10
@@ -206,9 +206,9 @@ open class AcceptSDKCardFieldsValidator: NSObject {
             var comps = DateComponents()
             comps.day = 1
             comps.month = Int(inMonth)!
-            if inYear.characters.count == 2 {
+            if inYear.count == 2 {
                 comps.year = 2000+Int(inYear)!
-            } else if inYear.characters.count == 4 {
+            } else if inYear.count == 4 {
                 comps.year = Int(inYear)!
             }
             
@@ -230,10 +230,10 @@ open class AcceptSDKCardFieldsValidator: NSObject {
     @objc func validateExpirationDate(_ inExpirationDate: String) -> Bool {
         var result = false
         
-        let monthRange = inExpirationDate.startIndex..<inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)
+        let monthRange = inExpirationDate.startIndex..<inExpirationDate.index(inExpirationDate.startIndex, offsetBy: 2)
         let month = inExpirationDate[monthRange]
         
-        let yearRange = inExpirationDate.characters.index(inExpirationDate.startIndex, offsetBy: 2)..<inExpirationDate.endIndex
+        let yearRange = inExpirationDate.index(inExpirationDate.startIndex, offsetBy: 2)..<inExpirationDate.endIndex
         let year = inExpirationDate[yearRange]
 
         if self.validateExpirationDate(String(month), inYear: String(year)) {
@@ -247,7 +247,7 @@ open class AcceptSDKCardFieldsValidator: NSObject {
 extension String {
     
     subscript (i: Int) -> Character {
-        return self[self.characters.index(self.startIndex, offsetBy: i)]
+        return self[self.index(self.startIndex, offsetBy: i)]
     }
     
     subscript (i: Int) -> String {
@@ -255,8 +255,8 @@ extension String {
     }
     
     subscript (r: Range<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: r.lowerBound)
-        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(start, offsetBy: r.upperBound - r.lowerBound)
         return String(self[Range(start ..< end)])
     }
 }

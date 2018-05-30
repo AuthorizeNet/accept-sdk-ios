@@ -24,7 +24,7 @@ open class MerchantAuthenticaton: NSObject {
         
         if let key = self.clientKey {
             //todo change this..redundant check
-            if key.characters.count > 0 {
+            if key.count > 0 {
                 if let errorResponse = self.validateOptionalFileds(self.name, inDeviceId: self.mobileDeviceId) {
                     failureHandler(errorResponse)
                 } else {
@@ -66,7 +66,7 @@ open class MerchantAuthenticaton: NSObject {
     @objc func isValidName(_ inName:String) -> Bool {
         var isValid = false
         
-        if inName.characters.count >= 1 &&  inName.characters.count <= 25 {
+        if inName.count >= 1 &&  inName.count <= 25 {
             isValid = true
         }
         
@@ -76,7 +76,7 @@ open class MerchantAuthenticaton: NSObject {
     @objc func isValidMobileDeviceId(_ inValidMobileDeviceId:String) -> Bool {
         var isValid = false
         
-        if inValidMobileDeviceId.characters.count >= 1 &&  inValidMobileDeviceId.characters.count <= 60 {
+        if inValidMobileDeviceId.count >= 1 &&  inValidMobileDeviceId.count <= 60 {
             isValid = true
         }
         

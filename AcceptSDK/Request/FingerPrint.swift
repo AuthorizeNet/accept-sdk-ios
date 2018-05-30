@@ -74,7 +74,7 @@ open class FingerPrint: NSObject {
     @objc func isValidTimestamp() -> Bool {
         var isValid = false
         
-        if ((self.timestamp.characters.count > 0) && AcceptSDKStringValidator.isAlphanumeric(self.timestamp) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.timestamp) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.timestamp) == false) {
+        if ((self.timestamp.count > 0) && AcceptSDKStringValidator.isAlphanumeric(self.timestamp) == false) && (AcceptSDKStringValidator.isStringIsNegativeNumber(self.timestamp) == false) && (AcceptSDKStringValidator.isStringContainsDecimalCharacter(self.timestamp) == false) {
             isValid = true
         }
         
