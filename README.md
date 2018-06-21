@@ -54,8 +54,8 @@ Once included, make sure in “Build Settings” tab, in section “Search Paths
         }
 
 ```
-### Using the Accept Payment Token
-You can then
+### Using the Accept Payment Token to Create a Transaction Request
+Your server constructs a transaction request using the [Authorize.Net API](https://developer.authorize.net/api/reference/#payment-transactions-create-an-accept-payment-transaction), placing the encrypted payment information that it received in previous step in the opaqueData element.
 ```json
    {
     "createTransactionRequest": {
