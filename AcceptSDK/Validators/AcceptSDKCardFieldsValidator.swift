@@ -257,6 +257,6 @@ extension String {
     subscript (r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(start, offsetBy: r.upperBound - r.lowerBound)
-        return String(self[Range(start ..< end)])
+        return String(self[start ..< end])
     }
 }
