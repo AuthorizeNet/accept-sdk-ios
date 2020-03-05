@@ -6,19 +6,10 @@
 //  Copyright © 2016 Ramamurthy, Rakesh Ramamurthy. All rights reserved.
 //
 
-import Foundation
+@testable import AcceptSDK
 import XCTest
 
 class TokenDataTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-
-    }
-    
-    override func tearDown() {
-    }
-    
     func testCreditCardValidationFailsWhenEmpty() {
         let request = Token()
         request.cardNumber = ""
