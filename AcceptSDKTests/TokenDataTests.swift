@@ -6,7 +6,7 @@
 //  Copyright © 2016 Ramamurthy, Rakesh Ramamurthy. All rights reserved.
 //
 
-import Foundation
+@testable import AcceptSDK
 import XCTest
 
 class TokenDataTests: XCTestCase {

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Ramamurthy, Rakesh Ramamurthy. All rights reserved.
 //
 
+@testable import AcceptSDK
 import XCTest
 
 class MerchantAuthenticationTests: XCTestCase {
