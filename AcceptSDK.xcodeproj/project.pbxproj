@@ -44,8 +44,6 @@
 		8DCBB2BB1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */; };
 		8DCBB2BD1D3F8BD700E6FDDA /* FingerPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */; };
 		8DCBB2BF1D3FAF5600E6FDDA /* MerchantAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */; };
-		93E9A0F4B9FA49B7256A5130 /* Pods_AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BABDEDCA6DA0F77F579184 /* Pods_AcceptSDK.framework */; };
-		9F3D4B68A1636676023F00ED /* Pods_AcceptSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB9615B0C6A7A92478FEB19 /* Pods_AcceptSDKTests.framework */; };
 		A0070CDB1D38AE0A008BD8D4 /* AcceptSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A0070CDA1D38AE0A008BD8D4 /* AcceptSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0070CD71D38AE0A008BD8D4 /* AcceptSDK.framework */; };
 		A0070CE71D38AE0A008BD8D4 /* TokenDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0070CE61D38AE0A008BD8D4 /* TokenDataTests.swift */; };
@@ -88,9 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05F5BE570E61E8AD84559E8B /* Pods-AcceptSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2586DA0885DBC49194787873 /* Pods-AcceptSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		2AB9615B0C6A7A92478FEB19 /* Pods_AcceptSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DCBB2BA1D3F6C4C00E6FDDA /* WebCheckOutDataTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCheckOutDataTypeTests.swift; sourceTree = "<group>"; };
 		8DCBB2BC1D3F8BD700E6FDDA /* FingerPrintTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPrintTests.swift; sourceTree = "<group>"; };
 		8DCBB2BE1D3FAF5500E6FDDA /* MerchantAuthenticationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantAuthenticationTests.swift; sourceTree = "<group>"; };
@@ -119,9 +114,6 @@
 		A0C04C1C1D3D3604002C567C /* AcceptSDKBaseURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKBaseURLBuilder.swift; sourceTree = "<group>"; };
 		A0C04C1D1D3D3604002C567C /* AcceptSDKTokenAPIBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenAPIBuilder.swift; sourceTree = "<group>"; };
 		A0C04C1E1D3D3604002C567C /* AcceptSDKTokenInterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptSDKTokenInterfaceBuilder.swift; sourceTree = "<group>"; };
-		A48542D2B9727417FFC81DE4 /* Pods-AcceptSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK.release.xcconfig"; sourceTree = "<group>"; };
-		D6D244A02E3C298A2057C19C /* Pods-AcceptSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		E5BABDEDCA6DA0F77F579184 /* Pods_AcceptSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AcceptSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93E9A0F4B9FA49B7256A5130 /* Pods_AcceptSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,41 +129,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0070CE21D38AE0A008BD8D4 /* AcceptSDK.framework in Frameworks */,
-				9F3D4B68A1636676023F00ED /* Pods_AcceptSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03A069330F464E53C167FD61 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E5BABDEDCA6DA0F77F579184 /* Pods_AcceptSDK.framework */,
-				2AB9615B0C6A7A92478FEB19 /* Pods_AcceptSDKTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3A1E0CA05EFA9E997BEE45EA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2586DA0885DBC49194787873 /* Pods-AcceptSDK.debug.xcconfig */,
-				A48542D2B9727417FFC81DE4 /* Pods-AcceptSDK.release.xcconfig */,
-				05F5BE570E61E8AD84559E8B /* Pods-AcceptSDKTests.debug.xcconfig */,
-				D6D244A02E3C298A2057C19C /* Pods-AcceptSDKTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A0070CCD1D38AE0A008BD8D4 = {
 			isa = PBXGroup;
 			children = (
 				A0070CD91D38AE0A008BD8D4 /* AcceptSDK */,
 				A0070CE51D38AE0A008BD8D4 /* AcceptSDKTests */,
 				A0070CD81D38AE0A008BD8D4 /* Products */,
-				3A1E0CA05EFA9E997BEE45EA /* Pods */,
-				03A069330F464E53C167FD61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,12 +259,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0070CEB1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDK" */;
 			buildPhases = (
-				AF04E4A230A11E1B76D495A9 /* [CP] Check Pods Manifest.lock */,
 				A0070CD21D38AE0A008BD8D4 /* Sources */,
 				A0070CD31D38AE0A008BD8D4 /* Frameworks */,
 				A0070CD41D38AE0A008BD8D4 /* Headers */,
 				A0070CD51D38AE0A008BD8D4 /* Resources */,
-				ECD9DD6278B8FC3B297ADFCF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,12 +277,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0070CEE1D38AE0A008BD8D4 /* Build configuration list for PBXNativeTarget "AcceptSDKTests" */;
 			buildPhases = (
-				B9375B7386EC752339570D6C /* [CP] Check Pods Manifest.lock */,
 				A0070CDD1D38AE0A008BD8D4 /* Sources */,
 				A0070CDE1D38AE0A008BD8D4 /* Frameworks */,
 				A0070CDF1D38AE0A008BD8D4 /* Resources */,
-				8E5127877BB46D69D0CC18B9 /* [CP] Embed Pods Frameworks */,
-				8FD38D9E37A281E8F6BBC50F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Ramamurthy, Rakesh Ramamurthy";
 				TargetAttributes = {
 					A0070CD61D38AE0A008BD8D4 = {
@@ -355,11 +318,11 @@
 			};
 			buildConfigurationList = A0070CD11D38AE0A008BD8D4 /* Build configuration list for PBXProject "AcceptSDK" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = A0070CCD1D38AE0A008BD8D4;
 			productRefGroup = A0070CD81D38AE0A008BD8D4 /* Products */;
@@ -391,36 +354,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8E5127877BB46D69D0CC18B9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FD38D9E37A281E8F6BBC50F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDKTests/Pods-AcceptSDKTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A0070D201D38B01E008BD8D4 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,57 +367,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\nset -e\n\nabort() {\n    echo \"[fatal] $1\"\n    exit 1\n}\n\ntest -n \"${PROJECT_NAME}\" || abort \"This script should not be run from the command line, but is used by Xcode\"\n\n######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=true\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace \"${FRAMEWORK_NAME}.xcworkspace\" -scheme \"${FRAMEWORK_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\"  || exit 1\nxcodebuild -workspace \"${FRAMEWORK_NAME}.xcworkspace\" -scheme \"${FRAMEWORK_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=latest' BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\" || exit 1\n\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nset -o pipefail\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo  || exit 1\n\n#rm -rf ${FRAMEWORK}/libswiftRemoteMirror.dylib\n\n## For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\nif [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\nif [ -n \"${WORKSPACE}\" ]; then\ncp -r \"${FRAMEWORK}\" \"${WORKSPACE}\"\nelif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${UNIVERSAL_LIBRARY_DIR}/\"\nfi\n";
-		};
-		AF04E4A230A11E1B76D495A9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AcceptSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9375B7386EC752339570D6C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AcceptSDKTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ECD9DD6278B8FC3B297ADFCF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptSDK/Pods-AcceptSDK-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -565,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -574,12 +457,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -623,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -632,12 +518,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -673,7 +561,6 @@
 		};
 		A0070CEC1D38AE0A008BD8D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2586DA0885DBC49194787873 /* Pods-AcceptSDK.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -687,19 +574,16 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		A0070CED1D38AE0A008BD8D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A48542D2B9727417FFC81DE4 /* Pods-AcceptSDK.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -713,23 +597,19 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
 		A0070CEF1D38AE0A008BD8D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05F5BE570E61E8AD84559E8B /* Pods-AcceptSDKTests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -738,12 +618,10 @@
 		};
 		A0070CF01D38AE0A008BD8D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6D244A02E3C298A2057C19C /* Pods-AcceptSDKTests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				INFOPLIST_FILE = AcceptSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.visa.com.AcceptSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
