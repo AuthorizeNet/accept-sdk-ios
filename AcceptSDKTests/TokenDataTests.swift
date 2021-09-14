@@ -8,6 +8,7 @@
 
 import Foundation
 import XCTest
+@testable import AcceptSDK
 
 class TokenDataTests: XCTestCase {
     
