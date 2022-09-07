@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import AcceptSDK
 class WebCheckOutDataTypeTests: XCTestCase {
 
     override func setUp() {

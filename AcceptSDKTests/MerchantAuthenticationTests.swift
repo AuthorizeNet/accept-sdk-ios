@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import AcceptSDK
 class MerchantAuthenticationTests: XCTestCase {
 
     override func setUp() {
