@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import AcceptSDK
 class FingerPrintTests: XCTestCase {
 
     override func setUp() {

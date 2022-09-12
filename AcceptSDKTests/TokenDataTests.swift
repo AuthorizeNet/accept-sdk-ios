@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-
+@testable import AcceptSDK
 class TokenDataTests: XCTestCase {
     
     override func setUp() {
@@ -171,7 +171,12 @@ class TokenDataTests: XCTestCase {
     
     func testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate() {
         let request = Token()
-        request.expirationYear = "2020"
+        let date = Date()
+        var dateComponent = DateComponents()
+        dateComponent.year = 1
+        let nexYear = Calendar.current.date(byAdding: dateComponent, to: date, wrappingComponents: true)
+        let year = Calendar.current.component(.year, from: nexYear!)
+        request.expirationYear = "\(year)"
         request.expirationMonth = "11"
         
         XCTAssertTrue(request.isValidExpirationDate(), "testValidateExpirationDateReturnsTrueWhenForFutureExpirationDate fails")
